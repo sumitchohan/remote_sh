@@ -40,10 +40,44 @@ Swipe()
 }
 Pixel()
 {
+	#IFS=" "
+	#let offset=$screenWidth*$2+$1+3		
+	#stringZ=$(dd if='/sdcard/coc/scr.dump' bs=4 count=1 skip=$offset 2>/dev/null | hd)
+	#echo "$(echo $stringZ | grep ":" | cut -d' ' -f 2)$(echo $stringZ | grep ":" | cut -d' ' -f 3)$(echo $stringZ | grep ":" | cut -d' ' -f 4)"
+	
+	
 	IFS=" "
-	let offset=$screenWidth*$2+$1+3		
-	stringZ=$(dd if='/sdcard/coc/scr.dump' bs=4 count=1 skip=$offset 2>/dev/null | hd)
-	echo "$(echo $stringZ | grep ":" | cut -d' ' -f 2)$(echo $stringZ | grep ":" | cut -d' ' -f 3)$(echo $stringZ | grep ":" | cut -d' ' -f 4)"
+	let offset=$screenWidth*$2+$1+3	
+	stringZ=$(dd if='/sdcard/windows/BstSharedFolder/coc/scr.dump' bs=4 count=1 skip=$offset 2>/sdcard/result.txt| od);
+	pixelParts[1]=""
+	pixelParts[2]=""
+	pixelPartsIndex=0
+	for word in $stringZ
+	do
+		pixelParts[pixelPartsIndex]=$word
+		pixelPartsIndex=$pixelPartsIndex+1
+	done
+	part1d=$((8#${pixelParts[1]}))
+	typeset -i16 part1h=part1d
+	part2d=$((8#${pixelParts[2]}))
+	typeset -i16 part2h=part2d
+	red=$(echo $part1h | cut -c6-7)
+	green=$(echo $part1h | cut -c4-5)
+	blue=$(echo $part2h | cut -c6-7)
+	if [ "${#red}" = "1" ]
+	then
+		red="0$red"
+	fi
+	if [ "${#green}" = "1" ]
+	then
+		green="0$green"
+	fi
+	if [ "${#blue}" = "1" ]
+	then
+		blue="0$blue"
+	fi
+	rgb="$red$green$blue"; 
+	echo $rgb;
 }
 ProcessStateActionInternal()
 {
@@ -380,6 +414,11 @@ StartCOC()
 	else
 		Log "coc"
 	fi
+	
+#generic_x86:/ $ dumpsys window windows | grep -E 'mCurrentFocus'
+#mCurrentFocus=Window{3068509 u0 com.google.android.gms/com.google.android.gms.games.PlayGamesUpgradeActivity}
+
+  
 	
 	isFrep=$(MatchState "FRep")
 	if [ "$isFrep" = "n" ]
