@@ -48,7 +48,7 @@ Pixel()
 	
 	IFS=" "
 	let offset=$screenWidth*$2+$1+3	
-	stringZ=$(dd if='/sdcard/coc/scr.dump' bs=4 count=1 skip=$offset 2>/sdcard/result.txt| od);
+	stringZ=$(dd if='/sdcard/coc/scr.dump' bs=4 count=1 skip=$offset 2>/sdcard/result.txt| od | grep " ");
 	pixelParts[1]=""
 	pixelParts[2]=""
 	pixelPartsIndex=0
