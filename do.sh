@@ -208,9 +208,9 @@ WaitFor()
 			if [ "$skipMatched" = "y" ]
 			then
 				Log "skipping $skipScreen"
-				if [ "$skipScreen" = "VersusHome" ]
+				if [ "$skipScreen" = "BuilderHome" ]
 				then
-					Act $skipScreen "Zoom"	
+					Zoom	
 					sleep 4
 				fi
 				Act $skipScreen "Skip"
@@ -382,8 +382,7 @@ VersusAttack()
 
 Zoom()
 {
-	Tap 13 65
-	sleep 2
+	Act "FRep" "Zoom"
 	#found=$(WaitFor "Frep" "" 10)
 	#if [ "$found" = "n" ]
 	#then
