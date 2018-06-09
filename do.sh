@@ -414,12 +414,14 @@ StartCOC()
 	else
 		Log "coc"
 	fi
-	
-#generic_x86:/ $ dumpsys window windows | grep -E 'mCurrentFocus'
-#mCurrentFocus=Window{3068509 u0 com.google.android.gms/com.google.android.gms.games.PlayGamesUpgradeActivity}
-
-  
-	
+	Dump
+	isGooglePlay=$(MatchState "GooglePlay")
+	if [ "$isFrep" = "y" ]
+	then
+		Act "GooglePlay" "Skip"
+		sleep 10
+	fi 
+	Dump	
 	isFrep=$(MatchState "FRep")
 	if [ "$isFrep" = "n" ]
 	then
