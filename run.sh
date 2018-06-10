@@ -20,15 +20,15 @@ do
 		if [ "$switch" = "ON" ]
 		then
 			# input tap 615 462
-			adb shell "input tap 900 20"
+			adb shell "input tap 600 10"
 			sleep $retryDelay
 			sleep $retryDelay
-			adb shell "input tap 900 20"
+			adb shell "input tap 600 10"
 		fi
 		echo $switch
 		oldSwitch=$switch
 	fi
-	adb shell "input tap 900 400"
+	adb shell "input tap 300 265"
 	dt=$(date '+%Y-%m-%dT%H:%M:%S');
 	curl -d "OFF-$dt" -X POST https://api.keyvalue.xyz/b3290c28/myKey -k -s
 	sleep $retryDelay
