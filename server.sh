@@ -8,7 +8,7 @@ do
     while read line
     do
 		echo " request line  - $line"
-		crlf='$\n'
+		crlf=$'\n'
 		line=$(echo "$line" | tr -d '[\r\n]')
 		if [ "x$line" = x ] # empty line / end of request
 		then
