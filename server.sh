@@ -7,6 +7,7 @@ do
     export REQUEST=
     while read line
     do
+		echo "$line"
       line=$(echo "$line" | tr -d '[\r\n]')
 
       if echo "$line" | grep -qE '^GET /' # if line starts with "GET /"
