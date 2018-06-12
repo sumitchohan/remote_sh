@@ -8,8 +8,7 @@ function sendMessage {
         else
             echo $line
         fi
-    done
-	break;
+    done 
 }
 
 # function processMessageFromServer {
