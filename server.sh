@@ -3,11 +3,9 @@ mkfifo out
 trap "rm -f out" EXIT
 while true
 do
-  cat out | nc -l 1500 > >( # parse the netcat output, to build the answer redirected to the pipe "out".
-    export REQUEST= 
-		echo "$line"
-      line=$(echo "$line" | tr -d '[\r\n]')
- printf "%s\n%s %s\n\n%s\n" "$line" "$line" $REQUEST "Resource $line NOT FOUND!" > out
+  cat out | nc -l 1500 > >( # parse the netcat output, to build the answer redirected to the pipe "out". 
+		echo "$line" 
+		printf "%s\n%s %s\n\n%s\n" "$line" "$line" $REQUEST "Resource $line NOT FOUND!" > out
       # if echo "$line" | grep -qE '^GET /' # if line starts with "GET /"
       # then
         # REQUEST=$(echo "$line" | cut -d ' ' -f2) # extract the request
