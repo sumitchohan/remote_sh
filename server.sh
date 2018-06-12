@@ -4,7 +4,7 @@ trap "rm -f out" EXIT
 port=1500
 while true
 do
-	cat out | nc.traditional -l -p $port -q 0> >( # parse the netcat output, to build the answer redirected to the pipe "out".
+	cat out | nc.traditional -l -p 8888 -q 0> >( # parse the netcat output, to build the answer redirected to the pipe "out".
     export REQUEST=
     while read line
     do
