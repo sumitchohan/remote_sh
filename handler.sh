@@ -6,4 +6,4 @@ then
 else
 	echo "$1 not found."
 fi
-echo "<EOF>"
+#echo "<EOF>"
