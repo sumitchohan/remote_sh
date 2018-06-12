@@ -6,7 +6,7 @@ function sendMessage {
         else
             echo $line
         fi
-    done < <(echo "$3" | nc "$1" "$2" <<< "$*")
+    done < <(echo "$3" | nc "$1" "$2")
 }
 
 function processMessageFromServer {
@@ -19,6 +19,6 @@ do
         else
             echo $line
         fi
-    done < <(echo "$3" | nc "$1" "$2" <<< "$*")
+    done < <(echo "$3" | nc "$1" "$2")
 done
 }
