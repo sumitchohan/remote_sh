@@ -1,7 +1,7 @@
 # sendMessage "localhost" "8080" "Hello"
 function sendMessage {
     while read line; do
-        if [[ $line == "ENDRESPONSE" ]]; then
+        if [[ $line == "<EOF>" ]]; then
             break
         else
             echo $line
