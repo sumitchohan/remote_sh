@@ -1,9 +1,10 @@
 rm -f out
 mkfifo out
 trap "rm -f out" EXIT
+port=1500
 while true
 do
-	cat out | nc -l 1500 > >( # parse the netcat output, to build the answer redirected to the pipe "out".
+	cat out | nc -l $port > >( # parse the netcat output, to build the answer redirected to the pipe "out".
     export REQUEST=
     while read line
     do
@@ -26,11 +27,11 @@ do
 			elif echo $REQUEST | grep -qE '^/stats'
 			then
 				vmstat -S M > out
-			elif echo $REQUEST | grep -qE '^/net'
+			elif echo $REQUEST | grep -qE '	^/net'
 			then
 				ifconfig > out
 			else
-				printf "%s\n%s %s\n\n%s\n%s" "$HTTP_404" "$HTTP_LOCATION" $REQUEST "Resource $REQUEST NOT FOUND!" "$crlf<EOF>" > out
+				sh handler.sh $REQUEST > out
 			fi
 		else 
 			REQUEST="$REQUEST$crlf$line"
