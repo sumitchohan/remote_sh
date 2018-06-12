@@ -6,19 +6,19 @@ function sendMessage {
         else
             echo $line
         fi
-    done < <(echo "$3" | nc "$1" "$2")
+    done <<(echo "$3" | nc "$1" "$2")
 }
 
-function processMessageFromServer {
-while true
-do
+# function processMessageFromServer {
+# while true
+# do
 
-    while read line; do
-        if [[ $line == "<EOF>" ]]; then
-            break
-        else
-            echo $line
-        fi
-    done < <(echo "$3" | nc "$1" "$2")
-done
-}
+    # while read line; do
+        # if [[ $line == "<EOF>" ]]; then
+            # break
+        # else
+            # echo $line
+        # fi
+    # done < <(echo "$3" | nc "$1" "$2")
+# done
+# }
