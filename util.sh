@@ -10,6 +10,9 @@ function sendMessage {
 }
 
 function processMessageFromServer {
+while true
+do
+
     while read line; do
         if [[ $line == "<EOF>" ]]; then
             break
@@ -17,4 +20,5 @@ function processMessageFromServer {
             echo $line
         fi
     done < <(echo "$3" | nc "$1" "$2" <<< "$*")
+done
 }
