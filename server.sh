@@ -33,7 +33,7 @@ do
         then
             ifconfig > out
         else
-            printf "%s\n%s %s\n\n%s\n" "$HTTP_404" "$HTTP_LOCATION" $REQUEST "Resource $REQUEST NOT FOUND!" > out
+            printf "%s\n%s %s\n\n%s\n%s" "$HTTP_404" "$HTTP_LOCATION" $REQUEST "Resource $REQUEST NOT FOUND!" "<EOF>" > out
         fi
       fi
     done
