@@ -1,0 +1,8 @@
+rm -f in
+mkfifo in
+trap "rm -f in" EXIT
+port=1501
+while true
+do
+	cat in  | nc -l $port  
+done
