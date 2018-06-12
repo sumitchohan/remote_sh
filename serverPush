@@ -4,5 +4,5 @@ trap "rm -f in" EXIT
 port=1501
 while true
 do
-	cat in  | nc -l $port  
+	cat in  | nc.traditional -l $port -q 0  
 done
