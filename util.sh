@@ -9,6 +9,7 @@ function sendMessage {
             echo $line
         fi
     done
+	break;
 }
 
 # function processMessageFromServer {
