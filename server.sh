@@ -8,31 +8,12 @@ do
     export REQUEST=
     while read line
     do
-		echo " request line  - $line"
+		# echo " request line  - $line"
 		crlf=$'\n'
 		line=$(echo "$line" | tr -d '[\r\n]')
 		if [ "x$line" = x ] # empty line / end of request
-		then
-			HTTP_200="HTTP/1.1 200 OK"
-			HTTP_LOCATION="Location:"
-			HTTP_404="HTTP/1.1 404 Not Found"
-			# call a script here
-			# Note: REQUEST is exported, so the script can parse it (to answer 200/403/404 status code + content)
-			if echo $REQUEST | grep -qE '^/echo/'
-			then
-				printf "%s\n%s %s\n\n%s\n" "$HTTP_200" "$HTTP_LOCATION" $REQUEST ${REQUEST#"/echo/"} > out
-			elif echo $REQUEST | grep -qE '^/date'
-			then
-				date > out
-			elif echo $REQUEST | grep -qE '^/stats'
-			then
-				vmstat -S M > out
-			elif echo $REQUEST | grep -qE '	^/net'
-			then
-				ifconfig > out
-			else
-				sh handler.sh $REQUEST > out
-			fi
+		then 
+			sh handler.sh $REQUEST > out 
 		else 
 			REQUEST="$REQUEST$crlf$line"
 		fi
