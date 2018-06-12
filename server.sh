@@ -8,6 +8,7 @@ do
     while read line
     do
 		echo " request line  - $line"
+		crlf='$\n'
 		line=$(echo "$line" | tr -d '[\r\n]')
 		if [ "x$line" = x ] # empty line / end of request
 		then
@@ -32,7 +33,7 @@ do
 				printf "%s\n%s %s\n\n%s\n%s" "$HTTP_404" "$HTTP_LOCATION" $REQUEST "Resource $REQUEST NOT FOUND!" "<EOF>" > out
 			fi
 		else 
-			REQUEST="$REQUEST$line"
+			REQUEST="$REQUEST$crlf$line"
 		fi
     done
   )
