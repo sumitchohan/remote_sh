@@ -1,12 +1,11 @@
 # sendMessage "localhost" "8080" "Hello"
 function sendMessage {
-	crlf=$'\n'
     while read line; do
         if [[ $line == "<EOF>" ]]; then
             break
         else
             echo $line
         fi
-    done < <(echo "$3$crlf" | nc "$1" "$2" <<< "$*")
+    done < <(echo "$3\n" | nc "$1" "$2" <<< "$*")
 }
 
