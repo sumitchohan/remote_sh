@@ -8,15 +8,9 @@ do
     export REQUEST=
     while read line
     do
-		# echo " request line  - $line"
-		crlf=$'\n'
-		line=$(echo "$line" | tr -d '[\r\n]')
-		if [ "x$line" = x ] # empty line / end of request
-		then 
-			sh handler.sh $REQUEST > out 
-		else 
-			REQUEST="$REQUEST$crlf$line"
-		fi
+		echo " request line  - $line"
+		crlf=$'\n' 
+		sh handler.sh $line > out  
     done
   )
 done
