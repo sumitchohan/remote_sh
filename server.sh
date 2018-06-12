@@ -7,13 +7,13 @@ do
     export REQUEST=
     while read line
     do
-		echo " request line  - $line"
+	echo " request line  - $line"
       line=$(echo "$line" | tr -d '[\r\n]')
 
       if echo "$line" | grep -qE '^GET /' # if line starts with "GET /"
       then
         REQUEST=$(echo "$line" | cut -d ' ' -f2) # extract the request
-      elif [ "x$line" = x ] # empty line / end of request
+      if [ "x$line" = x ] # empty line / end of request
       then
         HTTP_200="HTTP/1.1 200 OK"
         HTTP_LOCATION="Location:"
@@ -35,7 +35,9 @@ do
         else
             printf "%s\n%s %s\n\n%s\n%s" "$HTTP_404" "$HTTP_LOCATION" $REQUEST "Resource $REQUEST NOT FOUND!" "<EOF>" > out
         fi
-      fi
+	else 
+		REQUEST="$REQUEST$line"
+    fi
     done
   )
 done
