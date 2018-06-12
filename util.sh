@@ -2,7 +2,9 @@
 function sendMessage {
     echo "$3" | nc "$1" "$2" |   while read line; do
         if [[ $line == "<EOF>" ]]; then
-            break
+			echo "breaking"
+            break;
+            break;
         else
             echo $line
         fi
