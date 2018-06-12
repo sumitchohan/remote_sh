@@ -6,6 +6,6 @@ function sendMessage {
         else
             echo $line
         fi
-    done < <(echo $3 | netcat "$1" "$2" <<< "$*")
+    done < <(echo $3 | nc "$1" "$2" <<< "$*")
 }
 
