@@ -7,9 +7,7 @@ do
     export REQUEST=
     while read line
     do
-      line=$(echo "$line" | tr -d '[\r\n]') 
-	  
-      printf "%s\n%s " "ResponseFromServer" "$line"   > out
+      printf "%s\n%s " "ResponseFromServer-" "$line"   > out
     done
   )
 done
