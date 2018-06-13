@@ -463,14 +463,8 @@ LooseTrophies()
 }
 Home()
 {
-
-	StartCOC
-	Tap 770 20
-	Tap 770 20
-	WaitFor "Home" "" 120
-	Tap 310 340 #close chat window
-	Zoom
-	Tap 560 155 #go to Home
+	StartCOC 
+	WaitFor "Home" "Inactive,Attacked,BuilderHome,AnotherDevice" 60
 }
 Versus()
 {
