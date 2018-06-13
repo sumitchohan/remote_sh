@@ -14,3 +14,9 @@ do
     done
   )
 done
+ 
+port1=1501
+while true
+do
+	nc.traditional -l -p $port1 -q 0 > ~/Desktop/Shared/scr.dump
+done
