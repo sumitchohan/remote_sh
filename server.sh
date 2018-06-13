@@ -10,8 +10,12 @@ do
     do
 		echo " request line  - $line"
 		crlf=$'\n' 
-		REQUEST="$REQUEST$crlf$line"
+		sh handler.sh $line > out  
     done
-	sh handler.sh $line > out  
   )
 done
+
+
+# nc 192.168.0.106 3333 <scr.dump
+
+# nc -l 3333 > file.dump
