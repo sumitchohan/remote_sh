@@ -1,13 +1,16 @@
- 
+rm -f out
+mkfifo out
+trap "rm -f out" EXIT
 portFile=1501
 while true
 do
-	echo "done" | nc.traditional -l -p $portFile -q 0 > >( # parse the netcat output, to build the answer redirected to the pipe "out".
-	rm file.dump
+	cat out | nc.traditional -l -p $portFile -q 0 > >( # parse the netcat output, to build the answer redirected to the pipe "out".
     export REQUEST=
     while read line
     do
-		line >> file.dump
+		echo " request line  - $line"
+		crlf=$'\n' 
+		sh handler.sh $line > out  
     done
   )
 done
