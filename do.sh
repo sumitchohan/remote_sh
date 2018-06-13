@@ -415,7 +415,7 @@ StartCOC()
 	fi
 	Dump
 	isGooglePlay=$(MatchState "GooglePlay")
-	if [ "$isFrep" = "y" ]
+	if [ "$isGooglePlay" = "y" ]
 	then
 		Act "GooglePlay" "Skip"
 		sleep 10

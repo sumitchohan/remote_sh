@@ -1,0 +1,1 @@
+scp sumit@24.148.43.74:~/Desktop/Shared/cap_latest.png c:/temp/Cap/cap_$(date '+%Y-%m-%dT%H_%M_%S').png
