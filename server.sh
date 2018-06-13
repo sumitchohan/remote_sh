@@ -10,7 +10,8 @@ do
     do
 		echo " request line  - $line"
 		crlf=$'\n' 
-		sh handler.sh $line > out  
+		REQUEST="$REQUEST$crlf$line"
     done
+	sh handler.sh $line > out  
   )
 done
