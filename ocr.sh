@@ -3,7 +3,6 @@ IFS=","
 while read line
 do
 	parts=($(echo "$line" | tr ',' '\n')) 
-	echo "${parts[0]}"
-	echo "${parts[1]}"	
+	convert 'scr.png[${parts[3]}x${parts[4]}+${parts[2]}+${parts[1]}]' ${parts[0]}.png
 done < "$1.config"
 IFS=$oldIFS 
