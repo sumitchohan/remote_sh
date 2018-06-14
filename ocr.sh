@@ -1,8 +1,9 @@
 Read()
 {
+rm cropCommands.sh
 while read line
 do
 	parts=($(echo "$line" | tr ',' '\n')) 
-	convert '/tmp/scr.png[${parts[3]}x${parts[4]}+${parts[2]}+${parts[1]}]' /tmp/${parts[0]}.png
+	echo "convert '/tmp/scr.png[${parts[3]}x${parts[4]}+${parts[2]}+${parts[1]}]' /tmp/${parts[0]}.png" >> cropCommands.sh
 done < "$1.config" 
 }
