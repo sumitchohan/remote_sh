@@ -11,7 +11,7 @@ do
     do
 		echo " request line  - $line"
 		crlf=$'\n' 
-		sh handler.sh $line > out  
+		source handler.sh $line > out  
     done 
   )
 done
