@@ -12,11 +12,5 @@ do
 		crlf=$'\n' 
 		sh handler.sh $line > out  
     done
-	#echo "finished receiviing"
   )
 done
-
-
-# nc 192.168.0.106 3333 <scr.dump
-
-# nc -l 3333 > file.dump
