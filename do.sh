@@ -760,7 +760,6 @@ MatchPixel() #x y r g b delta
   r=$((16#$rh))
   g=$((16#$gh))
   b=$((16#$bh))
-  s=$((($r - ${pixelDetails[3]})*($r - ${pixelDetails[3]}) + ($g - ${pixelDetails[4]})*($g - ${pixelDetails[4]}) + ($b - ${pixelDetails[5]})*($b - ${pixelDetails[5]})))
   tolerance=$((($Diff $3 $r)+($Diff $4 $g)+($Diff $5 $b)))
   if [ $5 -le $tolerance ]
   then
