@@ -1,7 +1,7 @@
 cd /sdcard/coc
  screenWidth="$(wm size | cut -d'x' -f 1 | cut -d':' -f 2 |sed -e 's/^[[:space:]]*//')"
 Dump()
-{	
+{
 	screenWidth="$(wm size | cut -d'x' -f 1 | cut -d':' -f 2 |sed -e 's/^[[:space:]]*//')"
 	echo "$screenWidth">/sdcard/coc/screenwidth.dat
 	screencap /sdcard/coc/scr.dump
@@ -12,8 +12,8 @@ echo $(echo "$1" | tr '\n' ' ')  | nc "192.168.0.106" "8901"
 }
 
 Restore()
-{ 
-pm clear com.supercell.clashofclans 
+{
+pm clear com.supercell.clashofclans
 sleep 1
 am start -n com.bluestacks.settings/.SettingsActivity
 sleep 1
@@ -23,7 +23,7 @@ WaitFor "RestoreData" "" 20
 input tap 1200 860
 wait $PIDRESTORE
 sleep 1
-am start -n com.supercell.clashofclans/.GameApp 
+am start -n com.supercell.clashofclans/.GameApp
 }
 
 
@@ -40,18 +40,18 @@ Tap()
 }
 Swipe()
 {
-	
+
 }
 Pixel()
 {
 	#IFS=" "
-	#let offset=$screenWidth*$2+$1+3		
+	#let offset=$screenWidth*$2+$1+3
 	#stringZ=$(dd if='/sdcard/coc/scr.dump' bs=4 count=1 skip=$offset 2>/dev/null | hd)
 	#echo "$(echo $stringZ | grep ":" | cut -d' ' -f 2)$(echo $stringZ | grep ":" | cut -d' ' -f 3)$(echo $stringZ | grep ":" | cut -d' ' -f 4)"
-	
-	
+
+
 	IFS=" "
-	let offset=$screenWidth*$2+$1+3	
+	let offset=$screenWidth*$2+$1+3
 	stringZ=$(dd if='/sdcard/coc/scr.dump' bs=4 count=1 skip=$offset 2>/sdcard/result.txt| od | grep " ");
 	pixelParts[1]=""
 	pixelParts[2]=""
@@ -80,7 +80,7 @@ Pixel()
 	then
 		blue="0$blue"
 	fi
-	rgb="$red$green$blue"; 
+	rgb="$red$green$blue";
 	echo $rgb;
 }
 ProcessStateActionInternal()
@@ -100,7 +100,7 @@ ProcessStateActionInternal()
 		for pixelData in "${points[@]}"
 		do
 			IFS=","
-			set -A pixelDetails $pixelData		
+			set -A pixelDetails $pixelData
 			pix=$(Pixel ${pixelDetails[1]} ${pixelDetails[2]})
 			rh=$(echo $pix | cut -c1-2)
 			gh=$(echo $pix | cut -c3-4)
@@ -108,29 +108,29 @@ ProcessStateActionInternal()
 			r=$((16#$rh))
 			g=$((16#$gh))
 			b=$((16#$bh))
-			s=$((($r - ${pixelDetails[3]})*($r - ${pixelDetails[3]}) + ($g - ${pixelDetails[4]})*($g - ${pixelDetails[4]}) + ($b - ${pixelDetails[5]})*($b - ${pixelDetails[5]})))	
+			s=$((($r - ${pixelDetails[3]})*($r - ${pixelDetails[3]}) + ($g - ${pixelDetails[4]})*($g - ${pixelDetails[4]}) + ($b - ${pixelDetails[5]})*($b - ${pixelDetails[5]})))
 			tolerance=0
-			if [ ${pixelDetails[0]} = "a"  ]	
+			if [ ${pixelDetails[0]} = "a"  ]
 			then
 				tolerance=300
 			fi
-			
-			if [ $s -le $tolerance ]	
+
+			if [ $s -le $tolerance ]
 			then
 				result="y"
 			else
 				result="n"
 				break
 			fi
-		done		
+		done
 		echo "$result"
-	else 
+	else
 		if [ "$2" = "act" ]
 		then
 			IFS=";"
 			set -A actions $actions
 			for action in "${actions[@]}"
-			do	
+			do
 				IFS=","
 				set -A actionDetails $action
 				if [ "${actionDetails[0]}" = "$3" ]
@@ -138,35 +138,35 @@ ProcessStateActionInternal()
 					#command=""
 					#commandPartIndex=0
 					#for commandPart in "${actionDetails[@]}"
-					#do	
+					#do
 					#	if [ "$commandPartIndex" -eq "1" ]
 					#	then
 					#		command="$commandPart"
-					#	fi						
+					#	fi
 					#	if [ "$commandPartIndex" -gt "1" ]
 					#	then
-					#		command="$command $commandPart"	
+					#		command="$command $commandPart"
 					#	fi
 					#	(( commandPartIndex++ ))
 					#done
 					##$command
 					#echo "command-$command--"
 					#"$command"
-					
+
 					if [ ${actionDetails[1]} = "Tap" ]
 					then
 						Tap ${actionDetails[2]} ${actionDetails[3]}
-					else 
+					else
 						if [ ${actionDetails[1]} = "Swipe" ]
-						then				
+						then
 							Swipe ${actionDetails[2]} ${actionDetails[3]}  ${actionDetails[4]}  ${actionDetails[5]}  ${actionDetails[6]}
 						else
-							Tap ${actionDetails[1]} ${actionDetails[2]}				
+							Tap ${actionDetails[1]} ${actionDetails[2]}
 						fi
 					fi
 				fi
 			done
-		fi		
+		fi
 	fi
 }
 
@@ -196,15 +196,15 @@ WaitFor()
 	Log "waiting for $1"
 	matched=$(MatchState $1)
 	if [ "$matched" = "y" ]
-	then		
+	then
 		Log "Matched $1"
 		error="n"
 		result="y"
 		break
-	else 
-		Log "No match $1"			
-		ILS=","		
-		set -A skipScreens $2		
+	else
+		Log "No match $1"
+		ILS=","
+		set -A skipScreens $2
 		for skipScreen in "${skipScreens[@]}"
 		do
 			Log "skip check $skipScreen"
@@ -214,16 +214,16 @@ WaitFor()
 				Log "skipping $skipScreen"
 				if [ "$skipScreen" = "BuilderHome" ]
 				then
-					Zoom	
+					Zoom
 					sleep 4
 				fi
 				Act $skipScreen "Skip"
-			fi 
-		done		
+			fi
+		done
 		sleep $retryDelay
-	fi 
+	fi
 	(( retryIndex++ ))
-	done 
+	done
 	if [ "$result" = "n" ]
 	then
 		screencap -p "error_$1.png"
@@ -248,7 +248,7 @@ Hello()
 Repeat()
 {
 	retryIndex=1
-	retryCount=$1	
+	retryCount=$1
 	while [ $retryIndex -le $retryCount ]
 	do
 		Log "Repeat index $retryIndex $2 $3 $4"
@@ -257,7 +257,7 @@ Repeat()
 		(( retryIndex++ ))
 	done
 }
-	
+
 Loose()
 {
 	WaitFor "Home" "Attacked,ConnectionLost,VersusHome,ReturnHome" 20
@@ -285,19 +285,19 @@ Read()
 	echo "request">"ocr_coca_$1.request"
 	wc=1
 	while [ $wc -le 30 ]
-	do	
+	do
 		if [ -e "ocr_coca_$1.request" ]
 		then
 			sleep 1
 		else
 			break
-		fi		
+		fi
 		(( wc++ ))
 	done
 }
 SkipVersusHome()
 {
-	Act "Home" "Zoom"	
+	Act "Home" "Zoom"
 	Sleep 4
 	Tap $1 $2
 }
@@ -318,17 +318,17 @@ Zoom1()
 		matchedA=$(MatchState "FrepA")
 		echo "matchedA  - $matchedA matchedZ - $matchedZ matchedR - $matchedR"
 	fi
-	if [ "$matchedR" = "y" ] 
+	if [ "$matchedR" = "y" ]
 	then
 		Act "FrepZ" "Top"
 	fi
-	
-	if [ "$matchedA" = "y" ] 
+
+	if [ "$matchedA" = "y" ]
 	then
 		Act "FrepZ" "Top"
 		Act "FrepZ" "Top"
-	fi	
-	Act "FrepZ" "Bottom"	
+	fi
+	Act "FrepZ" "Bottom"
 	 sleep 3;
 }
 
@@ -349,18 +349,18 @@ Attack1()
 		matchedR=$(MatchState "FrepR")
 		matchedA=$(MatchState "FrepA")
 		echo "matchedA  - $matchedA matchedZ - $matchedZ matchedR - $matchedR"
-	else		
-		if [ "$matchedR" = "y" ] 
+	else
+		if [ "$matchedR" = "y" ]
 		then
 			Act "FrepZ" "Top"
 			Act "FrepZ" "Top"
 		fi
-		
-		if [ "$matchedZ" = "y" ] 
+
+		if [ "$matchedZ" = "y" ]
 		then
 			Act "FrepZ" "Top"
-		fi	
-		Act "FrepZ" "Bottom"	
+		fi
+		Act "FrepZ" "Bottom"
 	fi
 	sleep 20;
 }
@@ -371,17 +371,17 @@ GetFrep()
 	if [ "$found" = "n" ]
 	then
 		StartCOC
-	fi	
+	fi
 }
 VersusAttack()
 {
 	Tap 13 65
-	sleep 3	
+	sleep 3
 	Tap 13 39
 	Tap 13 65
 	sleep 60
 	Tap 13 39
-	Tap 13 39	
+	Tap 13 39
 }
 
 Zoom()
@@ -393,7 +393,7 @@ Zoom()
 	#	Log "Frep not found. Activating it..."
 	#	am start -n com.x0.strai.frep/.FingerActivity
 	#	sleep 3
-	#fi	
+	#fi
 	#Act "Frep" "Play"
 	#sleep 1
 	#found=$(WaitFor "Frep" "" 10)
@@ -423,8 +423,8 @@ StartCOC()
 	then
 		Act "GooglePlay" "Skip"
 		sleep 10
-	fi 
-	Dump	
+	fi
+	Dump
 	isFrep=$(MatchState "FRep")
 	if [ "$isFrep" = "n" ]
 	then
@@ -436,7 +436,7 @@ StartCOC()
 	else
 		Log "Frep"
 	fi
-	
+
 	# am force-stop com.supercell.clashofclans
 	# sleep 2
 	# am start -n com.x0.strai.frep/.FingerActivity
@@ -463,11 +463,11 @@ LooseTrophies()
 		elixir=$(cat ocred_Elixir.txt)
 		gems=$(cat ocred_Gems.txt)
 		LooseTrophies $trophy
-	fi 
+	fi
 }
 Home()
 {
-	StartCOC 
+	StartCOC
 	WaitFor "Home" "Inactive,Attacked,BuilderHome,AnotherDevice" 60
 }
 Versus()
@@ -530,7 +530,7 @@ Versus20()
 	sleep 300
 }
 Run()
-{	
+{
 	StartCOC
 	found=$(WaitFor "Home" "Attacked,ConnectionLost,VersusHome,VersusHome,ReturnHome|" 60)
 	if [ "$found" = "n" ]
@@ -545,12 +545,12 @@ Run()
 	gold=$(cat ocred_Gold.txt)
 	Log "home - de $de elixir $elixir gold $gold gems $gems trophy $trophy"
 	Act "Home" "Train"
-	WaitFor "Army" "" 10	
+	WaitFor "Army" "" 10
 	Read "Army"
 	army=$(cat ocred_Troops.txt)
 	Log "army $army"
 	Act "Army" "TrainTroops"
-	WaitFor "TrainTroops" "" 10		
+	WaitFor "TrainTroops" "" 10
 	Read "TrainTroops"
 	trainingQueue=$(cat ocred_Troops.txt)
 	Log "trainingQueue - $trainingQueue"
@@ -575,13 +575,13 @@ Run()
 	Act "QuickTrain" "QuickTrain2"
 	Act "QuickTrain" "QuickTrain2"
 	Act "QuickTrain" "QuickTrain2"
-	Act "QuickTrain" "QuickTrain2" 
+	Act "QuickTrain" "QuickTrain2"
 	Act "QuickTrain" "Skip"
 	sleep .1
 	LooseTrophies $trophy
 	enoughArmyToAttack="n"
 	if [ "$army" -ge "190" ]
-	then	
+	then
 		enoughArmyToAttack="y"
 	fi
 	if [ "$enoughArmyToAttack" = "y" ]
@@ -598,19 +598,19 @@ Attack()
 	#WaitFor "FindAMatch" "" 20
 	Act "FindAMatch" "Find"
 	WaitFor "Battle" "" 120
-	#Zoom		
+	#Zoom
 	Read "Battle"
 	de=$(cat ocred_DE.txt)
-	elixir=$(cat ocred_Elixir.txt) 
+	elixir=$(cat ocred_Elixir.txt)
 	gold=$(cat ocred_Gold.txt)
 	attacked="n"
 	eg=0
 	((eg=gold+elixir))
-	Log "loot - de $de elixir $elixir gold $gold eg $eg"	
+	Log "loot - de $de elixir $elixir gold $gold eg $eg"
 	while [ "$attacked" = "n" ]
 	do
 		if [ "$de" -ge "1000" ] || [ "$gold" -ge "200000" ] || [ "$elixir" -ge "200000" ] || [ "$eg" -ge "300000" ]
-		then	
+		then
 			Log "attacking"
 			Zoom1
 			attacked="y"
@@ -619,32 +619,32 @@ Attack()
 			#Act "Results" "Skip"
 			#WaitFor "Home" "" 20
 		else
-			Log "not attacking" 					
+			Log "not attacking"
 			Act "Battle" "Next"
 			WaitFor "Battle" "" 120
-			#Zoom		
+			#Zoom
 			Read "Battle"
 			de=$(cat ocred_DE.txt)
-			elixir=$(cat ocred_Elixir.txt) 
+			elixir=$(cat ocred_Elixir.txt)
 			gold=$(cat ocred_Gold.txt)
 			((eg=gold+elixir))
-			Log "loot - de $de elixir $elixir gold $gold eg $eg"	
+			Log "loot - de $de elixir $elixir gold $gold eg $eg"
 		fi
-	done 
+	done
 }
 CaptureTrainData()
-{	
+{
 	WaitFor "Home" "Attacked,ConnectionLost,VersusHome,ReturnHome" 60
 	Act "Home" "Train"
-	WaitFor "Army" "" 10	
+	WaitFor "Army" "" 10
 	Dump
 	Read "Army"
 	Act "Army" "TrainTroops"
 	sleep .1
 	Dump
-	Read "TrainTroops"	
-	Act "TrainTroops" "Archer"	
-	Act "TrainTroops" "Skip"		
+	Read "TrainTroops"
+	Act "TrainTroops" "Archer"
+	Act "TrainTroops" "Skip"
 }
 
 TrainTroops()
@@ -665,7 +665,7 @@ done
 }
 
 CaptureZoomEvents()
-{	
+{
 	getevent | AddTs > events.log & PID1=$!
 	input tap 43 158
 	sleep 4
@@ -689,7 +689,7 @@ Tapf()
 	 # sleep 0.001
 }
 DeployStart()
-{ 
+{
 	Tapf 40 70
 }
 Deploy()
@@ -712,7 +712,7 @@ RunOnEvents()
 	##get
 	#curl curl -X POST https://api.keyvalue.xyz/bb7da7f2/clientId
 	#awk '{ sub("\r$", ""); print }' run.sh > run1.sh
-	
+
 	retryIndex=1
 	retryCount=10000000
 	retryDelay=30
@@ -720,13 +720,13 @@ RunOnEvents()
 	key=$(cat /sdcard/key.txt)
 	while [ $retryIndex -le $retryCount ]
 	do
-		switch=$(curl https://api.keyvalue.xyz/$key/clientId -k -s)	
+		switch=$(curl https://api.keyvalue.xyz/$key/clientId -k -s)
 		echo $switch
 		curl -X POST https://api.keyvalue.xyz/$key/clientId/processing-$EPOCHREALTIME -k -s
 		if [ "$switch" = "ding" ]
 		then
 			echo "ding$EPOCHREALTIME"
-		fi		
+		fi
 		if [ "$switch" = "ON" ]
 		then
 			input tap 615 462
@@ -736,7 +736,37 @@ RunOnEvents()
 	done
 }
 
+Donate()
+{
+  Act "Chat" "Skip"
+  Act "Home" "Chat"
 
-
-
-
+}
+Diff()
+{
+  if [ $1 -le $2 ]
+  then
+    echo $(($2-$1))
+  else
+    echo $(($1-$2))
+  fi
+}
+MatchPixel() #x y r g b delta
+{
+  pix=$(Pixel $1 $2)
+  rh=$(echo $pix | cut -c1-2)
+  gh=$(echo $pix | cut -c3-4)
+  bh=$(echo $pix | cut -c5-6)
+  r=$((16#$rh))
+  g=$((16#$gh))
+  b=$((16#$bh))
+  s=$((($r - ${pixelDetails[3]})*($r - ${pixelDetails[3]}) + ($g - ${pixelDetails[4]})*($g - ${pixelDetails[4]}) + ($b - ${pixelDetails[5]})*($b - ${pixelDetails[5]})))
+  tolerance=$((($Diff $3 $r)+($Diff $4 $g)+($Diff $5 $b)))
+  if [ $5 -le $tolerance ]
+  then
+    result="y"
+  else
+    result="n"
+    break
+  fi
+}
