@@ -5,13 +5,13 @@ port=1500
 while true
 do
 	cat out | nc.traditional -l -p $port -q 0 > >( # parse the netcat output, to build the answer redirected to the pipe "out".
+	#this will not work correctly for multi line requests
     export REQUEST=
     while read line
     do
 		echo " request line  - $line"
 		crlf=$'\n' 
-		REQUEST="$REQUEST$crlf$line"
+		sh handler.sh $line > out  
     done 
-	sh handler.sh $REQUEST > out  
   )
 done
