@@ -12,6 +12,7 @@ do
 		crlf=$'\n' 
 		sh handler.sh $line > out  
     done
+	echo "finished receiviing"
   )
 done
 
