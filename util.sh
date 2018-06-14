@@ -1,5 +1,6 @@
 # sendMessage "localhost" "8080" "Hello"
-sendMessage {
+sendMessage()
+{
 echo $(echo "$1" | tr 'n' ' ')  | nc "192.168.0.106" "8901"
 }
 
