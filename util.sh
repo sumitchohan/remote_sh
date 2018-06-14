@@ -1,7 +1,7 @@
 # sendMessage "localhost" "8080" "Hello"
 sendMessage()
 {
-echo $(echo "$1" | tr 'n' ' ')  | nc "192.168.0.106" "8901"
+echo $(echo "$1" | tr '\n' ' ')  | nc "192.168.0.106" "8901"
 }
 
 # function processMessageFromServer {
