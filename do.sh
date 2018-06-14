@@ -763,7 +763,7 @@ MatchPixel() #x y r g b delta
   echo "$r $g $b"
   tolerance=$(($(Diff $3 $r)+$(Diff $4 $g)+$(Diff $5 $b)))
   echo $tolerance
-  if [ $5 -le $tolerance ]
+  if [ $6 -le $tolerance ]
   then
     result="y"
   else
