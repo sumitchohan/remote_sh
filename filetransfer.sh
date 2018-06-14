@@ -5,7 +5,7 @@ if [ ! -f /tmp/file.tmp ]; then
   echo "File transfer server not running. Starting.."
 	while true; do
 		nc -l 9001 > /tmp/file.tmp
-	done
+	done &
 else
     echo "file transfer server already running"
 fi
