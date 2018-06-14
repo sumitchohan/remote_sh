@@ -12,6 +12,6 @@ do
 		crlf=$'\n' 
 		REQUEST="$REQUEST$crlf$line"
     done 
-	sh handler.sh $line > out  
+	sh handler.sh $REQUEST > out  
   )
 done
