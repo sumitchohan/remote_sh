@@ -4,5 +4,7 @@ nc localhost 9001 < /tmp/test.tmp
 if [ ! -f /tmp/file.tmp ]; then
     echo "file transfer server not running"
 else
-	echo "file transfer server is running"
+	while true; do
+		nc -l 9001 > /tmp/file.tmp
+	done
 fi
