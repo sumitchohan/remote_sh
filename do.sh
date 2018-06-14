@@ -761,12 +761,13 @@ MatchPixel() #x y r g b delta
   g=$((16#$gh))
   b=$((16#$bh))
   echo "$r $g $b"
-  tolerance=$(($(Diff $3 $r)+$(Diff $4 $g)+$(Diff $5 $b)))
+  delta=$(($(Diff $3 $r)+$(Diff $4 $g)+$(Diff $5 $b)))
   echo $tolerance
-  if [ $6 -le $tolerance ]
+  if [ $6 -le $delta ]
   then
-    result="y"
-  else
     result="n"
+  else
+    result="y"
   fi
+  echo $result
 }
