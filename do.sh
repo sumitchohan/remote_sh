@@ -766,6 +766,5 @@ MatchPixel() #x y r g b delta
     result="y"
   else
     result="n"
-    break
   fi
 }
