@@ -6,6 +6,10 @@ Dump()
 	echo "$screenWidth">/sdcard/coc/screenwidth.dat
 	screencap /sdcard/coc/scr.dump
 }
+SendMessage()
+{
+echo $(echo "$1" | tr '\n' ' ')  | nc "192.168.0.106" "8901"
+}
 
 Restore()
 { 
