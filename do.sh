@@ -785,7 +785,7 @@ Donate()
         if [ "$isGray" = "y" ]
         then
           ReadDonation $x $y1
-          input swipe $x $((y1+5)) $x 572
+          input swipe $x $((y1+5)) $x 572 1000
           input tap $x 572
           sleep 10
           break
