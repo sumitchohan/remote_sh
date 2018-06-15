@@ -773,7 +773,7 @@ GetDonationPoints()
   x=342
   while [ $y -le 600 ]
   do
-    #Pixel $x $y
+    Pixel $x $y
     isGreen=$(MatchPixel x y 171 191 79 100)
     if [ "$isGreen" = "y" ]
     then
