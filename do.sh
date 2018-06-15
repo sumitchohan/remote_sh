@@ -767,19 +767,19 @@ MatchPixel() #x y r g b delta
   fi
   echo $result
 }
-Donate()
+GetDonationPoints()
 {
   y=90
   x=342
   while [ $y -le 600 ]
   do
-    Pixel $x $y
+    #Pixel $x $y
     isGreen=$(MatchPixel x y 171 191 79 100)
     if [ "$isGreen" = "y" ]
     then
       echo "match $x $y"
+      y=$((y+60))
     fi
-
-    y=$((y+4))
+    y=$((y+10))
   done
 }
