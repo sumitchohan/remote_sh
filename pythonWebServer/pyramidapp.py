@@ -1,9 +1,13 @@
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
+from uiautomator import device as d
+import sys
+import signal
+import random
 
-
-def click_world(request):
+def click_world(request):	
+    d.click(250,250)
     return Response('click %(name)s!' % request.matchdict) 
 
 if __name__ == '__main__':
