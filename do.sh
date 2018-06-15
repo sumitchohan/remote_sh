@@ -767,3 +767,18 @@ MatchPixel() #x y r g b delta
   fi
   echo $result
 }
+Donate()
+{
+  y=90
+  x=342
+  while [ $y -le 600 ]
+  do
+    isGreen=$(Match Pixel x y 171 191 79 20)
+    if [ "$isGreen" = "y" ]
+    then
+      echo x y
+    fi
+
+    y=$((y+10))
+  done
+}
