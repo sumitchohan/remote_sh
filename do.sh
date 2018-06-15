@@ -779,11 +779,14 @@ GetDonationPoints()
     then
       echo "match $x $y"
       y1=$y
-      while [ $y -ge 1 ]
+      while [ $y1 -ge 1 ]
       do
         isGray=$(MatchPixel x y1 68 68 64 1)
-        ReadDonation $x $y1
-        break
+        if [ "$isGray" = "y" ]
+        then
+          ReadDonation $x $y1
+          break
+        fi
         y1=$((y1-1))
       done
       y=$((y+60))
