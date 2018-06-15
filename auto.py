@@ -9,9 +9,8 @@ def execute():
     d.info
     print "Connected"
     print "Clicking 100 100"
-    UiDevice device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-    device.findObject(uiSelector).pinchOut(20, 20);
-    
+    d.click(250,250)
+    d.click(250,300) 
 def exit_gracefully(signum, frame):
     print "Gracefully exiting"
     signal.signal(signal.SIGINT, signal.getsignal(signal.SIGINT)) 
