@@ -7,6 +7,7 @@ import signal
 import random
 
 def click_world(request):	
+	print request
     d.click(250,250)
     return Response('click %(name)s!' % request.matchdict) 
 
