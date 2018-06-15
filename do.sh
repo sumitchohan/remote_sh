@@ -101,13 +101,22 @@ ProcessStateActionInternal()
 		do
 			IFS=","
 			set -A pixelDetails $pixelData
-    	tolerance=0
+			pix=$(Pixel ${pixelDetails[1]} ${pixelDetails[2]})
+			rh=$(echo $pix | cut -c1-2)
+			gh=$(echo $pix | cut -c3-4)
+			bh=$(echo $pix | cut -c5-6)
+			r=$((16#$rh))
+			g=$((16#$gh))
+			b=$((16#$bh))
+      s=$(($(Diff $r ${pixelDetails[3]}) + $(Diff $g ${pixelDetails[4]}) + $(Diff $b ${pixelDetails[5]}) ))
+			#s=$((($r - ${pixelDetails[3]})*($r - ${pixelDetails[3]}) + ($g - ${pixelDetails[4]})*($g - ${pixelDetails[4]}) + ($b - ${pixelDetails[5]})*($b - ${pixelDetails[5]})))
+			tolerance=0
 			if [ ${pixelDetails[0]} = "a"  ]
 			then
-				tolerance=300
+				tolerance=20
 			fi
-      matchPixel=$(MatchPixel ${pixelDetails[1]} ${pixelDetails[2]} ${pixelDetails[3]} ${pixelDetails[4]} ${pixelDetails[5]} $tolerance)
-			if [ $matchPixel = "y" ]
+
+			if [ $s -le $tolerance ]
 			then
 				result="y"
 			else
@@ -728,12 +737,7 @@ RunOnEvents()
 	done
 }
 
-Donate()
-{
-  Act "Chat" "Skip"
-  Act "Home" "Chat"
 
-}
 Diff()
 {
   if [ $1 -le $2 ]
