@@ -12,7 +12,7 @@ def click(request):
     y = request.matchdict.get('y', -1)
     print y
     d.click(int(float(x)),int(float(y)))	
-    return Response('click %(x) %(y)!' % request.matchdict) 
+    return Response('click!' % request.matchdict) 
 	
 def drag(request):
     x = request.matchdict.get('x', -1)
@@ -26,7 +26,7 @@ def drag(request):
     n = request.matchdict.get('n', -1)
     print n
     d.drag(int(float(x)),int(float(y)),int(float(dx)),int(float(dy)),steps=int(float(n)))	
-    return Response('drag %(x) %(y) %(dx) %(dy) %(n)!' % request.matchdict) 
+    return Response('drag!' % request.matchdict) 
 	
 def swipe(request):
     x = request.matchdict.get('x', -1)
@@ -40,7 +40,7 @@ def swipe(request):
     n = request.matchdict.get('n', -1)
     print n
     d.swipe(int(float(x)),int(float(y)),int(float(dx)),int(float(dy)),steps=int(float(n)))	
-    return swipe('drag %(x) %(y) %(dx) %(dy) %(n)!' % request.matchdict) 
+    return Response('swipe!' % request.matchdict) 
 
 if __name__ == '__main__':
     with Configurator() as config:
