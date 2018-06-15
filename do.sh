@@ -795,6 +795,10 @@ GetDonationPoints()
 ReadDonation()
 {
   echo "read donation here x y - $1 $2"
+  echo "Requester,48,$(($2-53)),200,20">donationRequest.config
+  echo "Requester,48,$(($2-19)),200,20">>donationRequest.config
+  echo "Requester,80,$(($2+6)),70,27">>donationRequest.config
+  echo "Requester,211,$(($2+6)),32,24">>donationRequest.config
 }
 
 GetDonationWindowBorderPoints()
