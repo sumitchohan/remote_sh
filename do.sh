@@ -782,7 +782,7 @@ GetDonationPoints()
       while [ $y -ge 1 ]
       do
         isGray=$(MatchPixel x y1 68 68 64 1)
-        ReadDonation x y1
+        ReadDonation $x $y1
         break
         y1=$((y1-1))
       done
