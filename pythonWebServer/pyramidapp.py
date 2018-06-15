@@ -51,5 +51,5 @@ if __name__ == '__main__':
         config.add_route('swipe', '/swipe/{x}/{y}/{dx}/{dy}/{n}')
         config.add_view(drag, route_name='swipe')
         app = config.make_wsgi_app()
-    server = make_server('0.0.0.0', 8080, app)
+    server = make_server('0.0.0.0', 8911, app)
     server.serve_forever()
