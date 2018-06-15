@@ -7,7 +7,13 @@ import random
 def execute():
     print "Connecting to device..."
     d.info
-    print "Connected" 
+    print "Connected"
+    print "Clicking 100 100"
+    d.click(100,100)
+    print "Clicking 100 200"
+    d.click(100,200)
+    print "Clicking 100 300"
+    d.click(100,300)
 def exit_gracefully(signum, frame):
     print "Gracefully exiting"
     signal.signal(signal.SIGINT, signal.getsignal(signal.SIGINT)) 
