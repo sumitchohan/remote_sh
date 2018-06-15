@@ -779,6 +779,6 @@ Donate()
       echo "$x $y"
     fi
 
-    y=$((y+10))
+    y=$((y+4))
   done
 }
