@@ -767,13 +767,13 @@ MatchPixel() #x y r g b delta
   fi
   echo $result
 }
-GetDonationPoints()
+Donate()
 {
   y=90
   x=342
   while [ $y -le 600 ]
   do
-    Pixel $x $y
+    #Pixel $x $y
     isGreen=$(MatchPixel x y 171 191 79 100)
     if [ "$isGreen" = "y" ]
     then
@@ -785,6 +785,9 @@ GetDonationPoints()
         if [ "$isGray" = "y" ]
         then
           ReadDonation $x $y1
+          input swipe $x $((y1+5)) 0 $((567-y1))
+          input tap $x 572
+          sleep 10
           break
         fi
         y1=$((y1-1))
