@@ -9,12 +9,16 @@ def execute():
     d.info
     print "Connected"
     print "Clicking 100 100"
-    d.click(100,100)
-    d.click(100,200)
-    d.click(100,300)
-    d.click(200,100)
-    d.click(300,200)
+    d.click(250,250)
+    d.click(250,300)
+    d.click(250,350)
+    d.click(300,350)
+    d.click(350,350)
+    d.click(400,350)
     d.click(400,300)
+    d.click(400,250)
+    d.click(350,250)
+    d.click(300,250)
 def exit_gracefully(signum, frame):
     print "Gracefully exiting"
     signal.signal(signal.SIGINT, signal.getsignal(signal.SIGINT)) 
