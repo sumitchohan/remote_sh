@@ -776,7 +776,7 @@ Donate()
     isGreen=$(MatchPixel x y 171 191 79 20)
     if [ "$isGreen" = "y" ]
     then
-      input tap $x $y
+      echo "$x $y"
     fi
 
     y=$((y+10))
