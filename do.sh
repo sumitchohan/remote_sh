@@ -778,10 +778,23 @@ GetDonationPoints()
     if [ "$isGreen" = "y" ]
     then
       echo "match $x $y"
+      y1=$y
+      while [ $y -ge 1 ]
+      do
+        isGray=$(MatchPixel x y1 68 68 64 1)
+        ReadDonation x y1
+        break
+        y1=$((y1-1))
+      done
       y=$((y+60))
     fi
     y=$((y+10))
   done
+}
+
+ReadDonation()
+{
+  echo "read donation here x y - $1 $2"
 }
 
 GetDonationWindowBorderPoints()
