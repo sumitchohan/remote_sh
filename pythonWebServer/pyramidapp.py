@@ -6,9 +6,10 @@ import sys
 import signal
 import random
 
-def click_world(request):	
-	print request
-    d.click(250,250)
+def click_world(request):
+    #d.click(250,250)
+    this_id = request.matchdict.get('name', -1)
+    print this_id
     return Response('click %(name)s!' % request.matchdict) 
 
 if __name__ == '__main__':
