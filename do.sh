@@ -790,13 +790,22 @@ GetDonationWindowBorderPoints()
   x=302
   while [ $y -le 600 ]
   do
-    Pixel $x $y
-    isGreen=$(MatchPixel x y 171 191 79 100)
-    if [ "$isGreen" = "y" ]
+    isWhite=$(MatchPixel x y 255 255 255 1)
+    if [ "$isWhite" = "y" ]
     then
-      echo "match $x $y"
-      y=$((y+60))
+      break;
     fi
     y=$((y+10))
+  done
+
+  while [ $y -ge 0 ]
+  do
+    isWhite=$(MatchPixel x y 255 255 255 1)
+    if [ "$isWhite" = "n" ]
+    then
+      echo "top $x $y"
+      break;
+    fi
+    y=$((y-1))
   done
 }
