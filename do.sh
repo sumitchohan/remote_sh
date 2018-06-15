@@ -773,7 +773,7 @@ Donate()
   x=342
   while [ $y -le 600 ]
   do
-    isGreen=$(MatchPixel x y 171 191 79 20)
+    isGreen=$(MatchPixel x y 171 191 79 100)
     if [ "$isGreen" = "y" ]
     then
       echo "$x $y"
