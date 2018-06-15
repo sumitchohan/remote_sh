@@ -11,7 +11,7 @@ def click_world(request):
     print x
     y = request.matchdict.get('y', -1)
     print y
-    d.click(x,y)	
+    d.click(int(float(x)),int(float(y)))	
     return Response('click %(x)s!' % request.matchdict) 
 
 if __name__ == '__main__':
