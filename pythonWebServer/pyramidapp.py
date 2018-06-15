@@ -7,11 +7,11 @@ import signal
 import random
 
 def click_world(request):
-    #d.click(250,250)
     x = request.matchdict.get('x', -1)
     print x
     y = request.matchdict.get('y', -1)
     print y
+    d.click(x,y)	
     return Response('click %(x)s!' % request.matchdict) 
 
 if __name__ == '__main__':
