@@ -672,22 +672,23 @@ CaptureZoomEvents()
 	sleep 4
 	kill $PID1
 }
-touchDevice=$(getevent -pl 2>&1 | sed -n '/^add/{h}/nox /{x;s/[^/]*//p}')
+touchDevice=$(getevent -pl 2>&1 | sed -n '/^add/{h}/ABS_MT_TOUCH/{x;s/[^/]*//p}')
 Tapf()
 {
-	 input tap $1 $2
+	 # input tap $1 $2
 	# # # #approximate tap for bluestack
 	# # # # x=$(($1*1000/49))
-	# # # # y=$(($2*2000/55))
+	# # # # y=$(($2*2000/55)) /dev/input/event1
+
 	# # # #echo "$x $y"
-	 # sendevent $touchDevice 0 0 0
-	 # sendevent $touchDevice 3 53 $1
-	 # sendevent $touchDevice 3 54 $2
-	 # sendevent $touchDevice 0 2 0
-	 # sendevent $touchDevice 0 0 0
-	 # sendevent $touchDevice 0 2 0
-	 # sendevent $touchDevice 0 0 0
-	 # sleep 0.001
+	sendevent /dev/input/event1 0 0 0
+	sendevent /dev/input/event1 3 53 $1
+	sendevent /dev/input/event1 3 54 $2
+	sendevent /dev/input/event1 0 2 0
+	sendevent /dev/input/event1 0 0 0
+	sendevent /dev/input/event1 0 2 0
+	sendevent /dev/input/event1 0 0 0
+	sleep 0.001
 }
 DeployStart()
 {
@@ -785,9 +786,9 @@ Donate()
         if [ "$isGray" = "y" ]
         then
           ReadDonation $x $y1
-          input swipe $x $((y1+5)) $x 572 1000
-          input tap $x 572
-          sleep 10
+          #input swipe $x $((y1+5)) $x 572 1000
+          #input tap $x 572
+          #sleep 10
           break
         fi
         y1=$((y1-1))
