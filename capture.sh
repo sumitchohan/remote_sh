@@ -1,5 +1,8 @@
+echo $(date +%N)
 adb shell screencap /sdcard/scr.raw
+echo $(date +%N)
 adb pull /sdcard/scr.raw
+echo $(date +%N)
 tail -c +13 scr.raw > scr.rgba
 hexdump -e '/4 "%d"' -s 0 -n 4 scr.raw
 hexdump -e '/4 "%d"' -s 4 -n 4 scr.raw
