@@ -1,9 +1,0 @@
-#AnotherDevice|e,335,569,66,66,66;e,338,771,66,66,66|Skip,Tap,1118,61
-#Army|e,250,253,250,250,248;e,249,320,232,232,224;e,256,561,232,232,224|Skip,Tap,1502,259;TrainTroops,Tap,462,271;BrewSpells,Tap,734,269;QuickTrain,Tap,1009,262;Train1,Tap,138,461;Train2,Tap,252,458
-#Battle|e,66,1100,255,255,255;e,51,1096,255,255,255|Choose1,Tap,176,1243;Choose2,Tap,322,1252;Choose3,Tap,442,1249;Bottom,Tap,784,1142;Left,Tap,44,603;Top,Tap,787,46;Right,Tap,1512,600
-#BrewSpells|e,696,248,250,250,249;e,696,325,232,232,224;e,692,515,232,232,224|Skip,Tap,1501,263;Army,Tap,211,268;TrainTroops,Tap,450,269;QuickTrain,Tap,1034,267
-#BuilderHome|e,1363,221,255,255,255;e,1534,854,255,255,255|Skip,Tap,1075,291
-#Chat|e,18,1057,68,68,64;e,17,929,68,68,64;e,16,1266,122,118,92|Skip,Tap,653,569
-#Home|e,1365,303,255,255,255;e,1533,855,255,255,255|Chat,Tap,20,573;Attack,Tap,107,1222;Train,Tap,67,1087
-#QuickTrain|e,958,244,250,250,249;e,957,317,232,232,224;e,980,692,232,232,224|Army,Tap,207,266;TrainTroops,Tap,472,269;BrewSpells,Tap,734,268;Skip,Tap,1500,261;QuickTrain1,Tap,1417,648;QuickTrain2,Tap,1427,851;QuickTrain3,Tap,1428,1046
-#TrainTroops|e,387,255,250,250,248;e,389,329,232,232,224;e,384,516,232,232,224|Army,Tap,195,266;BrewSpells,Tap,723,271;QuickTrain,Tap,1017,263;Skip,Tap,1502,260;Boost,Tap,1430,614;Barb,Tap,143,771;Giant,Tap,320,759;WallBreaker,Tap,498,759;Wizard,Tap,660,759;Dragon,Tap,814,762;Archer,Tap,158,924;Goblin,Tap,344,922;Loon,Tap,489,936;Healer,Tap,674,919
