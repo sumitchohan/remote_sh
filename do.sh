@@ -675,20 +675,20 @@ CaptureZoomEvents()
 touchDevice=$(getevent -pl 2>&1 | sed -n '/^add/{h}/ABS_MT_TOUCH/{x;s/[^/]*//p}')
 Tapf()
 {
-	 # input tap $1 $2
+	  input tap $1 $2
 	# # # #approximate tap for bluestack
 	# # # # x=$(($1*1000/49))
 	# # # # y=$(($2*2000/55)) /dev/input/event1
 
 	# # # #echo "$x $y"
-	sendevent /dev/input/event1 0 0 0
-	sendevent /dev/input/event1 3 53 $1
-	sendevent /dev/input/event1 3 54 $2
-	sendevent /dev/input/event1 0 2 0
-	sendevent /dev/input/event1 0 0 0
-	sendevent /dev/input/event1 0 2 0
-	sendevent /dev/input/event1 0 0 0
-	sleep 0.001
+	# sendevent /dev/input/event1 0 0 0
+	# sendevent /dev/input/event1 3 53 $1
+	# sendevent /dev/input/event1 3 54 $2
+	# sendevent /dev/input/event1 0 2 0
+	# sendevent /dev/input/event1 0 0 0
+	# sendevent /dev/input/event1 0 2 0
+	# sendevent /dev/input/event1 0 0 0
+	# sleep 0.001
 }
 DeployStart()
 {
