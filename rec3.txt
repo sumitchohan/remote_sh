@@ -1,0 +1,27 @@
+MotionNotify 146 719
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 217 715
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 293 716
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 367 718
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 436 721
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 524 727
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 590 727
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 666 722
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 723 718
+ButtonPress 1
+ButtonRelease 1
