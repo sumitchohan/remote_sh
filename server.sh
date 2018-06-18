@@ -10,8 +10,7 @@ do
     while read line
     do
 		echo " request line  - $line"
-		crlf=$'\n' 
-		source handler.sh $line > out  
+		sh handler.sh $line > out  
     done 
   )
 done
