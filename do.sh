@@ -92,9 +92,9 @@ ProcessStateActionInternal()
 	name=${parts[0]}
 	pointsData=${parts[1]}
 	actions=${parts[2]}
-	Log "action - $actions"
-	Log "name - $name"
-	Log "pointsData - $pointsData"
+	#Log "action - $actions"
+	#Log "name - $name"
+	#Log "pointsData - $pointsData"
 	if [ "$2" = "match" ]
 	then
 		result="n"
@@ -207,7 +207,7 @@ WaitFor()
 		break
 	else
 		Log "No match $1"
-		ILS=","
+		IFS=","
 		set -A skipScreens $2
 		for skipScreen in "${skipScreens[@]}"
 		do
