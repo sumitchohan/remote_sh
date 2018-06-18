@@ -6,7 +6,7 @@ do
 	#echo "convert -resize 200% /tmp/${parts[0]}_C.png /tmp/${parts[0]}_C1.png" | sh 
 	echo "tesseract /tmp/${parts[0]}_C.png /tmp/${parts[0]}_C --tessdata-dir ~/Desktop/gh/remote_sh/tessdata -l coc1" | sh
 	cat "/tmp/${parts[0]}_C.txt" | sed 's/[^0-9]*//g' > /tmp/${parts[0]}.txt
-	res=$("cat  /tmp/${parts[0]}.txt")
+	res=$(cat  "/tmp/${parts[0]}.txt")
 	echo "${parts[0]} - $res"
 	adb push /tmp/${parts[0]}.txt /sdcard/coc/${parts[0]}.txt
 done < "$1.config"
