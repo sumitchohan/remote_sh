@@ -1,7 +1,7 @@
 MotionNotify 83 135
 ButtonPress 1
 ButtonRelease 1
-Delay .2
+Delay 1
 MotionNotify 325 478
 ButtonPress 1
 ButtonRelease 1
