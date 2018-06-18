@@ -7,4 +7,5 @@ do
 	echo "tesseract /tmp/${parts[0]}_C.png /tmp/${parts[0]}_C --tessdata-dir ~/Desktop/gh/remote_sh/tessdata -l coc1" | sh
 	cat "/tmp/${parts[0]}_C.txt" | sed 's/[^0-9]*//g' > /tmp/${parts[0]}.txt
 	cat  /tmp/${parts[0]}.txt
+	adb push /tmp/${parts[0]}.txt /sdcard/coc/${parts[0]}.txt
 done < "$1.config"
