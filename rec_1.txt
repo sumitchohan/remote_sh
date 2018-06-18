@@ -1,0 +1,132 @@
+MotionNotify 83 135
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 325 478
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 241 418
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 213 398
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 185 378
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 157 357
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 130 337
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 102 317
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 112 269
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 149 241
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 186 214
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 224 186
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 261 159
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 298 131
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 335 104
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 409 104
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 445 131
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 482 158
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 518 185
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 554 213
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 590 240
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 627 267
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 631 318
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 600 342
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 568 365
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 537 389
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 505 413
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 473 436
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 442 460
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 241 418
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 185 378
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 130 337
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 112 269
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 186 214
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 261 159
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 335 104
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 445 131
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 518 185
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 590 240
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 631 318
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 568 365
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 505 413
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 442 460
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 715 109
+ButtonPress 1
+ButtonRelease 1
