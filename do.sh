@@ -469,7 +469,7 @@ LooseTrophies()
 Home()
 {
 	StartCOC
-	WaitFor "Home" "Inactive,Attacked,BuilderHome,AnotherDevice" 60
+	WaitFor "Home" "BuilderHome,AnotherDevice" 60
 }
 Versus()
 {
@@ -833,3 +833,4 @@ GetDonationWindowBorderPoints()
     y=$((y-1))
   done
 }
+
