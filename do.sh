@@ -472,7 +472,7 @@ LooseTrophies()
 Home()
 {
 	StartCOC
-	WaitFor "Home" "BuilderHome,AnotherDevice,Inactive" 60
+	WaitFor "Home" "BuilderHome,AnotherDevice,Inactive,Attacked" 60
 }
 Versus()
 {
