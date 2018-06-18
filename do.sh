@@ -92,6 +92,9 @@ ProcessStateActionInternal()
 	name=${parts[0]}
 	pointsData=${parts[1]}
 	actions=${parts[2]}
+	Log "action - $actions"
+	Log "name - $name"
+	Log "pointsData - $pointsData"
 	if [ "$2" = "match" ]
 	then
 		result="n"
@@ -108,7 +111,7 @@ ProcessStateActionInternal()
 			r=$((16#$rh))
 			g=$((16#$gh))
 			b=$((16#$bh))
-      s=$(($(Diff $r ${pixelDetails[3]}) + $(Diff $g ${pixelDetails[4]}) + $(Diff $b ${pixelDetails[5]}) ))
+			s=$(($(Diff $r ${pixelDetails[3]}) + $(Diff $g ${pixelDetails[4]}) + $(Diff $b ${pixelDetails[5]}) ))
 			#s=$((($r - ${pixelDetails[3]})*($r - ${pixelDetails[3]}) + ($g - ${pixelDetails[4]})*($g - ${pixelDetails[4]}) + ($b - ${pixelDetails[5]})*($b - ${pixelDetails[5]})))
 			tolerance=0
 			if [ ${pixelDetails[0]} = "a"  ]
