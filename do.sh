@@ -880,10 +880,15 @@ QuickAttack()
 Tap 17 95
 sleep 2.5
 Tap 110 620
+sleep .1
 Tap 193 439
+sleep .1
 Tap 218 142
+sleep .1
 Tap 591 145
+sleep .1
 Tap 626 432
+sleep .1
 Tap 412 613
 sleep 3
 Tap 225 308
