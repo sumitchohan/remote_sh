@@ -885,19 +885,30 @@ Tap 218 142
 Tap 591 145
 Tap 626 432
 Tap 412 613
-sleep 6
+sleep 3
 Tap 225 308
+sleep .1
 Tap 416 178
+sleep .1
 Tap 561 289
+sleep .1
 Tap 399 381
+sleep .1
 Tap 194 608
+sleep 1
 Tap 323 80
+sleep .1
 Tap 280 620
+sleep .1
 Tap 323 80
+sleep .1
 Tap 344 615
+sleep .1
 Tap 323 80
 sleep 10
 Tap 194 608 
-Tap 280 620 
+sleep .1
+Tap 280 620
+sleep .1 
 Tap 344 615
 }
