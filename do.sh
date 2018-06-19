@@ -305,6 +305,13 @@ SkipVersusHome()
 	Sleep 4
 	Tap $1 $2
 }
+FRep()
+{
+	isFirstSecond=$(MatchPixel 16 95 14 194 129 1)
+	isSecond=$(MatchPixel 10 95 14 194 129 1)
+		
+}
+
 Zoom1()
 {
 	Dump
@@ -390,6 +397,14 @@ VersusAttack()
 
 Zoom()
 {
+	
+	# X:16;Y:95 ;R:14 ;G:194;B:129;A:255
+# X:10;Y:95 ;R:14 ;G:194;B:129;A:255
+# X:10;Y:95 ;R:252 ;G:0;B:11;A:255
+ 
+ # 13 92
+ 
+ 
 	Act "FRep" "Zoom"
 	#found=$(WaitFor "Frep" "" 10)
 	#if [ "$found" = "n" ]
@@ -678,7 +693,7 @@ CaptureZoomEvents()
 touchDevice=$(getevent -pl 2>&1 | sed -n '/^add/{h}/ABS_MT_TOUCH/{x;s/[^/]*//p}')
 Tapf()
 {
-	  input tap $1 $2
+	SendMessage "tap.sh $1 $2"
 	# # # #approximate tap for bluestack
 	# # # # x=$(($1*1000/49))
 	# # # # y=$(($2*2000/55)) /dev/input/event1

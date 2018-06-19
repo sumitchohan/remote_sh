@@ -7,12 +7,11 @@ import signal
 import random
 
 def click(request):
-    for lp in range(100):
-	x = request.matchdict.get('x', -1)
-	print x
-	y = request.matchdict.get('y', -1)
-	print y
-	d.click(int(float(x)),int(float(y)))	
+    x = request.matchdict.get('x', -1)
+    print x
+    y = request.matchdict.get('y', -1)
+    print y
+    d.click(int(float(x)),int(float(y)))	
     return Response('click!' % request.matchdict) 
 	
 def drag(request):
