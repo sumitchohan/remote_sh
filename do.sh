@@ -323,7 +323,7 @@ FRep()
 	then
 		loopCnt=$(($1-$currNumber))
 	else		
-		loopCnt=$((3-$1+$currNumber))
+		loopCnt=$((3+$1-$currNumber))
 	fi
 	echo $currNumber
 	echo $loopCnt		
