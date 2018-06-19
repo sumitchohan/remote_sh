@@ -310,10 +310,9 @@ FRep()
 	isFirst=$(MatchPixel 16 95 14 194 129 1)
 	isSecond=$(MatchPixel 10 95 14 194 129 1)
 	currNumber=1
-	if [ "$isSecond" = "y" ]
-	then 
+	if [ "$isSecond" = "y" ]; then 
 		currNumber=1
-	elif [ "$isFirst" = "y" ]
+	elif [ "$isFirst" = "y" ]; then
 		currNumber=2
 	else
 		currNumber=3
