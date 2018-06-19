@@ -326,12 +326,12 @@ FRep()
 		loopCnt=$((3+$1-$currNumber))
 	fi
 	retryIndex=0  
-	while [ "$retryIndex" -lt "$loopCnt" ]
+	while [ $retryIndex -lt $loopCnt ]
 	do
 		Tap 17 57
 		sleep 1
-		((retryIndex++)
-	;done;	
+		(( retryIndex++ )
+	done
 	Tap 13 94 		
 }
 
