@@ -307,6 +307,7 @@ SkipVersusHome()
 }
 FRep()
 {
+	Dump
 	isFirst=$(MatchPixel 16 95 14 194 129 1)
 	isSecond=$(MatchPixel 10 95 14 194 129 1)
 	currNumber=1
@@ -317,7 +318,15 @@ FRep()
 	else
 		currNumber=3
 	fi
-	echo $currNumber		
+	loopCnt=0;
+	if [ "$1" -ge "$currNumber" ]
+	then
+		loopCnt=$(($1-$currNumber))
+	else		
+		loopCnt=$((3-$1+$currNumber))
+	fi
+	echo $currNumber
+	echo $loopCnt		
 }
 
 Zoom1()
