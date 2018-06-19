@@ -307,9 +307,18 @@ SkipVersusHome()
 }
 FRep()
 {
-	isFirstSecond=$(MatchPixel 16 95 14 194 129 1)
+	isFirst=$(MatchPixel 16 95 14 194 129 1)
 	isSecond=$(MatchPixel 10 95 14 194 129 1)
-		
+	currNumber=1
+	if [ "$isSecond" = "y" ]
+	then 
+		currNumber=1
+	elif [ "$isFirst" = "y" ]
+		currNumber=2
+	else
+		currNumber=3
+	fi
+	echo $currNumber		
 }
 
 Zoom1()
@@ -852,3 +861,11 @@ GetDonationWindowBorderPoints()
   done
 }
 
+QuickAttack()
+{
+Tap 110 620
+Tap 193 439
+Tap 218 142
+Tap 591 145
+Tap 626 432
+}
