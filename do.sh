@@ -326,12 +326,12 @@ FRep()
 		loopCnt=$((3+$1-$currNumber))
 	fi
 	retryIndex=0  
-	while [ $retryIndex -lt $loopCnt ]
-	do
-		Tap 17 57
-		sleep 1
-		(( retryIndex++ )
-	done
+	# while [ $retryIndex -lt $loopCnt ]
+	# do
+		# Tap 17 57
+		# sleep 1
+		# (( retryIndex++ )
+	# done
 	Tap 13 94 		
 }
 
@@ -877,6 +877,8 @@ GetDonationWindowBorderPoints()
 
 QuickAttack()
 {
+Tap 17 95
+sleep 2.5
 Tap 110 620
 Tap 193 439
 Tap 218 142
