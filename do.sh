@@ -325,8 +325,14 @@ FRep()
 	else		
 		loopCnt=$((3+$1-$currNumber))
 	fi
-	echo $currNumber
-	echo $loopCnt		
+	retryIndex=0  
+	while [ $retryIndex -lt $loopCnt ]
+	do
+		Tap 17 57
+		sleep 1
+		((retryIndex++)
+	done	
+	Tap 13 94 		
 }
 
 Zoom1()
