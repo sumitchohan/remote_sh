@@ -14,11 +14,9 @@ filelines=`cat $1.config`
 for line in $filelines ; do
 	echo $line | tr ',' '\n' >"$line.txt"
 	fileParts=`cat $line.txt` 
-	lineIndex=0;
-	parts=()
+	lineIndex=0; 
 	for p in $fileParts ; do
-		echo $p
-		parts[$lineIndex]=$p
+		echo $p 
 		lineIndex=$lineIndex+1
 	done
 done
