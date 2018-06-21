@@ -1,2 +1,1 @@
-sh capture.sh
-source ocr.sh $1
+sh capture.sh && source ocr.sh $1
