@@ -10,14 +10,8 @@ hexdump -e '/4 "%d"' -s 8 -n 4 scr.raw
 convert -size 800x666 -depth 8 scr.rgba /tmp/scr.png
 echo "time - $(date +%S_%N)"
 echo "reading $1"  
-for fn in `cat "$1.config"`; do
-    echo "the next line is $fn" 
-done
-
-
-
-while read line
-do
+for line in `cat "$1.config"`; do
+    echo "the next line is $line" 
 	parts=($(echo "$line" | tr ',' '\n'))
 	echo "convert '/tmp/scr.png[${parts[3]}x${parts[4]}+${parts[1]}+${parts[2]}]' /tmp/${parts[0]}.png" | sh
 	echo "./ocrutil/OcrUtil KeepPixels /tmp/${parts[0]}.png /tmp/${parts[0]}_C.png ./ocrutil/whitelist.txt" | sh 
@@ -27,5 +21,6 @@ do
 	res=$(cat  "/tmp/${parts[0]}.txt")
 	echo "${parts[0]} - $res"
 	adb push /tmp/${parts[0]}.txt /sdcard/coc/${parts[0]}.txt
-done < "$1.config"
+done
 
+ 
