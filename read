@@ -14,8 +14,15 @@ filelines=`cat $1.config`
 echo Start
 for line in $filelines ; do
     echo $line
-	IFS=', ' read -r -a array <<< "$line"
-	echo "${array[0]}"
+	string="1:2:3:4:5"
+set -f                      # avoid globbing (expansion of *).
+array=(${string//:/ })
+for i in "${!array[@]}"
+do
+    echo "$i=>${array[i]}"
+done
+
+
 done
 
 
