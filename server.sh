@@ -1,3 +1,4 @@
+#!/bin/sh
 rm -f out
 mkfifo out
 trap "rm -f out" EXIT
