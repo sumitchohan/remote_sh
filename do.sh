@@ -917,3 +917,6 @@ Tap 280 620
 sleep .1 
 Tap 344 615
 }
+
+python ./pyramidapp.py &
+source server.sh &
