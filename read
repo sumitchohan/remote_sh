@@ -9,13 +9,6 @@ hexdump -e '/4 "%d"' -s 4 -n 4 scr.raw
 hexdump -e '/4 "%d"' -s 8 -n 4 scr.raw
 convert -size 800x666 -depth 8 scr.rgba /tmp/scr.png
 echo "time - $(date +%S_%N)"
-echo "reading $1"  
-for fn in `cat "$1.config"`; do
-    echo "the next line is $fn"  
-done
-
-
-
 while read line
 do
 	parts=($(echo "$line" | tr ',' '\n'))
