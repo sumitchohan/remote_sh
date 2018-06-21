@@ -1,1 +1,2 @@
-echo "Hello $1!"
+sh capture.sh
+source ocr.sh $1
