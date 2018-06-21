@@ -12,7 +12,7 @@ echo "time - $(date +%S_%N)"
 
 filelines=`cat $1.config` 
 for line in $filelines ; do
-	echo $line | tr ',' '\n\ > $line.txt	
+	echo $line | tr ',' '\n\ >"$line.txt"
 	fileParts=`cat $line.txt`  	
 	for parts in $fileParts ; do
 		echo $parts
