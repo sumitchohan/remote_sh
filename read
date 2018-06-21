@@ -14,9 +14,8 @@ filelines=`cat $1.config`
 echo Start
 for line in $filelines ; do
     echo $line
-	
-	parts=($(echo "$line" | tr ',' '\n'))
-	echo "convert '/tmp/scr.png[${parts[3]}x${parts[4]}+${parts[1]}+${parts[2]}]' /tmp/${parts[0]}.png"
+	IFS=', ' read -r -a array <<< "$line"
+	echo "${array[0]}"
 done
 
 
