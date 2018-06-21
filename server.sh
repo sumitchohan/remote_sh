@@ -10,7 +10,7 @@ do
     while read line
     do
 		echo " request line  - $line"
-		source handler.sh $line > out  
+		./handler.sh $line > out  
     done 
   )
 done
