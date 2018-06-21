@@ -14,6 +14,7 @@ filelines=`cat $1.config`
 echo Start
 for line in $filelines ; do
     echo $line 
+	echo "12|23|11" | awk '{split($0,a,"|"); print a[3],a[2],a[1]}'
 done
 
 
