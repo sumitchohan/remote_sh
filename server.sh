@@ -11,7 +11,7 @@ do
     while read line
     do
 		echo " request line  - $line"
-		source handler.sh $line > out  
+		bash handler.sh $line > out  
     done 
   )
 done

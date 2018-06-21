@@ -11,8 +11,7 @@ convert -size 800x666 -depth 8 scr.rgba /tmp/scr.png
 echo "time - $(date +%S_%N)"
 echo "reading $1"  
 for fn in `cat "$1.config"`; do
-    echo "the next line is $fn" 
-	parts=($(echo "$fn" | tr ',' '\n'))
+    echo "the next line is $fn"  
 done
 
 
