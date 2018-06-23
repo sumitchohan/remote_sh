@@ -652,8 +652,8 @@ Attack()
 	((eg=gold+elixir))
 	Log "loot - de $de elixir $elixir gold $gold eg $eg"
 	echo "loot - de $de elixir $elixir gold $gold eg $eg"
-	while [ "$attacked" = "n" ]
-	do
+	#while [ "$attacked" = "n" ]
+	#do
 		if [ "$de" -ge "1000" ] || [ "$gold" -ge "200000" ] || [ "$elixir" -ge "200000" ] || [ "$eg" -ge "300000" ]
 		then
 			Log "attacking"
@@ -679,7 +679,7 @@ Attack()
 			Log "loot - de $de elixir $elixir gold $gold eg $eg"
 			echo "loot - de $de elixir $elixir gold $gold eg $eg"
 		fi
-	done
+	#done
 }
 CaptureTrainData()
 {
