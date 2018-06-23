@@ -654,7 +654,7 @@ Attack()
 	echo "loot - de $de elixir $elixir gold $gold eg $eg"
 	#while [ "$attacked" = "n" ]
 	#do
-		if [ "$de" -ge "1000" ] || [ "$gold" -ge "200000" ] || [ "$elixir" -ge "200000" ] || [ "$eg" -ge "300000" ]
+		if [ "$de" -ge "10000" ] || [ "$gold" -ge "200000" ] || [ "$elixir" -ge "200000" ] || [ "$eg" -ge "300000" ]
 		then
 			Log "attacking"
 			echo "ready to attack"
