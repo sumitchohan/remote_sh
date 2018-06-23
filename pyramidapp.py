@@ -57,7 +57,7 @@ def execute(request):
             d.click(int(float(parts[1])),int(float(parts[2])))
         elif parts[0]=='wait':
             print ('waiting' + parts[1])
-            time.sleep(float(parts[1])
+            time.sleep(float(parts[1]))
     return Response('executed')
 
 if __name__ == '__main__':
