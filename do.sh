@@ -308,31 +308,31 @@ SkipVersusHome()
 }
 FRep()
 {
-	Dump
-	isFirst=$(MatchPixel 16 95 14 194 129 1)
-	isSecond=$(MatchPixel 10 95 14 194 129 1)
-	currNumber=1
-	if [ "$isSecond" = "y" ]; then 
-		currNumber=1
-	elif [ "$isFirst" = "y" ]; then
-		currNumber=2
-	else
-		currNumber=3
-	fi
-	loopCnt=0;
-	if [ "$1" -ge "$currNumber" ]
-	then
-		loopCnt=$(($1-$currNumber))
-	else		
-		loopCnt=$((3+$1-$currNumber))
-	fi
-	retryIndex=0  
-	# while [ $retryIndex -lt $loopCnt ]
-	# do
-		# Tap 17 57
-		# sleep 1
-		# (( retryIndex++ )
-	# done
+	# Dump
+	# isFirst=$(MatchPixel 16 95 14 194 129 1)
+	# isSecond=$(MatchPixel 10 95 14 194 129 1)
+	# currNumber=1
+	# if [ "$isSecond" = "y" ]; then 
+	# 	currNumber=1
+	# elif [ "$isFirst" = "y" ]; then
+	# 	currNumber=2
+	# else
+	# 	currNumber=3
+	# fi
+	# loopCnt=0;
+	# if [ "$1" -ge "$currNumber" ]
+	# then
+	# 	loopCnt=$(($1-$currNumber))
+	# else		
+	# 	loopCnt=$((3+$1-$currNumber))
+	# fi
+	# retryIndex=0  
+	# # while [ $retryIndex -lt $loopCnt ]
+	# # do
+	# 	# Tap 17 57
+	# 	# sleep 1
+	# 	# (( retryIndex++ )
+	# # done
 	Tap 13 94 		
 }
 
@@ -422,6 +422,7 @@ VersusAttack()
 Zoom()
 {
 	
+	FRep
 	# X:16;Y:95 ;R:14 ;G:194;B:129;A:255
 # X:10;Y:95 ;R:14 ;G:194;B:129;A:255
 # X:10;Y:95 ;R:252 ;G:0;B:11;A:255
@@ -429,7 +430,7 @@ Zoom()
  # 13 92
  
  
-	Act "FRep" "Zoom"
+	#Act "FRep" "Zoom"
 	#found=$(WaitFor "Frep" "" 10)
 	#if [ "$found" = "n" ]
 	#then
