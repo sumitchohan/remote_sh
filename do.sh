@@ -682,6 +682,232 @@ Attack()
 		fi
 	#done
 }
+
+CaptureBased()
+{
+	Act "Home" "Attack"
+	sleep .5
+	#WaitFor "FindAMatch" "" 20
+	#Act "FindAMatch" "Find"
+	Tap 230 460
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+	SendMessage "snapshot.sh"
+	Act "Battle" "Next"
+	WaitFor "Battle" "" 120 
+}
 CaptureTrainData()
 {
 	WaitFor "Home" "Attacked,ConnectionLost,VersusHome,ReturnHome" 60
