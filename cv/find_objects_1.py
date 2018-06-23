@@ -2,6 +2,9 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 import datetime
+from wsgiref.simple_server import make_server
+from pyramid.config import Configurator
+from pyramid.response import Response
 
 MIN_MATCH_COUNT = 10
 # Initiate SIFT detector
@@ -22,31 +25,63 @@ for line in lines:
 
 print (datetime.datetime.now().strftime("%H:%M:%S.%f"))
 
-img2 = cv2.imread('box_in_scene.png',0) # trainImage
-kp2, des2 = sift.detectAndCompute(img2,None)
 
-FLANN_INDEX_KDTREE = 0
-index_params = dict(algorithm = FLANN_INDEX_KDTREE, trees = 5)
-search_params = dict(checks = 50)
 
-flann = cv2.FlannBasedMatcher(index_params, search_params)
+def click(request):
+    x = request.matchdict.get('x', -1)
+    print (x)
+    y = request.matchdict.get('y', -1)
+    print (y) 
+    return Response('click!' % request.matchdict) 
 
-matches = flann.knnMatch(dictSourcedes['src1'],des2,k=2)
 
-# store all the good matches as per Lowe's ratio test.
-good = []
-for m,n in matches:
-    if m.distance < 0.7*n.distance:
-        good.append(m) 
-print('good matches - '+repr(len(good)))
-if len(good)>MIN_MATCH_COUNT: 
-    dst_pts = np.float32([ kp2[m.trainIdx].pt for m in good ]).reshape(-1,1,2)
-    print (datetime.datetime.now().strftime("%H:%M:%S.%f"))
-    print (len(dst_pts))
-    sums=dst_pts.sum(axis=0)
-    x=sums[0][0]/len(dst_pts)
-    y=sums[0][1]/len(dst_pts)
-    print(x)
-    print(y)  
-else:
-    print ("Not enough matches are found - %d/%d" % (len(good),MIN_MATCH_COUNT))
+def findObject(request):
+    src = request.matchdict.get('src', -1)
+    print (src)
+    target = request.matchdict.get('target', -1)
+    print (target) 
+    img2 = cv2.imread(target,0) # trainImage - target = box_in_scene.png
+    kp2, des2 = sift.detectAndCompute(img2,None)
+    
+    FLANN_INDEX_KDTREE = 0
+    index_params = dict(algorithm = FLANN_INDEX_KDTREE, trees = 5)
+    search_params = dict(checks = 50)
+
+    flann = cv2.FlannBasedMatcher(index_params, search_params)
+    
+    matches = flann.knnMatch(dictSourcedes[src],des2,k=2)
+
+    # store all the good matches as per Lowe's ratio test.
+    good = []
+    for m,n in matches:
+    	if m.distance < 0.7*n.distance:
+    		good.append(m) 
+    print('good matches - '+repr(len(good)))
+    if len(good)>MIN_MATCH_COUNT: 
+    	dst_pts = np.float32([ kp2[m.trainIdx].pt for m in good ]).reshape(-1,1,2)
+    	print (datetime.datetime.now().strftime("%H:%M:%S.%f"))
+    	print (len(dst_pts))
+    	sums=dst_pts.sum(axis=0)
+    	x=sums[0][0]/len(dst_pts)
+    	y=sums[0][1]/len(dst_pts)
+    	print(x)
+    	print(y)  
+    else:
+    	print ("Not enough matches are found - %d/%d" % (len(good),MIN_MATCH_COUNT))
+
+
+
+
+
+
+    return Response('findObject!' % request.matchdict) 
+
+if __name__ == '__main__':
+    with Configurator() as config:
+        config.add_route('click', '/click/{x}/{y}')
+        config.add_view(click, route_name='click') 
+        config.add_route('findObject', '/findObject/{src}/{target}')
+        config.add_view(findObject, route_name='findObject') 
+        app = config.make_wsgi_app()
+    server = make_server('0.0.0.0', 8911, app)
+    server.serve_forever()
