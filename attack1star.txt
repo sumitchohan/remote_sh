@@ -1,4 +1,4 @@
-tap,44,616 
+tap,44,616,choosefirst-loon 
 tap,305,90
 tap,353,53
 tap,256,126
@@ -34,23 +34,23 @@ tap,548,127
 tap,596,164
 tap,110,237
 tap,645,201 
-tap,116,616
+tap,116,616,choosesecond-lava
 tap,299,93
 tap,188,171
 tap,497,88
 tap,622,183
 wait,2
-tap,404,616
+tap,404,616,choose6th-rage
 tap,408,145
 tap,316,212
 tap,240,267
 tap,484,210
 tap,554,260 
-tap,188,616
+tap,188,616,choose king
 tap,267,115
-tap,260,616
+tap,260,616,choose queen
 tap,267,115
-tap,332,616
+tap,332,616,choose warden
 tap,267,115
 wait,5
 tap,188,616
