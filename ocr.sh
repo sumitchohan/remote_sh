@@ -7,5 +7,5 @@ do
 	echo "convert -resize 200% /tmp/${parts[0]}_C.png /tmp/${parts[0]}_C1.png" >>$1_read.sh 
 	echo "tesseract /tmp/${parts[0]}_C1.png /tmp/${parts[0]}_C --tessdata-dir ~/Desktop/gh/remote_sh/tessdata -l coc1" >>$1_read.sh
 	echo "cat \"/tmp/${parts[0]}_C.txt\" | sed 's/[^0-9]*//g' > /tmp/${parts[0]}.txt" >>$1_read.sh 
-	echo "adb push /tmp/${parts[0]}.txt /sdcard/coc/${parts[0]}.txt" >>$1_read.sh
+	echo "adb push /tmp/${parts[0]}.txt /sdcard/coc/ocred_${parts[0]}.txt" >>$1_read.sh
 done < "$1.config"

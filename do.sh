@@ -282,22 +282,23 @@ Loose()
 }
 Read()
 {
-	if [ -e "ocr_coca_$1.request" ]
-	then
-		rm "ocr_coca_$1.request"
-	fi
-	echo "request">"ocr_coca_$1.request"
-	wc=1
-	while [ $wc -le 30 ]
-	do
-		if [ -e "ocr_coca_$1.request" ]
-		then
-			sleep 1
-		else
-			break
-		fi
-		(( wc++ ))
-	done
+	SendMessage "read $1"
+# 	if [ -e "ocr_coca_$1.request" ]
+# 	then
+# 		rm "ocr_coca_$1.request"
+# 	fi
+# 	echo "request">"ocr_coca_$1.request"
+# 	wc=1
+# 	while [ $wc -le 30 ]
+# 	do
+# 		if [ -e "ocr_coca_$1.request" ]
+# 		then
+# 			sleep 1
+# 		else
+# 			break
+# 		fi
+# 		(( wc++ ))
+	# done
 }
 SkipVersusHome()
 {
@@ -638,7 +639,8 @@ Attack()
 	Act "Home" "Attack"
 	sleep .5
 	#WaitFor "FindAMatch" "" 20
-	Act "FindAMatch" "Find"
+	#Act "FindAMatch" "Find"
+	Tap 230 460
 	WaitFor "Battle" "" 120
 	#Zoom
 	Read "Battle"
@@ -649,14 +651,15 @@ Attack()
 	eg=0
 	((eg=gold+elixir))
 	Log "loot - de $de elixir $elixir gold $gold eg $eg"
+	echo "loot - de $de elixir $elixir gold $gold eg $eg"
 	while [ "$attacked" = "n" ]
 	do
 		if [ "$de" -ge "1000" ] || [ "$gold" -ge "200000" ] || [ "$elixir" -ge "200000" ] || [ "$eg" -ge "300000" ]
 		then
 			Log "attacking"
-			Zoom1
-			attacked="y"
-			Attack1
+			# Zoom1
+			# attacked="y"
+			# Attack1
 			#WaitFor "Results" "" 400
 			#Act "Results" "Skip"
 			#WaitFor "Home" "" 20
@@ -671,6 +674,7 @@ Attack()
 			gold=$(cat ocred_Gold.txt)
 			((eg=gold+elixir))
 			Log "loot - de $de elixir $elixir gold $gold eg $eg"
+			echo "loot - de $de elixir $elixir gold $gold eg $eg"
 		fi
 	done
 }

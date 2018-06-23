@@ -6,7 +6,6 @@ from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
 
-MIN_MATCH_COUNT = 10
 # Initiate SIFT detector
 sift = cv2.xfeatures2d.SIFT_create()
 f = open('source.txt', "r")
@@ -50,14 +49,17 @@ def findObject(request):
     flann = cv2.FlannBasedMatcher(index_params, search_params)
     
     matches = flann.knnMatch(dictSourcedes[src],des2,k=2)
-
+    minMatchCount=len(dictSourcedes[src])/20
+    print('min match count - ' + repr(minMatchCount))
     # store all the good matches as per Lowe's ratio test.
     good = []
+    x=0
+    y=0
     for m,n in matches:
     	if m.distance < 0.7*n.distance:
     		good.append(m) 
     print('good matches - '+repr(len(good)))
-    if len(good)>MIN_MATCH_COUNT: 
+    if len(good)>minMatchCount: 
     	dst_pts = np.float32([ kp2[m.trainIdx].pt for m in good ]).reshape(-1,1,2)
     	print (datetime.datetime.now().strftime("%H:%M:%S.%f"))
     	print (len(dst_pts))
@@ -68,13 +70,7 @@ def findObject(request):
     	print(y)  
     else:
     	print ("Not enough matches are found - %d/%d" % (len(good),MIN_MATCH_COUNT))
-
-
-
-
-
-
-    return Response('findObject!' % request.matchdict) 
+    return Response(repr(x)+','+repr(y)) 
 
 if __name__ == '__main__':
     with Configurator() as config:
