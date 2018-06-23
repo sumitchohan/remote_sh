@@ -657,6 +657,7 @@ Attack()
 		if [ "$de" -ge "1000" ] || [ "$gold" -ge "200000" ] || [ "$elixir" -ge "200000" ] || [ "$eg" -ge "300000" ]
 		then
 			Log "attacking"
+			echo "ready to attack"
 			# Zoom1
 			# attacked="y"
 			# Attack1
@@ -665,6 +666,8 @@ Attack()
 			#WaitFor "Home" "" 20
 		else
 			Log "not attacking"
+			echo "not attacking and taking snapshots"
+			SendMessage "snapshot.sh"
 			Act "Battle" "Next"
 			WaitFor "Battle" "" 120
 			#Zoom
