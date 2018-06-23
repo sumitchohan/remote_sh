@@ -46,8 +46,8 @@ tap,332,616
 tap,267,115
 wait,5
 tap,188,616
-wait,5
+wait,1
 tap,260,616
-wait,5
+wait,1
 tap,332,616
 
