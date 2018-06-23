@@ -687,109 +687,53 @@ Attack()
 
 CaptureBased()
 {
+	Zoom
 	Act "Home" "Attack"
 	sleep .5
 	#WaitFor "FindAMatch" "" 20
 	#Act "FindAMatch" "Find"
 	Tap 230 460
 	WaitFor "Battle" "" 120 
-	Zoom
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
 	WaitFor "Battle" "" 120 
-	Zoom
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
 	WaitFor "Battle" "" 120 
-	Zoom
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
 	WaitFor "Battle" "" 120 
-	Zoom
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
 	WaitFor "Battle" "" 120 
-	Zoom
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
 	WaitFor "Battle" "" 120 
-	Zoom
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
 	WaitFor "Battle" "" 120 
-	Zoom
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
 	WaitFor "Battle" "" 120 
-	Zoom
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
 	WaitFor "Battle" "" 120 
-	Zoom
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
 	WaitFor "Battle" "" 120 
-	Zoom
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
 	WaitFor "Battle" "" 120 
-	Zoom
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
 	WaitFor "Battle" "" 120 
-	Zoom
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
 	WaitFor "Battle" "" 120 
-	Zoom
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
 	WaitFor "Battle" "" 120 
-	Zoom
-	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
-	WaitFor "Battle" "" 120 
-	Zoom
-	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
-	WaitFor "Battle" "" 120 
-	Zoom
-	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
-	WaitFor "Battle" "" 120 
-	Zoom
-	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
-	WaitFor "Battle" "" 120 
-	Zoom
-	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
-	WaitFor "Battle" "" 120 
-	Zoom
-	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
-	WaitFor "Battle" "" 120 
-	Zoom
-	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
-	WaitFor "Battle" "" 120 
-	Zoom
-	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
-	WaitFor "Battle" "" 120 
-	Zoom
-	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
-	WaitFor "Battle" "" 120 
-	Zoom
-	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
-	WaitFor "Battle" "" 120 
-	Zoom
-	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
-	WaitFor "Battle" "" 120 
-	Zoom 
+	SendMessage "snapshot.sh" 
 }
 CaptureTrainData()
 {
