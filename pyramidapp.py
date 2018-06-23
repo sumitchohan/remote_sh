@@ -53,11 +53,11 @@ def execute(request):
         parts=line.split(',')
         print(parts[0])
         if parts[0]=='tap':
-            print ('Tapping')
-            d.click(parts[1],parts[2])
+            print ('Tapping - ' + parts[1] + ' '+parts[2])
+            d.click(int(float(parts[1])),int(float(parts[2])))
         elif parts[0]=='wait':
-            print ('waiting')
-            time.sleep(parts[1])
+            print ('waiting' + parts[1])
+            time.sleep(float(parts[1])
     return Response('executed')
 
 if __name__ == '__main__':
