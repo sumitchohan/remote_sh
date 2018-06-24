@@ -649,11 +649,12 @@ Attack()
 	de=$(cat ocred_DE.txt)
 	elixir=$(cat ocred_Elixir.txt)
 	gold=$(cat ocred_Gold.txt)
+	ea=$(cat ocred_ea.txt)
 	attacked="n"
 	eg=0
 	((eg=gold+elixir))
 	Log "loot - de $de elixir $elixir gold $gold eg $eg"
-	echo "loot - de $de elixir $elixir gold $gold eg $eg"
+	echo "loot - de $de elixir $elixir gold $gold eg $eg ea $ea"
 	while [ "$attacked" = "n" ]
 	do
 		#if [ "$de" -ge "1000" ] || [ "$gold" -ge "200000" ] || [ "$elixir" -ge "200000" ] || [ "$eg" -ge "300000" ]
