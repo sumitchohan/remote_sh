@@ -271,8 +271,8 @@ Loose()
 	WaitFor "Battle" "" 120	
 	Tap 260 616
 	sleep 1
-	Tap 267 115
-	sleep 1
+	Tap 305 90
+	sleep .3
 	Tap 66 530
 	sleep 1
 	Tap 494 416
