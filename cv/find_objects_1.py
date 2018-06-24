@@ -15,6 +15,7 @@ for line in lines:
     print(line)
     parts=line.split(',')
     print(parts[0])    
+    print(parts[1])
     img1 = cv2.imread(parts[1],0)          # queryImage
     # find the keypoints and descriptors with SIFT
     kp1, des1 = sift.detectAndCompute(img1,None)
@@ -49,12 +50,13 @@ def findObject(request):
     flann = cv2.FlannBasedMatcher(index_params, search_params)
     
     matches = flann.knnMatch(dictSourcedes[src],des2,k=2)
-    minMatchCount=len(dictSourcedes[src])/20
+    minMatchCount=len(dictSourcedes[src])/40
     print('min match count - ' + repr(minMatchCount))
     # store all the good matches as per Lowe's ratio test.
     good = []
     x=0
     y=0
+    found = 'n'
     for m,n in matches:
     	if m.distance < 0.7*n.distance:
     		good.append(m) 
@@ -68,9 +70,10 @@ def findObject(request):
     	y=sums[0][1]/len(dst_pts)
     	print(x)
     	print(y)  
+    	found = 'y'
     else:
-    	print ("Not enough matches are found - %d/%d" % (len(good),MIN_MATCH_COUNT))
-    return Response(repr(x)+','+repr(y)) 
+    	print ("Not enough matches are found - %d/%d" % (len(good),minMatchCount))
+    return Response(found+'_'+repr(x)+','+repr(y)) 
 
 if __name__ == '__main__':
     with Configurator() as config:
