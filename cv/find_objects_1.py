@@ -142,5 +142,5 @@ if __name__ == '__main__':
         config.add_route('findObject', '/findObject/{src}/{target}')
         config.add_view(findObject, route_name='findObject') 
         app = config.make_wsgi_app()
-    server = make_server('0.0.0.0', 8912, app)
+    server = make_server('0.0.0.0', 8913, app)
     server.serve_forever()
