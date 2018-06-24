@@ -52,6 +52,7 @@ imgwarden = cv2.imread('warden.png',0)
 kpwarden, deswarden = sift.detectAndCompute(imgwarden,None)
 imgxb1 = cv2.imread('xb1.png',0)
 kpxb1, desxb1 = sift.detectAndCompute(imgxb1,None)
+print('loaded all source images')
 
 def click(request):
     x = request.matchdict.get('x', -1)
@@ -96,9 +97,8 @@ def findObject(request):
         des = desxb1
 
     print (src)
-    target = request.matchdict.get('target', -1)
-    print (target) 
-    img2 = cv2.imread('~/tmp/'+target,0) # trainImage - target = box_in_scene.png
+    target = request.matchdict.get('target', -1) 
+    img2 = cv2.imread(target,0) # trainImage - target = box_in_scene.png
     kp2, des2 = sift.detectAndCompute(img2,None)
     
     FLANN_INDEX_KDTREE = 0
