@@ -264,21 +264,20 @@ Repeat()
 
 Loose()
 {
-	WaitFor "Home" "Attacked,ConnectionLost,VersusHome,ReturnHome" 20
+	Home
 	Act "Home" "Attack"
-	sleep .2
-	#WaitFor "FindAMatch" "" 20
-	Act "FindAMatch" "Find"
-	WaitFor "Battle" "" 120
-	Zoom
-	#Read "Battle"
-	Act "Battle" "Choose1"
-	Act "Battle" "Deploy{1:-0}"
-	Act "Battle" "End"
-	WaitFor "Surrender" "" 10
-	Act "Surrender" "Okay"
-	WaitFor "Results" "" 20
-	Act "Results" "Skip"
+	sleep .5
+	Tap 230 460 
+	WaitFor "Battle" "" 120	
+	Tap 260 616
+	sleep 1
+	Tap 267 115
+	sleep 1
+	Tap 66 530
+	sleep 1
+	Tap 494 416
+	sleep 1
+	Tap 396 540
 }
 Read()
 {
