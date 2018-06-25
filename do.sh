@@ -225,6 +225,10 @@ WaitFor()
 				Act $skipScreen "Skip"
 			fi
 		done
+		if [ "$1" = "Home" ] 
+		then
+			Tap 5 400
+		fi
 		sleep $retryDelay
 	fi
 	(( retryIndex++ ))
