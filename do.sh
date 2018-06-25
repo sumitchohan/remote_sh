@@ -678,9 +678,11 @@ Attack()
 		de=$(cat ocred_DE.txt)
 		elixir=$(cat ocred_Elixir.txt)
 		gold=$(cat ocred_Gold.txt)
+	ea=$(cat ocred_ea.txt)
+	isea=$(echo $ea| cut -d'_' -f 1)
 		((eg=gold+elixir))
 		Log "loot - de $de elixir $elixir gold $gold eg $eg"
-		echo "loot - de $de elixir $elixir gold $gold eg $eg"
+	echo "loot - de $de elixir $elixir gold $gold eg $eg ea $ea"
 		 
 	done
 }
