@@ -650,6 +650,7 @@ Attack()
 	elixir=$(cat ocred_Elixir.txt)
 	gold=$(cat ocred_Gold.txt)
 	ea=$(cat ocred_ea.txt)
+	isea=$(echo $ea| cut -d'_' -f 1)
 	attacked="n"
 	eg=0
 	((eg=gold+elixir))
@@ -657,32 +658,30 @@ Attack()
 	echo "loot - de $de elixir $elixir gold $gold eg $eg ea $ea"
 	while [ "$attacked" = "n" ]
 	do
-		#if [ "$de" -ge "1000" ] || [ "$gold" -ge "200000" ] || [ "$elixir" -ge "200000" ] || [ "$eg" -ge "300000" ]
-		if [ "$de" -ge "10000" ]
+		if [ "$de" -ge "2000" ] || [ "$gold" -ge "400000" ] || [ "$elixir" -ge "300000" ] || [ "$eg" -ge "500000" ]
 		then
-			Log "attacking"
-			echo "ready to attack"
-			# Zoom1
-			# attacked="y"
-			# Attack1
-			#WaitFor "Results" "" 400
-			#Act "Results" "Skip"
-			#WaitFor "Home" "" 20
-		else
-			Log "not attacking"
-			echo "not attacking and taking snapshots"
-			SendMessage "snapshot.sh"
-			Act "Battle" "Next"
-			WaitFor "Battle" "" 120
-			#Zoom
-			Read "Battle"
-			de=$(cat ocred_DE.txt)
-			elixir=$(cat ocred_Elixir.txt)
-			gold=$(cat ocred_Gold.txt)
-			((eg=gold+elixir))
-			Log "loot - de $de elixir $elixir gold $gold eg $eg"
-			echo "loot - de $de elixir $elixir gold $gold eg $eg"
-		fi
+			if [ "$isea" = "y" ]
+			then
+				Log "attacking"
+				echo "ready to attack"
+				QuickAttack 
+				break
+			fi
+		fi 
+		Log "not attacking"
+		echo "not attacking and taking snapshots"
+		SendMessage "snapshot.sh"
+		Act "Battle" "Next"
+		WaitFor "Battle" "" 120
+		#Zoom
+		Read "Battle"
+		de=$(cat ocred_DE.txt)
+		elixir=$(cat ocred_Elixir.txt)
+		gold=$(cat ocred_Gold.txt)
+		((eg=gold+elixir))
+		Log "loot - de $de elixir $elixir gold $gold eg $eg"
+		echo "loot - de $de elixir $elixir gold $gold eg $eg"
+		 
 	done
 }
 
@@ -939,44 +938,6 @@ GetDonationWindowBorderPoints()
 
 QuickAttack()
 {
-Tap 17 95
-sleep 2.5
-Tap 110 620
-sleep .1
-Tap 193 439
-sleep .1
-Tap 218 142
-sleep .1
-Tap 591 145
-sleep .1
-Tap 626 432
-sleep .1
-Tap 412 613
-sleep 3
-Tap 225 308
-sleep .1
-Tap 416 178
-sleep .1
-Tap 561 289
-sleep .1
-Tap 399 381
-sleep .1
-Tap 194 608
-sleep 1
-Tap 323 80
-sleep .1
-Tap 280 620
-sleep .1
-Tap 323 80
-sleep .1
-Tap 344 615
-sleep .1
-Tap 323 80
-sleep 10
-Tap 194 608 
-sleep .1
-Tap 280 620
-sleep .1 
-Tap 344 615
+	SendMessage 'quick_attack'
 }
 
