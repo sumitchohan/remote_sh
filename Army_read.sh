@@ -1,4 +1,4 @@
-
+dt=$(date '+%Y-%m-%dT%H_%M_%S');
 convert '/tmp/scr.png[34x19+111+136]' /tmp/Trained.png
 ./ocrutil/OcrUtil KeepPixels /tmp/Trained.png /tmp/Trained_C.png ./ocrutil/whitelist.txt
 convert -resize 200% /tmp/Trained_C.png /tmp/Trained_C1.png
@@ -83,8 +83,3 @@ convert -resize 200% /tmp/ccSpell_C.png /tmp/ccSpell_C1.png
 tesseract /tmp/ccSpell_C1.png /tmp/ccSpell_C --tessdata-dir ~/Desktop/gh/remote_sh/tessdata -l coc1
 cat "/tmp/ccSpell_C.txt" | sed 's/[^0-9]*//g' > /tmp/ccSpell.txt
 adb push /tmp/ccSpell.txt /sdcard/coc/ocred_ccSpell.txt
-cp /tmp/scr.png ~/Desktop/gh/remote_sh/cv/scr.png
-y=$(curl http://192.168.0.106:8913/findObject/ea1/scr.png -s)
-echo $y
-echo $y > /tmp/isea.txt
-adb push /tmp/isea.txt /sdcard/coc/ocred_ea.txt
