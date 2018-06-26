@@ -5,6 +5,8 @@ Dump()
 	screenWidth="$(wm size | cut -d'x' -f 1 | cut -d':' -f 2 |sed -e 's/^[[:space:]]*//')"
 	echo "$screenWidth">/sdcard/coc/screenwidth.dat
 	screencap /sdcard/coc/scr.dump
+	split -b 640000b scr.dump
+
 }
 SendMessage()
 {
@@ -51,8 +53,38 @@ Pixel()
 
 
 	IFS=" "
-	let offset=$screenWidth*$2+$1+3
-	stringZ=$(dd if='/sdcard/coc/scr.dump' bs=4 count=1 skip=$offset 2>/sdcard/result.txt| od | grep " ");
+	#offset=$screenWidth*$2+$1+3
+	#dumpFile='/sdcard/coc/scr.dump'
+	offset1=$screenWidth*$2+$1+3	
+	offset=$(($offset%160000))	
+	offsetNew=$((($offset-$offsetMod)/160000))
+	dumpFile="xaa"
+	if [ "$offsetNew" = "1" ]
+	then
+		dumpFile="xab"
+	else
+		if [  "$offsetNew" = "2" ]
+		then
+			dumpFile="xac"
+		else
+			if [  "$offsetNew" = "3" ]
+			then
+				dumpFile="xad"
+			else
+				if [  "$offsetNew" = "2" ]
+				then
+					dumpFile="xae"
+				else
+					if [  "$offsetNew" = "2" ]
+					then
+						dumpFile="xaf"
+					fi
+				fi
+			fi
+		fi
+	fi
+
+	stringZ=$(dd if=$dumpFile bs=4 count=1 skip=$offset 2>/sdcard/result.txt| od | grep " ");
 	pixelParts[1]=""
 	pixelParts[2]=""
 	pixelPartsIndex=0
