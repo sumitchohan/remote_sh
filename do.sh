@@ -35,8 +35,8 @@ Log()
 }
 Tap()
 {
-	#input tap $1 $2
-	Tapf $1 $2
+	input tap $1 $2
+	#Tapf $1 $2
 }
 Swipe()
 {
