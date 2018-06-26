@@ -62,27 +62,104 @@ Pixel()
 	if [ "$offsetNew" = "1" ]
 	then
 		dumpFile="xab"
-	else
-		if [  "$offsetNew" = "2" ]
-		then
-			dumpFile="xac"
-		else
-			if [  "$offsetNew" = "3" ]
-			then
-				dumpFile="xad"
-			else
-				if [  "$offsetNew" = "2" ]
-				then
-					dumpFile="xae"
-				else
-					if [  "$offsetNew" = "2" ]
-					then
-						dumpFile="xaf"
-					fi
-				fi
-			fi
-		fi
 	fi
+	if [ "$offsetNew" = "2" ]
+	then
+		dumpFile="xac"
+	fi
+	if [ "$offsetNew" = "3" ]
+	then
+		dumpFile="xad"
+	fi
+	if [ "$offsetNew" = "4" ]
+	then
+		dumpFile="xae"
+	fi
+	if [ "$offsetNew" = "5" ]
+	then
+		dumpFile="xaf"
+	fi
+	if [ "$offsetNew" = "6" ]
+	then
+		dumpFile="xag"
+	fi
+	if [ "$offsetNew" = "7" ]
+	then
+		dumpFile="xah"
+	fi
+	if [ "$offsetNew" = "8" ]
+	then
+		dumpFile="xai"
+	fi
+	if [ "$offsetNew" = "9" ]
+	then
+		dumpFile="xaj"
+	fi
+	if [ "$offsetNew" = "10" ]
+	then
+		dumpFile="xak"
+	fi
+	if [ "$offsetNew" = "11" ]
+	then
+		dumpFile="xal"
+	fi
+	if [ "$offsetNew" = "12" ]
+	then
+		dumpFile="xam"
+	fi
+	if [ "$offsetNew" = "13" ]
+	then
+		dumpFile="xan"
+	fi
+	if [ "$offsetNew" = "14" ]
+	then
+		dumpFile="xao"
+	fi
+	if [ "$offsetNew" = "15" ]
+	then
+		dumpFile="xap"
+	fi
+	if [ "$offsetNew" = "16" ]
+	then
+		dumpFile="xaq"
+	fi
+	if [ "$offsetNew" = "17" ]
+	then
+		dumpFile="xar"
+	fi
+	if [ "$offsetNew" = "18" ]
+	then
+		dumpFile="xas"
+	fi
+	if [ "$offsetNew" = "19" ]
+	then
+		dumpFile="xat"
+	fi
+	if [ "$offsetNew" = "20" ]
+	then
+		dumpFile="xau"
+	fi
+	if [ "$offsetNew" = "21" ]
+	then
+		dumpFile="xav"
+	fi
+	if [ "$offsetNew" = "22" ]
+	then
+		dumpFile="xaw"
+	fi
+	if [ "$offsetNew" = "23" ]
+	then
+		dumpFile="xax"
+	fi
+	if [ "$offsetNew" = "24" ]
+	then
+		dumpFile="xay"
+	fi
+	if [ "$offsetNew" = "25" ]
+	then
+		dumpFile="xaz"
+	fi
+	
 
 	stringZ=$(dd if=$dumpFile bs=4 count=1 skip=$offset 2>/sdcard/result.txt| od | grep " ");
 	pixelParts[1]=""
