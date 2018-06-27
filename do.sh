@@ -807,7 +807,7 @@ CaptureBased()
 	sleep .5
 	#WaitFor "FindAMatch" "" 20
 	#Act "FindAMatch" "Find"
-	Tap 230 460
+	Tap 524 932
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
 	Act "Battle" "Next"
