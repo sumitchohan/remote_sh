@@ -55,7 +55,7 @@ Pixel()
 	IFS=" "
 	#offset=$screenWidth*$2+$1+3
 	#dumpFile='/sdcard/coc/scr.dump'
-	offset1=$screenWidth*$2+$1+3	
+	offset1=$(($screenWidth*$2+$1+3))
 	offset=$(($offset1%160000))	
 	offsetNew=$((($offset1-$offset)/160000))
 	dumpFile="xaa"
