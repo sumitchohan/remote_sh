@@ -55,7 +55,7 @@ Pixel()
 	IFS=" "
 	#offset=$screenWidth*$2+$1+3
 	#dumpFile='/sdcard/coc/scr.dump'
-	offset1=$screenWidth*$2+$1+3	
+	offset1=$(($screenWidth*$2+$1+3))
 	offset=$(($offset1%160000))	
 	offsetNew=$((($offset1-$offset)/160000))
 	dumpFile="xaa"
@@ -446,7 +446,7 @@ FRep()
 	# 	# sleep 1
 	# 	# (( retryIndex++ )
 	# # done
-	Tap 13 94 		
+	Tap 29 190		
 }
 
 Zoom1()
@@ -807,46 +807,46 @@ CaptureBased()
 	sleep .5
 	#WaitFor "FindAMatch" "" 20
 	#Act "FindAMatch" "Find"
-	Tap 230 460
+	Tap 524 932
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh" 
 }
