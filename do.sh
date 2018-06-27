@@ -810,43 +810,43 @@ CaptureBased()
 	Tap 524 932
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh"
-	Act "Battle" "Next"
+	Tap 1444 1069
 	WaitFor "Battle" "" 120 
 	SendMessage "snapshot.sh" 
 }
