@@ -52,6 +52,8 @@ imgwarden = cv2.imread('warden.png',0)
 kpwarden, deswarden = sift.detectAndCompute(imgwarden,None)
 imgxb1 = cv2.imread('xb1.png',0)
 kpxb1, desxb1 = sift.detectAndCompute(imgxb1,None)
+imgit2 = cv2.imread('it2.png',0)
+kpit2, desit2 = sift.detectAndCompute(imgit2,None)
 print('loaded all source images')
 
 def click(request):
@@ -95,6 +97,8 @@ def findObject(request):
         des = deswarden
     elif src=='xb1':
         des = desxb1
+    elif src=='it2':
+        des = desit2
 
     print (src)
     target = request.matchdict.get('target', -1) 
@@ -142,5 +146,5 @@ if __name__ == '__main__':
         config.add_route('findObject', '/findObject/{src}/{target}')
         config.add_view(findObject, route_name='findObject') 
         app = config.make_wsgi_app()
-    server = make_server('0.0.0.0', 8913, app)
+    server = make_server('0.0.0.0', 8952, app)
     server.serve_forever()
