@@ -58,6 +58,17 @@ def execute(request):
         elif parts[0]=='wait':
             print ('waiting' + parts[1])
             time.sleep(float(parts[1]))
+        elif parts[0]=='selectTroop':
+            troopMap = open(r"/tmp/troopMap.txt","r")
+            for aline in troopMap.readlines():
+                values = aline.split("_")
+                if(len(values>1)):
+                    if(values[0]==parts[1]):
+                        parts=values[1].split(",")
+                        if(len(parts)>1):
+                            print(parts[0])
+                            print(parts[1])
+            troopMap.close()
     return Response('executed')
 
 if __name__ == '__main__':
