@@ -59,7 +59,7 @@ def execute(request):
             print ('waiting' + parts[1])
             time.sleep(float(parts[1]))
         elif parts[0]=='selectTroop':
-            troopMap = open(r"/tmp/troopMap.txt","r")
+            troopMap = open("troopMap.txt","r")
             for aline in troopMap.readlines():
                 values = aline.split("-")
                 if(len(values)>1):
