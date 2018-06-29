@@ -446,7 +446,7 @@ FRep()
 	# 	# sleep 1
 	# 	# (( retryIndex++ )
 	# # done
-	Tap 29 190		
+	Tap 15 93		
 }
 
 Zoom1()

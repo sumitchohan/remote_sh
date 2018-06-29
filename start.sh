@@ -7,5 +7,5 @@ echo "run pyramid app"
 python pyramidapp.py & pid=$!
 echo $pid>/tmp/pid_p_a.txt
 echo "run server.sh"
-source server.sh &pid=$!
+source server.sh & pid=$!
 echo $pid > /tmp/pid_s.txt
