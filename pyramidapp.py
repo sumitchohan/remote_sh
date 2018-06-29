@@ -62,13 +62,9 @@ def execute(request):
             troopMap = open("troopMap.txt","r")
             for aline in troopMap.readlines():
                 values = aline.split("-")
-                if(len(values)>1):
-                    print(str(values[0]))
-                    print(str(parts[1]))
-                    if (''+str(values[0]))==(''+str(parts[1])):
-                        print("here")
+                if(len(values)>1): 
+                    if values[0].strip() == parts[1].strip():
                         values11=values[1].split("_")[1]
-                        print(values11)
                         values1=values11.split(",")
                         if(len(values1)>1):
                             print(values1[0])
