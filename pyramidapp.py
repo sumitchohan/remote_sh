@@ -63,6 +63,8 @@ def execute(request):
             for aline in troopMap.readlines():
                 values = aline.split("-")
                 if(len(values)>1):
+                    print(values[0])
+                    print(parts[1])
                     if(repr(values[0])==repr(parts[1])):
                         values11=values[1].split("_")[1]
                         print(values11)
