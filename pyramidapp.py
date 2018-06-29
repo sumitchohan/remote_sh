@@ -59,7 +59,7 @@ def execute(request):
             print ('waiting' + parts[1])
             time.sleep(float(parts[1]))
         elif parts[0]=='selectTroop':
-            troopMap = open("troopMap.txt","r")
+            troopMap = open(r"/tmp/troopMap.txt","r")
             for aline in troopMap.readlines():
                 values = aline.split("-")
                 if(len(values)>1): 
@@ -67,8 +67,7 @@ def execute(request):
                         values11=values[1].split("_")[1]
                         values1=values11.split(",")
                         if(len(values1)>1):
-                            print(values1[0])
-                            print(values1[1])
+                            d.click(int(float(values1[0])),int(float(values1[1])))
             troopMap.close()
     return Response('executed')
 

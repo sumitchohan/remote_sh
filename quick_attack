@@ -1,1 +1,2 @@
+sh Battle_readTroops
 curl http://localhost:8951/execute/quickattack.txt -s
