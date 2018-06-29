@@ -61,13 +61,13 @@ def execute(request):
         elif parts[0]=='selectTroop':
             troopMap = open(r"/tmp/troopMap.txt","r")
             for aline in troopMap.readlines():
-                values = aline.split("_")
-                if(len(values>1)):
+                values = aline.split("-")
+                if(len(values)>1):
                     if(values[0]==parts[1]):
-                        parts=values[1].split(",")
-                        if(len(parts)>1):
-                            print(parts[0])
-                            print(parts[1])
+                        values1=values[1].split("_")[1].split(",")
+                        if(len(values1)>1):
+                            print(values1[0])
+                            print(values1[1])
             troopMap.close()
     return Response('executed')
 
