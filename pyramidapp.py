@@ -67,6 +67,7 @@ def execute(request):
                     if values[0].strip() == parts[1].strip():
                         values11=values[1].split("_")[1]
                         values1=values11.split(",")
+                        print('yes')
                         if(len(values1)>1):
                             d.click(int(float(values1[0])),int(float(values1[1])))
             troopMap.close()
