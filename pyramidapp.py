@@ -69,6 +69,9 @@ def execute(request):
                         values1=values11.split(",")
                         print('yes')
                         if(len(values1)>1):
+                            print("clicking")
+                            print(values1[0])
+                            print(values1[1])
                             d.click(int(float(values1[0])),int(float(values1[1])))
             troopMap.close()
     return Response('executed')
