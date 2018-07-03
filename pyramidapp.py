@@ -72,7 +72,7 @@ def execute(request):
                             print("clicking")
                             print(values1[0])
                             print(values1[1])
-                            d.click(int(float(values1[0])),int(float(values1[1])))
+                            d.click(int(float(values1[0])),565+int(float(values1[1])))
             troopMap.close()
     return Response('executed')
 
