@@ -22,6 +22,8 @@ sift = cv2.xfeatures2d.SIFT_create()
 #     dictSourcedes[parts[0]]=des1
 #     print(len(des1))       
 
+imgth10 = cv2.imread('th10.png',0)
+kpth10, desth10 = sift.detectAndCompute(imgth10,None)
 imgarcher = cv2.imread('archer.png',0)
 kparcher, desarcher = sift.detectAndCompute(imgarcher,None)
 imgbarb = cv2.imread('barb.png',0)
@@ -99,6 +101,8 @@ def findObject(request):
         des = desxb1
     elif src=='it2':
         des = desit2
+    elif src=='th10':
+        des = desth10
 
     print (src)
     target = request.matchdict.get('target', -1) 

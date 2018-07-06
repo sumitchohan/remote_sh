@@ -1,11 +1,26 @@
-cd cv
-echo "running find objest server"
-python find_objects_1.py & pid=$!
-echo $pid>/tmp/pid_f_o.txt
-cd ..
-echo "run pyramid app"
-python pyramidapp.py & pid=$!
-echo $pid>/tmp/pid_p_a.txt
-echo "run server.sh"
-source server.sh & pid=$!
-echo $pid > /tmp/pid_s.txt
+threads=$(fuser 8951/tcp)
+while read line; do
+	echo "killing - $line"
+	kill $line
+done < <(echo $threads | tr ' ' '\n')
+
+threads=$(fuser 8952/tcp)
+while read line; do
+	echo "killing - $line"
+	kill $line
+done < <(echo $threads | tr ' ' '\n')
+
+threads=$(fuser 8901/tcp)
+while read line; do
+	echo "killing - $line"
+	kill $line
+done < <(echo $threads | tr ' ' '\n')
+
+
+cd ~/Desktop/gh/remote_sh/cv
+python find_objects_1.py &
+cd ~/Desktop/gh/remote_sh
+./linux.sh &
+python find_objects_1.py &
+python pyramidapp.py & 
+source server.sh &
