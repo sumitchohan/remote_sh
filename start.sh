@@ -17,9 +17,9 @@ while read line; do
 done < <(echo $threads | tr ' ' '\n')
 
 
-cd ~/Desktop/gh/remote_sh/cv
-python find_objects_1.py &
-cd ~/Desktop/gh/remote_sh
+cd cv
+python ~/Desktop/gh/remote_sh/cv/find_objects_1.py &
+cd ..
 ./linux.sh &
 python find_objects_1.py &
 python pyramidapp.py & 
