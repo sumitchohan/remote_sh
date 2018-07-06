@@ -19,7 +19,6 @@ done < <(echo $threads | tr ' ' '\n')
 
 cd cv
 python find_objects_1.py &
-cd .. 
-python find_objects_1.py &
+cd ..  
 python pyramidapp.py & 
 source server.sh &
