@@ -27,3 +27,10 @@ convert -resize 200% '/tmp/Win_C.png' '/tmp/Win_C1.png'
 tesseract /tmp/Win_C1.png /tmp/Win_C --tessdata-dir ~/Desktop/gh/remote_sh/tessdata -l coc1
 cat "/tmp/Win_C.txt" | sed 's/[^0-9]*//g' > /tmp/Win_$dt.txt
 adb push /tmp/Win_$dt.txt /sdcard/coc/ocred_Win.txt
+convert '/tmp/scr.png[46x23+45+210]' '/tmp/Defeat_1.png'
+convert /tmp/Defeat_1.png -fuzz 300 -fill white -opaque "#FFE8FD" '/tmp/Defeat_2.png'
+./ocrutil/OcrUtil KeepPixels /tmp/Defeat_2.png /tmp/Defeat_C.png ./ocrutil/whitelist.txt
+convert -resize 200% '/tmp/Defeat_C.png' '/tmp/Defeat_C1.png'
+tesseract /tmp/Defeat_C1.png /tmp/Defeat_C --tessdata-dir ~/Desktop/gh/remote_sh/tessdata -l coc1
+cat "/tmp/Defeat_C.txt" | sed 's/[^0-9]*//g' > /tmp/Defeat_$dt.txt
+adb push /tmp/Defeat_$dt.txt /sdcard/coc/ocred_Defeat.txt

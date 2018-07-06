@@ -41,3 +41,10 @@ convert -resize 200% '/tmp/Builders_C.png' '/tmp/Builders_C1.png'
 tesseract /tmp/Builders_C1.png /tmp/Builders_C --tessdata-dir ~/Desktop/gh/remote_sh/tessdata -l coc1
 cat "/tmp/Builders_C.txt" | sed 's/[^0-9]*//g' > /tmp/Builders_$dt.txt
 adb push /tmp/Builders_$dt.txt /sdcard/coc/ocred_Builders.txt
+convert '/tmp/scr.png[76x21+453+19]' '/tmp/Shield_1.png'
+convert /tmp/Shield_1.png -fuzz 300 -fill white -opaque "#FFE8FD" '/tmp/Shield_2.png'
+./ocrutil/OcrUtil KeepPixels /tmp/Shield_2.png /tmp/Shield_C.png ./ocrutil/whitelist.txt
+convert -resize 200% '/tmp/Shield_C.png' '/tmp/Shield_C1.png'
+tesseract /tmp/Shield_C1.png /tmp/Shield_C --tessdata-dir ~/Desktop/gh/remote_sh/tessdata -l coc1
+cat "/tmp/Shield_C.txt" | sed 's/[^0-9]*//g' > /tmp/Shield_$dt.txt
+adb push /tmp/Shield_$dt.txt /sdcard/coc/ocred_Shield.txt
