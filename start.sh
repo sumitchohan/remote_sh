@@ -18,9 +18,8 @@ done < <(echo $threads | tr ' ' '\n')
 
 
 cd cv
-python ~/Desktop/gh/remote_sh/cv/find_objects_1.py &
-cd ..
-./linux.sh &
+python find_objects_1.py &
+cd .. 
 python find_objects_1.py &
 python pyramidapp.py & 
 source server.sh &
