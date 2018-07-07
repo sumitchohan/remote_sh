@@ -34,3 +34,5 @@ convert -resize 200% '/tmp/Defeat_C.png' '/tmp/Defeat_C1.png'
 tesseract /tmp/Defeat_C1.png /tmp/Defeat_C --tessdata-dir ~/Desktop/gh/remote_sh/tessdata -l coc1
 cat "/tmp/Defeat_C.txt" | sed 's/[^0-9]*//g' > /tmp/Defeat_$dt.txt
 adb push /tmp/Defeat_$dt.txt /sdcard/coc/ocred_Defeat.txt
+
+  

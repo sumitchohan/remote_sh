@@ -761,25 +761,22 @@ Attack()
 	Read "Battle"
 	de=$(cat ocred_DE.txt)
 	elixir=$(cat ocred_Elixir.txt)
-	gold=$(cat ocred_Gold.txt)
-	ea=$(cat ocred_ea.txt)
-	isea=$(echo $ea| cut -d'_' -f 1)
+	gold=$(cat ocred_Gold.txt) 
+	win=$(cat ocred_Win.txt)
+	loose=$(cat ocred_Loose.txt) 
 	attacked="n"
 	eg=0
 	((eg=gold+elixir))
 	Log "loot - de $de elixir $elixir gold $gold eg $eg"
-	echo "loot - de $de elixir $elixir gold $gold eg $eg ea $ea"
+	echo "loot - de $de elixir $elixir gold $gold eg $eg ea $ea win $win loose $loose"
 	while [ "$attacked" = "n" ]
 	do
 		if [ "$de" -ge "2000" ] || [ "$gold" -ge "400000" ] || [ "$elixir" -ge "300000" ] || [ "$eg" -ge "500000" ]
 		then
-			if [ "$isea" = "y" ]
-			then
 				Log "attacking"
 				echo "ready to attack"
-				QuickAttack 
-				break
-			fi
+				#QuickAttack 
+				break 
 		fi 
 		Log "not attacking"
 		echo "not attacking and taking snapshots"
@@ -791,11 +788,13 @@ Attack()
 		de=$(cat ocred_DE.txt)
 		elixir=$(cat ocred_Elixir.txt)
 		gold=$(cat ocred_Gold.txt)
+		win=$(cat ocred_Win.txt)
+		loose=$(cat ocred_Loose.txt) 
 	ea=$(cat ocred_ea.txt)
 	isea=$(echo $ea| cut -d'_' -f 1)
 		((eg=gold+elixir))
 		Log "loot - de $de elixir $elixir gold $gold eg $eg"
-	echo "loot - de $de elixir $elixir gold $gold eg $eg ea $ea"
+		echo "loot - de $de elixir $elixir gold $gold eg $eg ea $ea win $win loose $loose"
 		 
 	done
 }
