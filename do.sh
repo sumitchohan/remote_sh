@@ -771,11 +771,11 @@ Attack()
 	echo "loot - de $de elixir $elixir gold $gold eg $eg ea $ea win $win loose $loose"
 	while [ "$attacked" = "n" ]
 	do
-		if [ "$de" -ge "2000" ] || [ "$gold" -ge "400000" ] || [ "$elixir" -ge "300000" ] || [ "$eg" -ge "500000" ]
+		if [ "$de" -ge "6000" ] || [ "$gold" -ge "700000" ] || [ "$elixir" -ge "600000" ] || [ "$eg" -ge "1200000" ]
 		then
 				Log "attacking"
 				echo "ready to attack"
-				#QuickAttack 
+				QuickAttack 
 				break 
 		fi 
 		Log "not attacking"
