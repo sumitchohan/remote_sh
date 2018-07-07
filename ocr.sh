@@ -1,6 +1,7 @@
 echo "dt=\$(date '+%Y-%m-%dT%H_%M_%S')" >$1_read.sh
 while read line
 do
+echo $line
 	parts=($(echo "$line" | tr ',' '\n'))
 	echo "convert '/tmp/scr.png[${parts[3]}x${parts[4]}+${parts[1]}+${parts[2]}]' '/tmp/${parts[0]}_1.png'" >>$1_read.sh
 	echo "convert /tmp/${parts[0]}_1.png -fuzz 300 -fill white -opaque \"#FFE8FD\" '/tmp/${parts[0]}_2.png'">>$1_read.sh
