@@ -38,6 +38,6 @@ cp /tmp/scr.png ~/Desktop/gh/remote_sh/cv/
 echo "" > /tmp/troopMap.txt
 th9=$(curl http://localhost:8952/findObject/th9/scr.png -s) 
 th10=$(curl http://localhost:8952/findObject/th10/scr.png -s) 
-t11=$(curl http://localhost:8952/findObject/th11/scr.png -s)  
+th11=$(curl http://localhost:8952/findObject/th11/scr.png -s)  
 echo "th9 - $th9 ; th10 - $th10 ; th11 - $th11 " > /tmp/ocred_Th.txt
 adb push /tmp/ocred_Th.txt /sdcard/coc/ocred_Th.txt
