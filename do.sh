@@ -776,7 +776,7 @@ Attack()
 		then
 				Log "attacking"
 				echo "ready to attack"
-				QuickAttack 
+				#QuickAttack 
 				break 
 		fi 
 		Log "not attacking"
