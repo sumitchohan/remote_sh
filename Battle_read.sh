@@ -34,3 +34,10 @@ convert /tmp/Loose_1.png -fuzz 300 -fill white -opaque "#FFBFBF" '/tmp/Loose_2.p
 tesseract /tmp/Loose_C.png /tmp/Loose_C --tessdata-dir ~/Desktop/gh/remote_sh/tessdata -l coc1
 cat "/tmp/Loose_C.txt" | sed 's/[^0-9]*//g' > /tmp/Loose_$dt.txt
 adb push /tmp/Loose_$dt.txt /sdcard/coc/ocred_Loose.txt
+cp /tmp/scr.png ~/Desktop/gh/remote_sh/cv/
+echo "" > /tmp/troopMap.txt
+th9=$(curl http://localhost:8952/findObject/th9/scr.png -s) 
+th10=$(curl http://localhost:8952/findObject/th10/scr.png -s) 
+t11=$(curl http://localhost:8952/findObject/th11/scr.png -s)  
+echo "th9 - $th9 ; th10 - $th10 ; th11 - $th11 " > /tmp/ocred_Th.txt
+adb push /tmp/ocred_Th.txt /sdcard/coc/ocred_Th.txt
