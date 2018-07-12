@@ -764,7 +764,7 @@ Attack()
 	gold=$(cat ocred_Gold.txt) 
 	win=$(cat ocred_Win.txt)
 	loose=$(cat ocred_Loose.txt) 
-	th=$(cat ocred_Th.txt) 
+	th=$(cat ocred_Th10.txt) 
 	attacked="n"
 	eg=0
 	((eg=gold+elixir))
