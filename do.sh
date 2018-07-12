@@ -783,7 +783,7 @@ Attack()
 				echo "ready to attack"
 				QuickAttack 
 				break 
-			else
+			fi
 		fi 
 		Log "not attacking"
 		echo "not attacking and taking snapshots"
