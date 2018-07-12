@@ -40,4 +40,4 @@ echo "" > /tmp/troopMap.txt
 th10=$(curl http://localhost:8952/findObject/th10/scr.png -s) 
 #th11=$(curl http://localhost:8952/findObject/th11/scr.png -s)  
 echo $th10 > /tmp/ocred_Th10.txt
-adb push /tmp/ocred_Th.txt /sdcard/coc/ocred_Th10.txt
+adb push /tmp/ocred_Th10.txt /sdcard/coc/ocred_Th10.txt
