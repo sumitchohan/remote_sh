@@ -769,7 +769,7 @@ Attack()
 	eg=0
 	((eg=gold+elixir))
 	Log "loot - de $de elixir $elixir gold $gold eg $eg"
-	echo "loot - de $de elixir $elixir gold $gold eg $eg ea $ea win $win loose $loose th - $th"
+	echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th - $th"
 	while [ "$attacked" = "n" ]
 	do
 		if [ "$de" -ge "6000" ] || [ "$gold" -ge "550000" ] || [ "$elixir" -ge "500000" ] || [ "$eg" -ge "900000" ]
@@ -794,8 +794,10 @@ Attack()
 	ea=$(cat ocred_ea.txt)
 	isea=$(echo $ea| cut -d'_' -f 1)
 		((eg=gold+elixir))
+		
+	th=$(cat ocred_Th10.txt) 
 		Log "loot - de $de elixir $elixir gold $gold eg $eg"
-		echo "loot - de $de elixir $elixir gold $gold eg $eg ea $ea win $win loose $loose th - $th"
+		echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th - $th"
 		 
 	done
 }
