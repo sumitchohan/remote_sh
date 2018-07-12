@@ -765,6 +765,7 @@ Attack()
 	win=$(cat ocred_Win.txt)
 	loose=$(cat ocred_Loose.txt) 
 	th=$(cat ocred_Th10.txt) 
+	isth=$(echo $th| cut -d'_' -f 1)
 	attacked="n"
 	eg=0
 	((eg=gold+elixir))
@@ -772,12 +773,17 @@ Attack()
 	echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th - $th"
 	while [ "$attacked" = "n" ]
 	do
-		if [ "$de" -ge "6000" ] || [ "$gold" -ge "550000" ] || [ "$elixir" -ge "500000" ] || [ "$eg" -ge "900000" ]
+		# if [ "$de" -ge "6000" ] || [ "$gold" -ge "550000" ] || [ "$elixir" -ge "500000" ] || [ "$eg" -ge "900000" ]
+		
+		if  [ "$elixir" -ge "120000" ]  
 		then
+			if [ "$isth" = "y" ]
+			then	
 				Log "attacking"
 				echo "ready to attack"
-				#QuickAttack 
+				QuickAttack 
 				break 
+			else
 		fi 
 		Log "not attacking"
 		echo "not attacking and taking snapshots"
