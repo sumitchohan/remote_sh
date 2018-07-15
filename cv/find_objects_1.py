@@ -127,6 +127,8 @@ def findObject(request):
     matches = flann.knnMatch(des,des2,k=2)
     # minMatchCount=len(dictSourcedes[src])/40
     minMatchCount=len(des)/40
+    if src=='th10':
+        minMatchCount=2
     print('min match count - ' + repr(minMatchCount))
     # store all the good matches as per Lowe's ratio test.
     good = []
