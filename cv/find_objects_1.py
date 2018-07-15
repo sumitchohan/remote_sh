@@ -129,7 +129,7 @@ def findObject(request):
     minMatchCount=len(des)/40
     if src=='th10':
         minMatchCount=2
-    print('min match count - ' + repr(minMatchCount))
+    print('min match count -  ' + repr(minMatchCount))
     # store all the good matches as per Lowe's ratio test.
     good = []
     x=0
