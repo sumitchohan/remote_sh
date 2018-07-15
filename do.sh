@@ -802,6 +802,7 @@ Attack()
 		((eg=gold+elixir))
 		
 	th=$(cat ocred_Th10.txt) 
+	isth=$(echo $th| cut -d'_' -f 1)
 		Log "loot - de $de elixir $elixir gold $gold eg $eg"
 		echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th - $th"
 		 
