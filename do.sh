@@ -756,7 +756,7 @@ Attack()
 	#WaitFor "FindAMatch" "" 20
 	#Act "FindAMatch" "Find"
 	Tap 230 460
-	WaitFor "Battle" "" 120
+	WaitFor "Battle" "" 240
 	#Zoom
 	Read "Battle"
 	de=$(cat ocred_DE.txt)
@@ -789,7 +789,7 @@ Attack()
 		echo "not attacking and taking snapshots"
 		SendMessage "snapshot.sh"
 		Act "Battle" "Next"
-		WaitFor "Battle" "" 120
+		WaitFor "Battle" "" 240
 		#Zoom
 		Read "Battle"
 		de=$(cat ocred_DE.txt)
