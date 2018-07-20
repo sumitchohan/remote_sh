@@ -48,6 +48,7 @@ def execute(request):
     print(ff)
     f = open(ff, "r")
     lines = list(f)
+    isPreviousSelected = "n"
     for line in lines:
         print(line)
         parts=line.split(',')
@@ -55,10 +56,15 @@ def execute(request):
         if parts[0]=='tap':
             print ('Tapping - ' + parts[1] + ' '+parts[2])
             d.click(int(float(parts[1])),int(float(parts[2])))
+        elif parts[0]=='tapIfSelected':
+            if isPreviousSelected == "y":
+                print ('Tapping - ' + parts[1] + ' '+parts[2])
+                d.click(int(float(parts[1])),int(float(parts[2])))
         elif parts[0]=='wait':
             print ('waiting' + parts[1])
             time.sleep(float(parts[1]))
         elif parts[0]=='selectTroop':
+            isPreviousSelected = "n"
             troopMap = open(r"/tmp/troopMap.txt","r")
             for aline in troopMap.readlines():
                 print(aline)
@@ -69,6 +75,7 @@ def execute(request):
                         values1=values11.split(",")
                         print('yes')
                         if(len(values1)>1):
+                            isPreviousSelected = "y"
                             print("clicking")
                             print(values1[0])
                             print(values1[1])
