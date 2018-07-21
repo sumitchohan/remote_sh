@@ -775,8 +775,9 @@ Attack()
 	do
 		# if [ "$de" -ge "6000" ] || [ "$gold" -ge "550000" ] || [ "$elixir" -ge "500000" ] || [ "$eg" -ge "900000" ]
 		
-		if  [ "$elixir" -ge "200000" ]  
+		if  [ "$elixir" -ge "700000" ]  
 		then
+			isth="y"
 			if [ "$isth" = "y" ]
 			then	
 				Log "attacking"
