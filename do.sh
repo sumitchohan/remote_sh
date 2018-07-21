@@ -764,21 +764,22 @@ Attack()
 	gold=$(cat ocred_Gold.txt) 
 	win=$(cat ocred_Win.txt)
 	loose=$(cat ocred_Loose.txt) 
-	th=$(cat ocred_Th10.txt) 
-	isth=$(echo $th| cut -d'_' -f 1)
+	th10=$(cat ocred_Th10.txt) 
+	isth10=$(echo $th10| cut -d'_' -f 1)
+	# th9=$(cat ocred_Th9.txt) 
+	# isth9=$(echo $th9| cut -d'_' -f 1)
 	attacked="n"
 	eg=0
 	((eg=gold+elixir))
 	Log "loot - de $de elixir $elixir gold $gold eg $eg"
-	echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th - $th"
+	echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th9 - $th9 th10 - $th10"
 	while [ "$attacked" = "n" ]
 	do
 		# if [ "$de" -ge "6000" ] || [ "$gold" -ge "550000" ] || [ "$elixir" -ge "500000" ] || [ "$eg" -ge "900000" ]
 		
-		if  [ "$elixir" -ge "600000" ]  
+		if  [ "$elixir" -ge "800000" ]  
 		then
-			isth="y"
-			if [ "$isth" = "y" ]
+			if [ "$isth10" = "y" ]
 			then	
 				Log "attacking"
 				echo "ready to attack"
@@ -802,10 +803,11 @@ Attack()
 	isea=$(echo $ea| cut -d'_' -f 1)
 		((eg=gold+elixir))
 		
-	th=$(cat ocred_Th10.txt) 
-	isth=$(echo $th| cut -d'_' -f 1)
+
+	th10=$(cat ocred_Th10.txt) 
+	isth10=$(echo $th10| cut -d'_' -f 1)
 		Log "loot - de $de elixir $elixir gold $gold eg $eg"
-		echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th - $th"
+		echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th - $th10"
 		 
 	done
 }
