@@ -21,5 +21,5 @@ do
 	res=$(cat  "/tmp/${parts[0]}.txt")
 	echo "${parts[0]} - $res"
 	adb push /tmp/${parts[0]}.txt /sdcard/coc/${parts[0]}.txt
-done < "donationRequest.config"
+done < "/tmp/donationRequest.config"
 
