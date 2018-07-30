@@ -687,21 +687,23 @@ Versus20()
 	Versus
 	sleep 300
 }
-Run()
+Run_old()
 {
-	StartCOC
-	found=$(WaitFor "Home" "Attacked,ConnectionLost,VersusHome,VersusHome,ReturnHome|" 60)
-	if [ "$found" = "n" ]
-	then
-		StartCOC
-	fi
-	Read "Home"
-	trophy=$(cat ocred_Trophy.txt)
-	de=$(cat ocred_DE.txt)
-	elixir=$(cat ocred_Elixir.txt)
-	gems=$(cat ocred_Gems.txt)
-	gold=$(cat ocred_Gold.txt)
-	Log "home - de $de elixir $elixir gold $gold gems $gems trophy $trophy"
+	Home
+	Zoom
+		# Read "Home"
+		# trophy=$(cat ocred_Trophy.txt)
+		# de=$(cat ocred_DE.txt)
+		# elixir=$(cat ocred_Elixir.txt)
+		# gems=$(cat ocred_Gems.txt)
+		# gold=$(cat ocred_Gold.txt)
+		# Log "home - de $de elixir $elixir gold $gold gems $gems trophy $trophy"
+	Tap 40 520
+	sleep 0.1
+	Tap 520 95
+	sleep 0.1
+	Tap 730 448
+	Tap 85 95
 	Act "Home" "Train"
 	WaitFor "Army" "" 10
 	Read "Army"
@@ -777,7 +779,7 @@ Attack()
 	do
 		# if [ "$de" -ge "6000" ] || [ "$gold" -ge "550000" ] || [ "$elixir" -ge "500000" ] || [ "$eg" -ge "900000" ]
 		
-		if  [ "$elixir" -ge "500000" ]  
+		if  [ "$elixir" -ge "500000" ] || [ "$eg" -ge "900000" ]
 		then
 			if [ "$isth10" = "y" ]
 			then	
@@ -997,6 +999,16 @@ MatchPixel() #x y r g b delta
   fi
   echo $result
 }
+IsReadyForAttack()
+{
+	Dump	
+    if [ $(MatchPixel 27 151 64 119 10 100) = "y" ] && [ $(MatchPixel 551 297 64 117 09 100) = "y" ]
+    then		
+		echo "y"
+	else 
+		echo "n"
+	fi
+}
 Donate()
 {
   y=90
@@ -1035,6 +1047,7 @@ ReadDonation()
   echo "Request,48,$(($2-19)),200,20">>donationRequest.config
   echo "Troops,80,$(($2+6)),70,27">>donationRequest.config
   echo "Spell,211,$(($2+6)),32,24">>donationRequest.config
+  #curl http://localhost:8951/drag/200/100/200/520/10
 }
 
 GetDonationWindowBorderPoints()
@@ -1068,3 +1081,32 @@ QuickAttack()
 	SendMessage 'quick_attack'
 }
 
+
+Run()
+{
+	Home
+	Zoom
+		# Read "Home"
+		# trophy=$(cat ocred_Trophy.txt)
+		# de=$(cat ocred_DE.txt)
+		# elixir=$(cat ocred_Elixir.txt)
+		# gems=$(cat ocred_Gems.txt)
+		# gold=$(cat ocred_Gold.txt)
+		# Log "home - de $de elixir $elixir gold $gold gems $gems trophy $trophy"
+	Tap 40 520
+	sleep 0.1
+	Tap 520 95
+	sleep 0.1
+	Tap 730 448
+	sleep 0.1
+	Tap 85 95
+	sleep 0.1
+	ready=$(IsReadyForAttack)
+	if [ "$ready" = "y" ]
+	then
+		Tap 768 92
+		echo "Ready for attack"
+	else
+		echo "not ready"		
+	fi 
+}
