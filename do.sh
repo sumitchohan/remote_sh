@@ -1105,7 +1105,7 @@ Run()
 	if [ "$ready" = "y" ]
 	then
 		Tap 768 92
-		echo "Ready for attack"
+		Attack
 	else
 		echo "not ready"		
 	fi 
