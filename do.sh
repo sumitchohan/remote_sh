@@ -784,7 +784,7 @@ Attack()
 		do
 			# if [ "$de" -ge "6000" ] || [ "$gold" -ge "550000" ] || [ "$elixir" -ge "500000" ] || [ "$eg" -ge "900000" ]
 			
-			if  [ "$elixir" -ge "600000" ] || [ "$eg" -ge "1200000" ]
+			if  [ "$elixir" -ge "550000" ] || [ "$eg" -ge "1100000" ]
 			then
 				if [ "$isth10" = "y" ]
 				then	
@@ -1129,6 +1129,7 @@ Run()
 		Tap 768 92
 		Attack
 	else
+		Tap 768 92
 		echo "not ready"		
 	fi 
 }
