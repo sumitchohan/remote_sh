@@ -41,7 +41,7 @@ selectTroop,rage
 tap,396,172
 tap,271,258
 tap,528,277
-wait,15
+wait,10
 tap,312,213
 tap,465,346
 selectTroop,king
