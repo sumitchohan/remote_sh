@@ -758,72 +758,81 @@ Attack()
 	#WaitFor "FindAMatch" "" 20
 	#Act "FindAMatch" "Find"
 	Tap 230 460
-	WaitFor "Battle" "" 240
-	#Zoom
-	Read "Battle"
-	de=$(cat ocred_DE.txt)
-	elixir=$(cat ocred_Elixir.txt)
-	gold=$(cat ocred_Gold.txt) 
-	win=$(cat ocred_Win.txt)
-	loose=$(cat ocred_Loose.txt) 
-	th10=$(cat ocred_Th10.txt) 
-	isth10=$(echo $th10| cut -d'_' -f 1)
-	#th9=$(cat ocred_Th9.txt) 
-	#isth9=$(echo $th9| cut -d'_' -f 1)
-	# th9=$(cat ocred_Th9.txt) 
-	# isth9=$(echo $th9| cut -d'_' -f 1)
-	attacked="n"
-	eg=0
-	((eg=gold+elixir))
-	Log "loot - de $de elixir $elixir gold $gold eg $eg"
-	echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th9 - $th9 th10 - $th10"
-	while [ "$attacked" = "n" ]
-	do
-		# if [ "$de" -ge "6000" ] || [ "$gold" -ge "550000" ] || [ "$elixir" -ge "500000" ] || [ "$eg" -ge "900000" ]
-		
-		if  [ "$elixir" -ge "700000" ] || [ "$eg" -ge "1400000" ]
-		then
-			if [ "$isth10" = "y" ]
-			then	
-				Log "attacking on th10"
-				echo "ready to attack"
-				QuickAttack 
-				break 
-			fi
-		fi 
-		if  [ "$elixir" -ge "800000" ] || [ "$eg" -ge "1600000" ]
-		then 
-				Log "attacking"
-				echo "ready to attack"
-				QuickAttack 
-				break 
-		fi 
-		Log "not attacking"
-		echo "not attacking and taking snapshots"
-		SendMessage "snapshot.sh"
-		Act "Battle" "Next"
-		WaitFor "Battle" "" 240
+
+	battleFound=$(WaitFor "Battle" "" 100)
+	if [ "$battleFound" = "n" ]
+	then
 		#Zoom
 		Read "Battle"
 		de=$(cat ocred_DE.txt)
 		elixir=$(cat ocred_Elixir.txt)
-		gold=$(cat ocred_Gold.txt)
+		gold=$(cat ocred_Gold.txt) 
 		win=$(cat ocred_Win.txt)
 		loose=$(cat ocred_Loose.txt) 
-	ea=$(cat ocred_ea.txt)
-	isea=$(echo $ea| cut -d'_' -f 1)
+		th10=$(cat ocred_Th10.txt) 
+		isth10=$(echo $th10| cut -d'_' -f 1)
+		#th9=$(cat ocred_Th9.txt) 
+		#isth9=$(echo $th9| cut -d'_' -f 1)
+		# th9=$(cat ocred_Th9.txt) 
+		# isth9=$(echo $th9| cut -d'_' -f 1)
+		attacked="n"
+		eg=0
 		((eg=gold+elixir))
-		
-
-	th10=$(cat ocred_Th10.txt) 
-	isth10=$(echo $th10| cut -d'_' -f 1)
-
-	#th9=$(cat ocred_Th9.txt) 
-	#isth9=$(echo $th9| cut -d'_' -f 1)
 		Log "loot - de $de elixir $elixir gold $gold eg $eg"
-		echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th10 - $th10"
-		 
-	done
+		echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th9 - $th9 th10 - $th10"
+		while [ "$attacked" = "n" ]
+		do
+			# if [ "$de" -ge "6000" ] || [ "$gold" -ge "550000" ] || [ "$elixir" -ge "500000" ] || [ "$eg" -ge "900000" ]
+			
+			if  [ "$elixir" -ge "700000" ] || [ "$eg" -ge "1400000" ]
+			then
+				if [ "$isth10" = "y" ]
+				then	
+					Log "attacking on th10"
+					echo "ready to attack"
+					QuickAttack 
+					break 
+				fi
+			fi 
+			if  [ "$elixir" -ge "800000" ] || [ "$eg" -ge "1600000" ]
+			then 
+					Log "attacking"
+					echo "ready to attack"
+					QuickAttack 
+					break 
+			fi 
+			Log "not attacking"
+			echo "not attacking and taking snapshots"
+			SendMessage "snapshot.sh"
+			Act "Battle" "Next"
+			battleFound=$(WaitFor "Battle" "" 100)
+			if [ "$battleFound" = "n" ]
+			then
+				break
+			fi
+			#Zoom
+			Read "Battle"
+			de=$(cat ocred_DE.txt)
+			elixir=$(cat ocred_Elixir.txt)
+			gold=$(cat ocred_Gold.txt)
+			win=$(cat ocred_Win.txt)
+			loose=$(cat ocred_Loose.txt) 
+			ea=$(cat ocred_ea.txt)
+			isea=$(echo $ea| cut -d'_' -f 1)
+			((eg=gold+elixir))
+			
+
+			th10=$(cat ocred_Th10.txt) 
+			isth10=$(echo $th10| cut -d'_' -f 1)
+
+			#th9=$(cat ocred_Th9.txt) 
+			#isth9=$(echo $th9| cut -d'_' -f 1)
+			Log "loot - de $de elixir $elixir gold $gold eg $eg"
+			echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th10 - $th10"
+			
+		done
+
+	fi
 }
 
 CaptureBased()
