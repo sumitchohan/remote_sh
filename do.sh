@@ -760,7 +760,7 @@ Attack()
 	Tap 230 460
 
 	battleFound=$(WaitFor "Battle" "" 100)
-	if [ "$battleFound" = "n" ]
+	if [ "$battleFound" = "y" ]
 	then
 		#Zoom
 		Read "Battle"
