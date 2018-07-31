@@ -36,8 +36,9 @@ cat "/tmp/Loose_C.txt" | sed 's/[^0-9]*//g' > /tmp/Loose_$dt.txt
 adb push /tmp/Loose_$dt.txt /sdcard/coc/ocred_Loose.txt
 cp /tmp/scr.png ~/Desktop/gh/remote_sh/cv/
 echo "" > /tmp/troopMap.txt
-#th9=$(curl http://localhost:8952/findObject/th9/scr.png -s) 
+th9=$(curl http://localhost:8952/findObject/th9/scr.png -s) 
 th10=$(curl http://localhost:8952/findObject/th10/scr.png -s) 
 #th11=$(curl http://localhost:8952/findObject/th11/scr.png -s)  
 echo $th10 > /tmp/ocred_Th10.txt
-adb push /tmp/ocred_Th10.txt /sdcard/coc/ocred_Th10.txt
+echo $th9 > /tmp/ocred_Th9.txt
+adb push /tmp/ocred_Th9.txt /sdcard/coc/ocred_Th9.txt

@@ -60,6 +60,8 @@ imgxb1 = cv2.imread('xb1.png',0)
 kpxb1, desxb1 = sift.detectAndCompute(imgxb1,None)
 imgit2 = cv2.imread('it2.png',0)
 kpit2, desit2 = sift.detectAndCompute(imgit2,None)
+imgcc = cv2.imread('cc.png',0)
+kpcc, descc = sift.detectAndCompute(imgcc,None)
 print('loaded all source images')
 
 def click(request):
@@ -111,6 +113,8 @@ def findObject(request):
         des = desth11
     elif src=='th9':
         des = desth9
+    elif src=='cc':
+        des = descc
 
     print (src)
     target = request.matchdict.get('target', -1) 

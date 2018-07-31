@@ -42,13 +42,14 @@ tapIfSelected,530,114
 tapIfSelected,676,228
 tapIfSelected,742,275
 selectTroop,cc
-tapIfSelected,280,100
+tapIfSelected,353,53
 wait,2
 selectTroop,rage
-tapIfSelected,414,169
-tapIfSelected,542,274
-wait,15
-tapIfSelected,330,261
+tapIfSelected,345,152
+tapIfSelected,496,231
+tapIfSelected,525,326
+wait,25
+tapIfSelected,313,281
 tapIfSelected,438,348
 selectTroop,king
 tapIfSelected,267,115
@@ -91,5 +92,4 @@ wait,1
 selectTroop,queen
 wait,1
 selectTroop,warden
-selectTroop,rage
 
