@@ -1105,6 +1105,9 @@ QuickAttack()
 
 Run()
 {
+	SendMessage "abcd"
+	SendMessage "abcd"
+	SendMessage "abcd"
 	StopCOC
 	Home
 	Zoom
