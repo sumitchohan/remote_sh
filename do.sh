@@ -1,5 +1,8 @@
 cd /sdcard/coc
- screenWidth="$(wm size | cut -d'x' -f 1 | cut -d':' -f 2 |sed -e 's/^[[:space:]]*//')"
+screenWidth="$(wm size | cut -d'x' -f 1 | cut -d':' -f 2 |sed -e 's/^[[:space:]]*//')"
+port=8901
+source /sdcard/cocconfig/config.sh
+echo "port - $port"
 Dump()
 {
 	screenWidth="$(wm size | cut -d'x' -f 1 | cut -d':' -f 2 |sed -e 's/^[[:space:]]*//')"
@@ -10,7 +13,7 @@ Dump()
 }
 SendMessage()
 {
-echo $(echo "$1" | tr '\n' ' ')  | nc "192.168.0.106" "8901"
+echo $(echo "$1" | tr '\n' ' ')  | nc "192.168.0.106" "$port"
 }
 
 Restore()
@@ -782,28 +785,15 @@ Attack()
 		echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th9 - $th9 th10 - $th10"
 		while [ "$attacked" = "n" ]
 		do
-			# if [ "$de" -ge "6000" ] || [ "$gold" -ge "550000" ] || [ "$elixir" -ge "500000" ] || [ "$eg" -ge "900000" ]
-			
-			if  [ "$elixir" -ge "550000" ] || [ "$eg" -ge "1100000" ]
-			then
-				if [ "$isth10" = "y" ]
-				then	
-					Log "attacking on th10"
-					echo "ready to attack"
-					QuickAttack 
-					break 
-				fi
-			fi 
-			if  [ "$elixir" -ge "800000" ] || [ "$eg" -ge "1600000" ]
-			then 
-					Log "attacking"
-					echo "ready to attack"
-					QuickAttack 
-					break 
+			SendMessage "snapshot.sh"
+			shouldAttack=$(source /sdcard/cocconfig/ShouldAttack.sh)
+			if [ "$shouldAttack" = "y" ] 
+				Log "attacking on th10"
+				echo "ready to attack"
+				QuickAttack 
 			fi 
 			Log "not attacking"
-			echo "not attacking and taking snapshots"
-			SendMessage "snapshot.sh"
+			echo "not attacking"
 			Act "Battle" "Next"
 			battleFound=$(WaitFor "Battle" "" 100)
 			if [ "$battleFound" = "n" ]
