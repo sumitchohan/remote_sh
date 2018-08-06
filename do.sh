@@ -788,6 +788,7 @@ Attack()
 			SendMessage "snapshot.sh"
 			shouldAttack=$(source /sdcard/cocconfig/ShouldAttack.sh)
 			if [ "$shouldAttack" = "y" ] 
+			then
 				Log "attacking on th10"
 				echo "ready to attack"
 				QuickAttack 
