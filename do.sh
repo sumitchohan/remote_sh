@@ -933,6 +933,10 @@ Tapf()
 	# sendevent /dev/input/event1 0 0 0
 	# sleep 0.001
 }
+LogRemote()
+{	
+	SendMessage "logremote.sh $1"
+}
 DeployStart()
 {
 	Tapf 40 70
@@ -1099,6 +1103,7 @@ Run()
 	SendMessage "abcd"
 	SendMessage "abcd"
 	SendMessage "abcd"
+	LogRemote "Starting"
 	StopCOC
 	Home
 	Zoom
@@ -1126,4 +1131,5 @@ Run()
 		Tap 768 92
 		echo "not ready"		
 	fi 
+	LogRemote "Done"
 }
