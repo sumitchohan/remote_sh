@@ -1,7 +1,20 @@
 counter=1
 while [ "$counter" -le 10000 ] 
 do
-	echo "$counter.."
+	echo "counter - $counter"
+	source avdmanager.sh Nexus5XNew1
+	adb kill-server
+	sleep 5
+	sh init.sh
+	source start.sh	
+	adb shell "cd sdcard/coc && source do.sh && Run"
+	sleep 60
+	
+	source avdmanager.sh Nexus5XNew2
+	adb kill-server
+	sleep 5
+	sh init.sh
+	source start.sh	
 	adb shell "cd sdcard/coc && source do.sh && Run"
 	sleep 1800
 	counter=$((counter+1))
