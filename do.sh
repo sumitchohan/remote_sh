@@ -792,6 +792,7 @@ Attack()
 				Log "attacking on th10"
 				echo "ready to attack"
 				QuickAttack 
+				break
 			fi 
 			Log "not attacking"
 			echo "not attacking"
@@ -1096,8 +1097,6 @@ QuickAttack()
 {
 	SendMessage 'quick_attack'
 }
-
-
 Run()
 {
 	SendMessage "abcd"
