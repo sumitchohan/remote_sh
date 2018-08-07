@@ -5,4 +5,4 @@ while read line; do
 	wmctrl -ic $line
 	echo "Closed - $line"
 done < <(echo $threads)
-~/Android/Sdk/emulator/emulator -avd $1
+~/Android/Sdk/emulator/emulator -avd $1 &
