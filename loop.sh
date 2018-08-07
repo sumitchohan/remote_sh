@@ -3,7 +3,11 @@ while [ "$counter" -le 10000 ]
 do
 	echo "counter - $counter"
 	source avdmanager.sh Nexus5XNew1
-	adb kill-server
+	sleep 15
+	adb shell "echo 'hi'"
+	adb shell "echo 'hi'"
+	adb shell "echo 'hi'"
+	adb shell "echo 'hi'"
 	sleep 5
 	sh init.sh
 	source start.sh	
@@ -11,7 +15,11 @@ do
 	sleep 60
 	
 	source avdmanager.sh Nexus5XNew2
-	adb kill-server
+	sleep 15
+	adb shell "echo 'hi'"
+	adb shell "echo 'hi'"
+	adb shell "echo 'hi'"
+	adb shell "echo 'hi'"
 	sleep 5
 	sh init.sh
 	source start.sh	
