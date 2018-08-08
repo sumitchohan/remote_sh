@@ -1138,7 +1138,7 @@ Run()
 		Zoom
 		Tap 40 520
 		sleep 0.1
-		Tap quickTrainXPos 95
+		Tap $quickTrainXPos 95
 		sleep 0.1
 		Tap 730 448
 		sleep 0.1
