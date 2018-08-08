@@ -1102,20 +1102,20 @@ Run()
 	SendMessage "abcd"
 	SendMessage "abcd"
 	SendMessage "abcd"
-	LogRemote "Starting"
+	LogRemote "$1 Starting"
 	StopCOC
 	Home
 	Zoom
-		# Read "Home"
-		# trophy=$(cat ocred_Trophy.txt)
-		# de=$(cat ocred_DE.txt)
-		# elixir=$(cat ocred_Elixir.txt)
-		# gems=$(cat ocred_Gems.txt)
-		# gold=$(cat ocred_Gold.txt)
-		# Log "home - de $de elixir $elixir gold $gold gems $gems trophy $trophy"
+	Read "Home"
+	trophy=$(cat ocred_Trophy.txt)
+	de=$(cat ocred_DE.txt)
+	elixir=$(cat ocred_Elixir.txt)
+	gems=$(cat ocred_Gems.txt)
+	gold=$(cat ocred_Gold.txt)
+	LogRemote "$1 de $de elixir $elixir gold $gold gems $gems trophy $trophy"
 	Tap 40 520
 	sleep 0.1
-	Tap 520 95
+	Tap 730 95
 	sleep 0.1
 	Tap 730 448
 	sleep 0.1
@@ -1126,9 +1126,19 @@ Run()
 	then
 		Tap 768 92
 		Attack
+		sleep 60
+		StopCOC
+		Home
+		Zoom
+		Tap 40 520
+		sleep 0.1
+		Tap 730 95
+		sleep 0.1
+		Tap 730 448
+		sleep 0.1
 	else
 		Tap 768 92
 		echo "not ready"		
-	fi 
-	LogRemote "Done"
+	fi
+	LogRemote "$1 Done"
 }

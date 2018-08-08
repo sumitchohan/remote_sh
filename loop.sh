@@ -11,7 +11,7 @@ do
 	sleep 5
 	sh init.sh
 	source start.sh	
-	adb shell "cd sdcard/coc && source do.sh && Run"
+	adb shell "cd sdcard/coc && source do.sh && Run 1"
 	sleep 60
 	
 	source avdmanager.sh Nexus5XNew2
@@ -23,8 +23,8 @@ do
 	sleep 5
 	sh init.sh
 	source start.sh	
-	adb shell "cd sdcard/coc && source do.sh && Run"
-	sleep 1800
+	adb shell "cd sdcard/coc && source do.sh && Run 2"
+	sleep 2000
 	counter=$((counter+1))
 done
 
