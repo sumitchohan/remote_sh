@@ -12,7 +12,6 @@ do
 	sh init.sh
 	source start.sh	
 	adb shell "cd sdcard/coc && source do.sh && Run 1"
-	sleep 60
 	
 	source avdmanager.sh Nexus5XNew2
 	sleep 15
