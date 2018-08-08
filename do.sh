@@ -1129,7 +1129,7 @@ SwitchID()
 	Act SCID Logout
 	WaitFor "SCIDLO" "" 15
 	Act SCIDLO Confirm
-	Wait 3
+	sleep 3
 	Tap 220 620
 	WaitFor "SCIDCFS" "" 5
 	if [ "$1" = "1" ]
@@ -1140,8 +1140,6 @@ SwitchID()
 	fi
 	WaitFor "Home" "" 10
 	Zoom
-
-
 }
 Run()
 {
