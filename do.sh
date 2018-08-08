@@ -754,6 +754,33 @@ Run_old()
 		Log "not enough army - $army"
 	fi
 }
+ShouldAttack()
+{
+	result="n"
+	if [ "$1" = "1" ]
+	then
+		if  [ "$elixir" -ge "550000" ] || [ "$eg" -ge "1100000" ]
+		then
+			if [ "$isth10" = "y" ]
+			then	
+				result="y"
+			fi
+		fi 
+		if  [ "$elixir" -ge "800000" ] || [ "$eg" -ge "1600000" ]
+		then 
+			result="y"
+		fi
+	else
+		if  [ "$elixir" -ge "180000" ]
+		then
+			if [ "$isth10" = "y" ]
+			then	
+        		result="y"
+			fi
+		fi 
+	fi 
+	echo $result
+}
 Attack()
 {
 	Act "Home" "Attack"
@@ -786,7 +813,7 @@ Attack()
 		while [ "$attacked" = "n" ]
 		do
 			SendMessage "snapshot.sh"
-			shouldAttack=$(source /sdcard/cocconfig/ShouldAttack.sh)
+			shouldAttack=$(ShouldAttack $1)
 			if [ "$shouldAttack" = "y" ] 
 			then
 				Log "attacking on th10"
@@ -812,18 +839,13 @@ Attack()
 			ea=$(cat ocred_ea.txt)
 			isea=$(echo $ea| cut -d'_' -f 1)
 			((eg=gold+elixir))
-			
-
 			th10=$(cat ocred_Th10.txt) 
 			isth10=$(echo $th10| cut -d'_' -f 1)
-
 			#th9=$(cat ocred_Th9.txt) 
 			#isth9=$(echo $th9| cut -d'_' -f 1)
 			Log "loot - de $de elixir $elixir gold $gold eg $eg"
-			echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th10 - $th10"
-			
+			echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th10 - $th10"			
 		done
-
 	fi
 }
 
@@ -1097,6 +1119,29 @@ QuickAttack()
 {
 	SendMessage 'quick_attack'
 }
+SwitchID()
+{
+	Tap 760 520
+	WaitFor "Settings" "" 10
+	Act Settings Connected
+	WaitFor "SCID" "" 15
+	Act SCID Logout
+	WaitFor "SCIDLO" "" 15
+	Act SCIDLO Confirm
+	Wait 3
+	Tap 220 620
+	WaitFor "SCIDCFS" "" 5
+	if [ "$1" = "1" ]
+	then
+		Tap 300 295 #ID1
+	else
+		Tap 300 390 #ID2
+	fi
+	WaitFor "Home" "" 10
+	Zoom
+
+
+}
 Run()
 {
 	SendMessage "abcd"
@@ -1105,7 +1150,7 @@ Run()
 	LogRemote "$1_Starting"
 	StopCOC
 	Home
-	Zoom
+	SwitchID $1
 	Read "Home"
 	trophy=$(cat ocred_Trophy.txt)
 	de=$(cat ocred_DE.txt)
@@ -1131,7 +1176,7 @@ Run()
 	if [ "$ready" = "y" ]
 	then
 		Tap 768 92
-		Attack
+		Attack $1
 		sleep 60
 		StopCOC
 		Home
