@@ -1102,7 +1102,7 @@ Run()
 	SendMessage "abcd"
 	SendMessage "abcd"
 	SendMessage "abcd"
-	LogRemote "$1 Starting"
+	LogRemote "$1_Starting"
 	StopCOC
 	Home
 	Zoom
@@ -1112,10 +1112,16 @@ Run()
 	elixir=$(cat ocred_Elixir.txt)
 	gems=$(cat ocred_Gems.txt)
 	gold=$(cat ocred_Gold.txt)
-	LogRemote "$1 de $de elixir $elixir gold $gold gems $gems trophy $trophy"
+	LogRemote "$1_de_$de_elixir_$elixir_gold_$gold_gems_$gems_trophy_$trophy"
+	quickTrainXPos=520
+	if [ "$1" = "2" ]
+	then
+		quickTrainXPos=730
+	fi
+
 	Tap 40 520
 	sleep 0.1
-	Tap 730 95
+	Tap $quickTrainXPos 95
 	sleep 0.1
 	Tap 730 448
 	sleep 0.1
@@ -1132,7 +1138,7 @@ Run()
 		Zoom
 		Tap 40 520
 		sleep 0.1
-		Tap 730 95
+		Tap quickTrainXPos 95
 		sleep 0.1
 		Tap 730 448
 		sleep 0.1
@@ -1140,5 +1146,5 @@ Run()
 		Tap 768 92
 		echo "not ready"		
 	fi
-	LogRemote "$1 Done"
+	LogRemote "$1_Done"
 }
