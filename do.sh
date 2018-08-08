@@ -813,8 +813,8 @@ Attack()
 		while [ "$attacked" = "n" ]
 		do
 			SendMessage "snapshot.sh"
-			echo "Should Attack $1 #th10 $elixir $gold"
 			shouldAttack=$(ShouldAttack $1)
+			echo "ShouldAttack $shouldAttack $1 $th10 $elixir $gold"
 			if [ "$shouldAttack" = "y" ] 
 			then
 				Log "attacking on th10"
