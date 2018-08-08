@@ -1112,7 +1112,7 @@ Run()
 	elixir=$(cat ocred_Elixir.txt)
 	gems=$(cat ocred_Gems.txt)
 	gold=$(cat ocred_Gold.txt)
-	LogRemote "$1_de_$de_elixir_$elixir_gold_$gold_gems_$gems_trophy_$trophy"
+	LogRemote "$1_$elixir_$gold"
 	quickTrainXPos=520
 	if [ "$1" = "2" ]
 	then
