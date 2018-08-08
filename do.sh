@@ -813,6 +813,7 @@ Attack()
 		while [ "$attacked" = "n" ]
 		do
 			SendMessage "snapshot.sh"
+			echo "Should Attack $1 #th10 $elixir $gold"
 			shouldAttack=$(ShouldAttack $1)
 			if [ "$shouldAttack" = "y" ] 
 			then
