@@ -1134,9 +1134,9 @@ SwitchID()
 	WaitFor "SCIDCFS" "" 5
 	if [ "$1" = "1" ]
 	then
-		Tap 300 295 #ID1
+		Tap 300 390 #ID1
 	else
-		Tap 300 390 #ID2
+		Tap 300 295 #ID2
 	fi
 	WaitFor "Home" "" 10
 	Zoom
