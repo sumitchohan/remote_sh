@@ -779,6 +779,7 @@ ShouldAttack()
 			fi
 		fi 
 	fi 
+	Log "Should Attack - $1 $elixir $eg $isth10 $result"
 	echo $result
 }
 Attack()
