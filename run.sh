@@ -6,30 +6,43 @@
 #curl https://api.keyvalue.xyz/172e1f84/myKey
 #awk '{ sub("\r$", ""); print }' run.sh > run1.sh
 
-oldSwitch="#@%^&!^"
-retryDelay=30
+Exec()
+{
+	adb shell "cd sdcard/coc && source do.sh && Run 1"
+	adb shell "cd sdcard/coc && source do.sh && Run 2"
+}
+ 
 error="y"
+waitCount=60
+waitCounter=$waitCount
+heartBeatDelay=30
 while [ 1 -le 2 ]
 do
 	switch=$(curl https://api.keyvalue.xyz/b3290c28/myKey -k -s)
 	echo "switch - $switch"
-	if [ "$switch" = "$oldSwitch" ]
+	if [ "$switch" = "ON" ]
 	then
-		echo "No Change"
-	else
-		if [ "$switch" = "ON" ]
+		echo "On"
+		if [ "$waitCounter" -ge 0 ]
 		then
-			# input tap 615 462
-			adb shell "input tap 600 10"
-			sleep $retryDelay
-			sleep $retryDelay
-			adb shell "input tap 600 10"
+			echo "waitCounter - $waitCounter"
+			waitCounter=$((waitCounter-1))
+			sleep $heartBeatDelay
+		else 
+			Exec
+			waitCounter=$waitCount
 		fi
-		echo $switch
-		oldSwitch=$switch
+	elif [ "$switch" = "STOPPED" ]
+	then
+		waitCounter=$waitCount
+		echo "Stopped. Doing Nothing"
+		sleep $heartBeatDelay
+	elif [ "$switch" = "START" ]
+	then
+		Exec
+		curl -d "ON" -X POST https://api.keyvalue.xyz/b3290c28/myKey -k -s
+		waitCounter=$waitCount
+	else
+		sleep $heartBeatDelay
 	fi
-	adb shell "input tap 300 265"
-	dt=$(date '+%Y-%m-%dT%H:%M:%S');
-	curl -d "OFF-$dt" -X POST https://api.keyvalue.xyz/b3290c28/myKey -k -s
-	sleep $retryDelay
 done
