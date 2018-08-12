@@ -39,8 +39,8 @@ do
 		sleep $heartBeatDelay
 	elif [ "$switch" = "START" ]
 	then
-		Exec
 		curl -d "ON" -X POST https://api.keyvalue.xyz/b3290c28/myKey -k -s
+		Exec
 		waitCounter=$waitCount
 	else
 		sleep $heartBeatDelay
