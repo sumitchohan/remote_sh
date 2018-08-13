@@ -381,18 +381,26 @@ Repeat()
 
 Loose()
 {
-	Home
-	Act "Home" "Attack"
-	sleep .5
-	Tap 230 460 
-	WaitFor "Battle" "" 120	
-	SendMessage "loose"
-	sleep .5
-	Tap 66 530
-	sleep 1
-	Tap 494 416
-	sleep 1
-	Tap 396 540
+	Home	
+	Tap 40 520
+	sleep 0.1
+	ready=$(IsReadyForAttack)
+	if [ "$ready" = "y" ]
+	then
+		Act "Home" "Attack"
+		sleep .5
+		Tap 230 460 
+		WaitFor "Battle" "" 120	
+		SendMessage "loose"
+		sleep .5
+		Tap 66 530
+		sleep 1
+		Tap 494 416
+		sleep 1
+		Tap 396 540
+	else
+		echo "not ready"
+	fi
 }
 Read()
 {
@@ -1161,7 +1169,6 @@ Run()
 	then
 		quickTrainXPos=730
 	fi
-
 	Tap 40 520
 	sleep 0.1
 	Tap $quickTrainXPos 95
