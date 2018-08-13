@@ -394,6 +394,7 @@ Loose()
 	echo "trophy -$trophy maxTrophyCount -  $maxTrophyCount"
 	if [ "$trophy" -ge "$maxTrophyCount" ] 
 	then
+		echo "Loosing.."
 		Tap 40 520
 		sleep 0.1
 		ready=$(IsReadyForAttack)
