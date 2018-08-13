@@ -386,7 +386,9 @@ Loose()
 	sleep 0.1
 	ready=$(IsReadyForAttack)
 	if [ "$ready" = "y" ]
-	then
+	then		
+		Tap 768 92
+		sleep .5
 		Act "Home" "Attack"
 		sleep .5
 		Tap 230 460 
