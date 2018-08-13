@@ -382,26 +382,40 @@ Repeat()
 Loose()
 {
 	Home	
-	Tap 40 520
-	sleep 0.1
-	ready=$(IsReadyForAttack)
-	if [ "$ready" = "y" ]
-	then		
-		Tap 768 92
-		sleep .5
-		Act "Home" "Attack"
-		sleep .5
-		Tap 230 460 
-		WaitFor "Battle" "" 120	
-		SendMessage "loose"
-		sleep .5
-		Tap 66 530
-		sleep 1
-		Tap 494 416
-		sleep 1
-		Tap 396 540
+	Read "Home"
+	trophy=$(cat ocred_Trophy.txt)
+	maxTrophyCount=4300
+	if [ "$1" = "1" ]
+	then
+		maxTrophyCount=2100
 	else
-		echo "not ready"
+		maxTrophyCount=4300
+	fi
+	echo "trophy -$trophy maxTrophyCount -  $maxTrophyCount"
+	if [ "$trophy" -ge "$maxTrophyCount" ] 
+	then
+		Tap 40 520
+		sleep 0.1
+		ready=$(IsReadyForAttack)
+		if [ "$ready" = "y" ]
+		then		
+			Tap 768 92
+			sleep .5
+			Act "Home" "Attack"
+			sleep .5
+			Tap 230 460 
+			WaitFor "Battle" "" 120	
+			SendMessage "loose"
+			sleep .5
+			Tap 66 530
+			sleep 1
+			Tap 494 416
+			sleep 1
+			Tap 396 540
+			Loose $1
+		else
+			echo "not ready"
+		fi
 	fi
 }
 Read()
