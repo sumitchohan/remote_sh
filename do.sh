@@ -382,6 +382,7 @@ Repeat()
 Loose()
 {
 	Home	
+	Zoom
 	Read "Home"
 	trophy=$(cat ocred_Trophy.txt)
 	maxTrophyCount=4300
