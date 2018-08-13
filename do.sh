@@ -397,10 +397,10 @@ Loose()
 		Tap 40 520
 		sleep 0.1
 		ready=$(IsReadyForAttack)
+		Tap 768 92
+		sleep .5
 		if [ "$ready" = "y" ]
 		then		
-			Tap 768 92
-			sleep .5
 			Act "Home" "Attack"
 			sleep .5
 			Tap 230 460 
@@ -1172,14 +1172,8 @@ Run()
 	LogRemote "$1_Starting"
 	StopCOC
 	Home
-	SwitchID $1
-	Read "Home"
-	trophy=$(cat ocred_Trophy.txt)
-	de=$(cat ocred_DE.txt)
-	elixir=$(cat ocred_Elixir.txt)
-	gems=$(cat ocred_Gems.txt)
-	gold=$(cat ocred_Gold.txt)
-	LogRemote "$1_$elixir_$gold"
+	SwitchID $1 
+	Loose $1
 	quickTrainXPos=520
 	if [ "$1" = "2" ]
 	then
