@@ -1,5 +1,5 @@
 convert '/tmp/scr.png[666x100+0+565]' /tmp/BattleTroops.png
-cp /tmp/BattleTroops.png ~/Desktop/gh/remote_sh/cv/
+cp /tmp/BattleTroops.png ~/Desktop/gh/remote_sh/cv/BattleTroops.png
 echo "" > /tmp/troopMap.txt
 createTroopMapEntry()
 {
