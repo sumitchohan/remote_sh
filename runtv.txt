@@ -1,0 +1,10 @@
+xdotool mousemove 946 464 click 1
+sleep 2
+xdotool mousemove 30 740 click 1
+sleep 1
+xdptool type 'Team'
+sleep 1
+xdotool mousemove 754 168 click 1
+sleep 1
+gnome-screenshot
+ls ~/Pictures/*.png

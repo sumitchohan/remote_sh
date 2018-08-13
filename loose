@@ -9,4 +9,4 @@ hexdump -e '/4 "%d"' -s 4 -n 4 scr.raw
 hexdump -e '/4 "%d"' -s 8 -n 4 scr.raw
 convert -size 800x666 -depth 8 scr.rgba /tmp/scr.png
 sh Battle_readTroops.sh
-curl http://localhost:$paport/execute/quickattack_side.txt -s
+curl http://localhost:$paport/execute/loose.txt -s

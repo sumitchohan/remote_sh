@@ -386,10 +386,8 @@ Loose()
 	sleep .5
 	Tap 230 460 
 	WaitFor "Battle" "" 120	
-	Tap 260 616
-	sleep .3
-	Tap 388 28
-	sleep .3
+	SendMessage "loose"
+	sleep .5
 	Tap 66 530
 	sleep 1
 	Tap 494 416
