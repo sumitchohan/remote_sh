@@ -1,2 +1,2 @@
 selectTroop,queen
-tap,353,53
+tapIfSelected,451,53
