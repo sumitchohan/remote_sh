@@ -1067,7 +1067,7 @@ MatchPixel() #x y r g b delta
 IsReadyForAttack()
 {
 	Dump	
-    if [ $(MatchPixel 27 150 64 119 10 100) = "y" ] && [ $(MatchPixel 551 296 64 117 09 100) = "y" ]
+    if [ $(MatchPixel 27 150 64 119 10 100) = "y" ] #&& [ $(MatchPixel 551 296 64 117 09 100) = "y" ]
     then		
 		echo "y"
 	else 
