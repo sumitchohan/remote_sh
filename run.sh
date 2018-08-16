@@ -13,7 +13,7 @@ Exec()
 }
  
 error="y"
-waitCount=60
+waitCount=40
 waitCounter=$waitCount
 heartBeatDelay=30
 while [ 1 -le 2 ]
