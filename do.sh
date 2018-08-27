@@ -795,12 +795,16 @@ ShouldAttack()
 			result="y"
 		fi
 	else
-		if  [ "$elixir" -ge "100000" ]
+		if  [ "$elixir" -ge "100000" ] || [ "$eg" -ge "400000" ]
 		then
 			if [ "$isth10" = "y" ]
 			then	
-        		result="y"
+				result="y"
 			fi
+		fi 
+		if  [ "$elixir" -ge "500000" ] || [ "$eg" -ge "1000000" ]
+		then 
+			result="y"
 		fi 
 	fi 
 	Log "Should Attack - $1 $elixir $eg $isth10 $result"
