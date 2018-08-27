@@ -56,7 +56,7 @@ selectTroop,cc
 tapIfSelected,353,53
 wait,2
 selectTroop,rage
-tapIfSelected,335,180
+tapIfSelected,345,190
 tapIfSelected,496,231
 tapIfSelected,525,326
 wait,25
