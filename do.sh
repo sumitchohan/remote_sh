@@ -398,7 +398,7 @@ Loose()
 		echo "Loosing.."
 		Tap 40 520
 		sleep 0.1
-		ready=$(IsReadyForAttack)
+		ready=$(MatchPixel 551 296 64 117 09 100)
 		Tap 768 92
 		sleep .5
 		if [ "$ready" = "y" ]
