@@ -390,7 +390,7 @@ Loose()
 	then
 		maxTrophyCount=2100
 	else
-		maxTrophyCount=1800
+		maxTrophyCount=1000
 	fi
 	echo "trophy -$trophy maxTrophyCount -  $maxTrophyCount"
 	if [ "$trophy" -ge "$maxTrophyCount" ] 
