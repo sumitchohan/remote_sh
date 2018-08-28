@@ -1,6 +1,6 @@
 dt=$(date '+%Y-%m-%dT%H_%M_%S')
 convert '/tmp/scr.png[55x20+67+81]' '/tmp/Trophy_1.png'
-convert /tmp/Trophy_1.png -fuzz 300 -fill white -opaque "#FFE8FD" '/tmp/Trophy_2.png'
+convert /tmp/Trophy_1.png -fuzz 300 -fill white -opaque "#FFFFFF" '/tmp/Trophy_2.png'
 ./ocrutil/OcrUtil KeepPixels /tmp/Trophy_2.png /tmp/Trophy_C.png ./ocrutil/whitelist.txt
 convert -resize 200% '/tmp/Trophy_C.png' '/tmp/Trophy_C1.png'
 tesseract /tmp/Trophy_C1.png /tmp/Trophy_C --tessdata-dir ~/Desktop/gh/remote_sh/tessdata -l coc1
