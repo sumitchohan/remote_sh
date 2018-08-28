@@ -390,7 +390,7 @@ Loose()
 	then
 		maxTrophyCount=2100
 	else
-		maxTrophyCount=2300
+		maxTrophyCount=4300
 	fi
 	echo "trophy -$trophy maxTrophyCount -  $maxTrophyCount"
 	if [ "$trophy" -ge "$maxTrophyCount" ] 
@@ -784,7 +784,7 @@ ShouldAttack()
 	result="n"
 	if [ "$1" = "1" ]
 	then
-		if  [ "$elixir" -ge "500000" ] || [ "$eg" -ge "1000000" ]
+		if  [ "$elixir" -ge "550000" ] || [ "$eg" -ge "1000000" ]
 		then
 			if [ "$isth10" = "y" ]
 			then	
@@ -796,7 +796,7 @@ ShouldAttack()
 			result="y"
 		fi
 	else
-		if  [ "$elixir" -ge "400000" ] || [ "$eg" -ge "800000" ]
+		if  [ "$elixir" -ge "200000" ] || [ "$eg" -ge "600000" ]
 		then
 			if [ "$isth10" = "y" ]
 			then	
