@@ -30,6 +30,8 @@ imgth11 = cv2.imread('th11.png',0)
 kpth11, desth11 = sift.detectAndCompute(imgth11,None)
 imgarcher = cv2.imread('archer.png',0)
 kparcher, desarcher = sift.detectAndCompute(imgarcher,None)
+imgvalk = cv2.imread('valk.png',0)
+kpvalk, desvalk = sift.detectAndCompute(imgvalk,None)
 imgbarb = cv2.imread('barb.png',0)
 kpbarb, desbarb = sift.detectAndCompute(imgbarb,None)
 imgea1 = cv2.imread('ea1.png',0)
@@ -77,6 +79,8 @@ def findObject(request):
 
     if src=='archer':
         des = desarcher
+    if src=='valk':
+        des = desvalk
     elif src=='barb':
         des = desbarb
     elif src=='ea1':

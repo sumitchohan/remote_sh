@@ -12,6 +12,7 @@ createTroopMapEntry()
 } 
 createTroopMapEntry "archer"
 createTroopMapEntry "barb"
+createTroopMapEntry "valk"
 createTroopMapEntry "giant"
 createTroopMapEntry "goblin"
 createTroopMapEntry "king"
