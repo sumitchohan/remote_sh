@@ -388,9 +388,9 @@ Loose()
 	maxTrophyCount=4300
 	if [ "$1" = "1" ]
 	then
-		maxTrophyCount=2100
+		maxTrophyCount=2300
 	else
-		maxTrophyCount=4300
+		maxTrophyCount=1000
 	fi
 	echo "trophy -$trophy maxTrophyCount -  $maxTrophyCount"
 	if [ "$trophy" -ge "$maxTrophyCount" ] 
