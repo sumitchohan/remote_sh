@@ -13,7 +13,7 @@ Dump()
 }
 SendMessage()
 {
-echo $(echo "$1" | tr '\n' ' ')  | nc "192.168.0.106" "$port"
+echo $(echo "$1" | tr '\n' ' ')  | nc "192.168.0.108" "$port"
 }
 
 Restore()
