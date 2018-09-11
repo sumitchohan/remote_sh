@@ -1180,7 +1180,7 @@ Run()
 	StopCOC
 	Home
 	SwitchID $1 
-	Loose $1
+	#Loose $1
 	quickTrainXPos=520
 	if [ "$1" = "2" ]
 	then
