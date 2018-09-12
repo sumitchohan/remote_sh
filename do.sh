@@ -784,14 +784,14 @@ ShouldAttack()
 	result="n"
 	if [ "$1" = "1" ]
 	then
-		if  [ "$elixir" -ge "500000" ] || [ "$eg" -ge "1000000" ]
+		if  [ "$elixir" -ge "500000" ] || [ "$eg" -ge "1000000" ] || [ "$de" -ge "5000" ]
 		then
 			if [ "$isth10" = "y" ]
 			then	
 				result="y"
 			fi
 		fi 
-		if  [ "$elixir" -ge "600000" ] || [ "$eg" -ge "1200000" ]
+		if  [ "$elixir" -ge "600000" ] || [ "$eg" -ge "1200000" ] || [ "$de" -ge "7000" ]
 		then 
 			result="y"
 		fi
@@ -803,7 +803,7 @@ ShouldAttack()
 				result="y"
 			fi
 		fi 
-		if  [ "$elixir" -ge "700000" ] || [ "$eg" -ge "1400000" ]
+		if  [ "$elixir" -ge "500000" ] || [ "$eg" -ge "1000000" ]
 		then 
 			result="y"
 		fi 
