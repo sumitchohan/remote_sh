@@ -803,7 +803,7 @@ ShouldAttack()
 				result="y"
 			fi
 		fi 
-		if  [ "$elixir" -ge "700000" ] || [ "$eg" -ge "1400000" ]
+		if  [ "$elixir" -ge "500000" ] || [ "$eg" -ge "1000000" ]
 		then 
 			result="y"
 		fi 
@@ -849,7 +849,7 @@ Attack()
 		echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th9 - $th9 th10 - $th10"
 		while [ "$attacked" = "n" ]
 		do
-			SendMessage "snapshot.sh"
+			#SendMessage "snapshot.sh"
 			shouldAttack=$(ShouldAttack $1)
 			echo "ShouldAttack $shouldAttack $1 $th10 $elixir $gold"
 			if [ "$shouldAttack" = "y" ] 
