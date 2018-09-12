@@ -803,7 +803,7 @@ ShouldAttack()
 				result="y"
 			fi
 		fi 
-		if  [ "$elixir" -ge "600000" ] || [ "$eg" -ge "1200000" ]
+		if  [ "$elixir" -ge "700000" ] || [ "$eg" -ge "1400000" ]
 		then 
 			result="y"
 		fi 
@@ -1149,6 +1149,11 @@ GetDonationWindowBorderPoints()
 QuickAttack()
 {
 	SendMessage 'quick_attack'
+}
+
+LoonMinionAttack()
+{
+	SendMessage 'loonminion'
 }
 SwitchID()
 {
