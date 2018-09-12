@@ -791,7 +791,7 @@ ShouldAttack()
 				result="y"
 			fi
 		fi 
-		if  [ "$elixir" -ge "700000" ] || [ "$eg" -ge "1400000" ]
+		if  [ "$elixir" -ge "600000" ] || [ "$eg" -ge "1200000" ]
 		then 
 			result="y"
 		fi
@@ -823,7 +823,14 @@ Attack()
 	if [ "$battleFound" = "y" ]
 	then
 		#Zoom
-		Read "Battle"
+
+		
+		if [ "$1" = "1" ]
+		then
+			SendMessage "read Battle"
+		else
+			SendMessage "read Battle1"
+		fi 
 		de=$(cat ocred_DE.txt)
 		elixir=$(cat ocred_Elixir.txt)
 		gold=$(cat ocred_Gold.txt) 
