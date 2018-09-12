@@ -856,7 +856,15 @@ Attack()
 			then
 				Log "attacking on th10"
 				echo "ready to attack"
-				QuickAttack 
+				
+		if [ "$1" = "1" ]
+		then
+			QuickAttack
+		else
+			LoonMinionAttack
+		fi 
+		
+
 				break
 			fi 
 			Log "not attacking"
