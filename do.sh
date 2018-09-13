@@ -796,14 +796,14 @@ ShouldAttack()
 			result="y"
 		fi
 	else
-		if  [ "$elixir" -ge "100000" ] || [ "$eg" -ge "400000" ]
+		if  [ "$elixir" -ge "20000" ] || [ "$eg" -ge "400000" ]
 		then
 			if [ "$isth10" = "y" ]
 			then	
 				result="y"
 			fi
 		fi 
-		if  [ "$elixir" -ge "500000" ] || [ "$eg" -ge "1000000" ]
+		if  [ "$elixir" -ge "800000" ] || [ "$eg" -ge "1600000" ]
 		then 
 			result="y"
 		fi 
@@ -829,7 +829,7 @@ Attack()
 		then
 			SendMessage "read Battle"
 		else
-			SendMessage "read Battle1"
+			SendMessage "read Battle"
 		fi 
 		de=$(cat ocred_DE.txt)
 		elixir=$(cat ocred_Elixir.txt)
@@ -861,7 +861,8 @@ Attack()
 		then
 			QuickAttack
 		else
-			LoonMinionAttack
+			QuickAttack
+			#LoonMinionAttack
 		fi 
 		
 
