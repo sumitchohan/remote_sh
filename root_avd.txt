@@ -1,0 +1,36 @@
+cd ~/Android/Sdk/platform-tools
+./emulator -avd Nexus5XRoot1 -writable-system -selinux disabled -qemu -enable-kvm
+#wait for boot
+git clone https://github.com/0xFireball/root_avd.git
+adb root && adb remount
+adb install root_avd/SuperSU/common/Superuser.apk
+adb push root_avd/SuperSU/x86/su /system/xbin/su
+adb shell chmod 0755 /system/xbin/su
+adb shell setenforce 0
+adb shell su --install
+adb shell su --daemon&
+
+A quick guide on how to root Android Studio's Android AVDs (and required files!)
+
+Required files can be found in this repository: https://github.com/0xFireball/root_avd
+
+You need the Android SDK and fresh new AVD. For this guide we will call it RootAVD.
+
+This was written and tested on a Nexus 5X AVD running Android 7.1 Nougat on an Ubuntu Linux host. This method should work with a similar setup (Android Nougat) for the forseeable future, though future Android versions may complicate this process further.
+
+Start emulator $SDK_PATH/emulator/emulator with args -avd RootAVD -writable-system -selinux disabled -qemu -enable-kvm
+Wait for boot.
+Restart adbd as root and remount system as writable: adb root && adb remount
+Install Superuser.apk: adb install SuperSU/common/Superuser.apk
+Push su and update permissions: you will have to pick the corresponding architecture $ARCH. adb push SuperSU/$ARCH/su /system/xbin/su, then update permissions: adb shell chmod 0755 /system/xbin/su
+Set SELinux Permissive: adb shell setenforce 0
+Install SuperSU's su to system: adb shell su --install
+Run SuperSU's su as daemon. adb shell su --daemon&
+Finally, open the SuperSU app on the device, and it will tell you the su binary needs to be updated. Accept and use normal installation.
+Installation will fail. Don't reboot, just move on. It will still work.
+Congratulations! You now have a rooted AVD with SuperSU.
+TIP: Superuser may not always persist after reboot, to fix:
+
+From a root shell, start su --daemon&
+Root should now work.
+Optional: Look for the temporary emulator system image; you can back this up and use it as a patched system.
