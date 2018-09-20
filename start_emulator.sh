@@ -1,1 +1,1 @@
-~/Android/Sdk/platform-tools/emulator -avd Nexus5XRoot1 &
+~/Android/Sdk/emulator/emulator -avd Nexus5XRoot1 &
