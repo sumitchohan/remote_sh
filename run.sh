@@ -10,7 +10,7 @@ Exec()
 {
 	adb push do.sh /sdcard/coc/
 	adb shell "cd sdcard/coc && source do.sh && Run 1"
-	adb shell "cd sdcard/coc && source do.sh && Run 2"
+	#adb shell "cd sdcard/coc && source do.sh && Run 2"
 }
  
 error="y"

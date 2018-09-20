@@ -1,7 +1,7 @@
 cd /sdcard/coc
 screenWidth="$(wm size | cut -d'x' -f 1 | cut -d':' -f 2 |sed -e 's/^[[:space:]]*//')"
 port=8901
-source /sdcard/cocconfig/config.sh
+#source /sdcard/cocconfig/config.sh
 echo "port - $port"
 Dump()
 {
@@ -563,8 +563,8 @@ VersusAttack()
 Zoom()
 {
 	
-	FRep
-	sleep 3
+	#FRep
+	#sleep 3
 	# X:16;Y:95 ;R:14 ;G:194;B:129;A:255
 # X:10;Y:95 ;R:14 ;G:194;B:129;A:255
 # X:10;Y:95 ;R:252 ;G:0;B:11;A:255
@@ -611,17 +611,17 @@ StartCOC()
 		sleep 10
 	fi
 	Dump
-	isFrep=$(MatchState "FRep")
-	if [ "$isFrep" = "n" ]
-	then
-		Log "No Frep"
-		am start -n com.x0.strai.frep/.FingerActivity
-		sleep 10
-		am start -n com.supercell.clashofclans/.GameApp
-		sleep 10
-	else
-		Log "Frep"
-	fi
+	#isFrep=$(MatchState "FRep")
+	#if [ "$isFrep" = "n" ]
+	#then
+	#	Log "No Frep"
+	#	am start -n com.x0.strai.frep/.FingerActivity
+	#	sleep 10
+	#	am start -n com.supercell.clashofclans/.GameApp
+	#	sleep 10
+	#else
+	#	Log "Frep"
+	#fi
 
 	# am force-stop com.supercell.clashofclans
 	# sleep 2
