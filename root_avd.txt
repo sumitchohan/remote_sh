@@ -1,4 +1,4 @@
-cd ~/Android/Sdk/platform-tools
+cd ~/Android/Sdk/emulator
 ./emulator -avd Nexus5XRoot1 -writable-system -selinux disabled -qemu -enable-kvm
 #wait for boot
 git clone https://github.com/0xFireball/root_avd.git
@@ -30,6 +30,9 @@ Finally, open the SuperSU app on the device, and it will tell you the su binary 
 Installation will fail. Don't reboot, just move on. It will still work.
 Congratulations! You now have a rooted AVD with SuperSU.
 TIP: Superuser may not always persist after reboot, to fix:
+
+
+start emulator using ~/Android/Sdk/emulator/emulator -avd Nexus5XRoot1 -writable-system &
 
 From a root shell, start su --daemon&
 Root should now work.
