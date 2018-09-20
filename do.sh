@@ -1,7 +1,7 @@
 cd /sdcard/coc
 screenWidth="$(wm size | cut -d'x' -f 1 | cut -d':' -f 2 |sed -e 's/^[[:space:]]*//')"
 port=8901
-source /sdcard/cocconfig/config.sh
+#source /sdcard/cocconfig/config.sh
 echo "port - $port"
 Dump()
 {
