@@ -611,17 +611,17 @@ StartCOC()
 		sleep 10
 	fi
 	Dump
-	#isFrep=$(MatchState "FRep")
-	#if [ "$isFrep" = "n" ]
-	#then
-	#	Log "No Frep"
-	#	am start -n com.x0.strai.frep/.FingerActivity
-	#	sleep 10
-	#	am start -n com.supercell.clashofclans/.GameApp
-	#	sleep 10
-	#else
-	#	Log "Frep"
-	#fi
+	isFrep=$(MatchState "FRep")
+	if [ "$isFrep" = "n" ]
+	then
+		Log "No Frep"
+		am start -n com.x0.strai.frep/.FingerActivity
+		sleep 10
+		am start -n com.supercell.clashofclans/.GameApp
+		sleep 10
+	else
+		Log "Frep"
+	fi
 
 	# am force-stop com.supercell.clashofclans
 	# sleep 2
