@@ -796,14 +796,7 @@ ShouldAttack()
 			result="y"
 		fi
 	else
-		if  [ "$elixir" -ge "20000" ] || [ "$eg" -ge "400000" ]
-		then
-			if [ "$isth10" = "y" ]
-			then	
-				result="y"
-			fi
-		fi 
-		if  [ "$elixir" -ge "900000" ] || [ "$eg" -ge "1800000" ]
+		if  [ "$elixir" -ge "400000" ]
 		then 
 			result="y"
 		fi 
@@ -824,13 +817,11 @@ Attack()
 	then
 		#Zoom
 
-		
+		playernotinleague="n"
 		if [ "$1" = "1" ]
 		then
 			SendMessage "read Battle"
-		else
-			SendMessage "read Battle"
-		fi 
+			
 		de=$(cat ocred_DE.txt)
 		elixir=$(cat ocred_Elixir.txt)
 		gold=$(cat ocred_Gold.txt) 
@@ -838,6 +829,32 @@ Attack()
 		loose=$(cat ocred_Loose.txt) 
 		th10=$(cat ocred_Th10.txt) 
 		isth10=$(echo $th10| cut -d'_' -f 1)
+
+		else
+			if [ $(MatchPixel 22 25 93 95 96 100) = "y" ] && [ $(MatchPixel 32 25 93 95 96 100) = "y" ] 
+			then
+				echo "player not in league"
+				playernotinleague="y"
+				SendMessage "read Battle1"
+				
+		de=$(cat ocred_DE.txt)
+		elixir=$(cat ocred_Elixir.txt)
+		gold=$(cat ocred_Gold.txt) 
+		win=$(cat ocred_Win.txt)
+		loose=$(cat ocred_Loose.txt) 
+		th10=$(cat ocred_Th10.txt) 
+		isth10=$(echo $th10| cut -d'_' -f 1)
+			else				
+				echo "player in league, skipping"
+				de=0
+				elixir=0
+				gold=0
+				win=0
+				loose=0
+				th10="n"
+				isth10="n"
+			fi
+		fi 
 		#th9=$(cat ocred_Th9.txt) 
 		#isth9=$(echo $th9| cut -d'_' -f 1)
 		# th9=$(cat ocred_Th9.txt) 
