@@ -1,0 +1,29 @@
+MotionNotify 25 192
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 127 168
+ButtonPress 1
+ButtonRelease 1
+MotionNotify 511 323
+KeyStrPress Control_L
+MotionNotify 771 592
+ButtonPress 1
+MotionNotify 770 592
+MotionNotify 769 592
+MotionNotify 736 574
+MotionNotify 705 542
+MotionNotify 677 516
+MotionNotify 647 494
+MotionNotify 622 478
+MotionNotify 602 462
+MotionNotify 593 455
+MotionNotify 584 448
+MotionNotify 568 436
+MotionNotify 558 429
+MotionNotify 556 428
+ButtonRelease 1
+MotionNotify 557 429
+KeyStrRelease Control_L
+MotionNotify 948 112
+ButtonPress 1
+ButtonRelease 1
