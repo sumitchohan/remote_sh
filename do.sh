@@ -816,8 +816,7 @@ Attack()
 	if [ "$battleFound" = "y" ]
 	then
 		#Zoom
-
-		playernotinleague="n"
+ 
 		if [ "$1" = "1" ]
 		then
 			SendMessage "read Battle"
@@ -894,17 +893,44 @@ Attack()
 				break
 			fi
 			#Zoom
-			Read "Battle"
-			de=$(cat ocred_DE.txt)
-			elixir=$(cat ocred_Elixir.txt)
-			gold=$(cat ocred_Gold.txt)
-			win=$(cat ocred_Win.txt)
-			loose=$(cat ocred_Loose.txt) 
-			ea=$(cat ocred_ea.txt)
-			isea=$(echo $ea| cut -d'_' -f 1)
-			((eg=gold+elixir))
-			th10=$(cat ocred_Th10.txt) 
-			isth10=$(echo $th10| cut -d'_' -f 1)
+			if [ "$1" = "1" ]
+		then
+			SendMessage "read Battle"
+			
+		de=$(cat ocred_DE.txt)
+		elixir=$(cat ocred_Elixir.txt)
+		gold=$(cat ocred_Gold.txt) 
+		win=$(cat ocred_Win.txt)
+		loose=$(cat ocred_Loose.txt) 
+		th10=$(cat ocred_Th10.txt) 
+		isth10=$(echo $th10| cut -d'_' -f 1)
+
+		else
+			if [ $(MatchPixel 22 25 93 95 96 100) = "y" ] && [ $(MatchPixel 32 25 93 95 96 100) = "y" ] 
+			then
+				echo "player not in league"
+				playernotinleague="y"
+				SendMessage "read Battle1"
+				
+		de=$(cat ocred_DE.txt)
+		elixir=$(cat ocred_Elixir.txt)
+		gold=$(cat ocred_Gold.txt) 
+		win=$(cat ocred_Win.txt)
+		loose=$(cat ocred_Loose.txt) 
+		th10=$(cat ocred_Th10.txt) 
+		isth10=$(echo $th10| cut -d'_' -f 1)
+			else				
+				echo "player in league, skipping"
+				de=0
+				elixir=0
+				gold=0
+				win=0
+				loose=0
+				th10="n"
+				isth10="n"
+			fi
+		fi 
+		
 			#th9=$(cat ocred_Th9.txt) 
 			#isth9=$(echo $th9| cut -d'_' -f 1)
 			Log "loot - de $de elixir $elixir gold $gold eg $eg"
