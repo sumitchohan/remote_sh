@@ -611,6 +611,7 @@ StartCOC()
 		sleep 10
 	fi
 	Dump
+	
 	#isFrep=$(MatchState "FRep")
 	#if [ "$isFrep" = "n" ]
 	#then
