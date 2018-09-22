@@ -337,6 +337,23 @@ WaitFor()
 				Act $skipScreen "Skip"
 			fi
 		done
+		if [ "$1" = "Battle" ] 
+		then
+			connError=$(MatchState ConnectionLost)
+			if [ "$connError" = "y" ]
+			then
+				Tap 5 400
+				Home
+				
+				Act "Home" "Attack"
+				sleep .5
+				#WaitFor "FindAMatch" "" 20
+				#Act "FindAMatch" "Find"
+				Tap 230 460
+
+			fi
+		
+		fi
 		if [ "$1" = "Home" ] 
 		then
 			Tap 5 400
