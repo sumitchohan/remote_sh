@@ -813,7 +813,7 @@ Attack()
 	#Act "FindAMatch" "Find"
 	Tap 230 460
 
-	battleFound=$(WaitFor "Battle" "" 100)
+	battleFound=$(WaitFor "Battle" "" 20)
 	if [ "$battleFound" = "y" ]
 	then
 		#Zoom
@@ -937,6 +937,10 @@ Attack()
 			Log "loot - de $de elixir $elixir gold $gold eg $eg"
 			echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th10 - $th10"			
 		done
+	else
+	StopCOC
+	Home
+	Attack $1
 	fi
 }
 
