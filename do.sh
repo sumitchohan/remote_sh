@@ -802,7 +802,7 @@ ShouldAttack()
 	result="n"
 	if [ "$1" = "1" ]
 	then
-		if  [ "$elixir" -ge "500000" ] || [ "$eg" -ge "1000000" ] || [ "$de" -ge "5000" ]
+		if  [ "$elixir" -ge "400000" ] || [ "$eg" -ge "1000000" ] || [ "$de" -ge "5000" ]
 		then
 			if [ "$isth10" = "y" ]
 			then	
