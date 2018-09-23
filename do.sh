@@ -955,7 +955,6 @@ Attack()
 			echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th10 - $th10"			
 		done
 	else
-	StopCOC
 	Home
 	Attack $1
 	fi
@@ -1263,9 +1262,9 @@ Run()
 	SendMessage "abcd"
 	SendMessage "abcd"
 	LogRemote "$1_Starting"
-	StopCOC
+	#StopCOC
 	Home
-	SwitchID $1 
+	#SwitchID $1 
 	#Loose $1
 	quickTrainXPos=520
 	if [ "$1" = "2" ]
@@ -1285,16 +1284,16 @@ Run()
 	then
 		Tap 768 92
 		Attack $1
-		sleep 60
-		StopCOC
-		Home
-		Zoom
-		Tap 40 520
-		sleep 0.1
-		Tap $quickTrainXPos 95
-		sleep 0.1
-		Tap 730 448
-		sleep 0.1
+		#sleep 60
+		# StopCOC
+		# Home
+		# Zoom
+		# Tap 40 520
+		# sleep 0.1
+		# Tap $quickTrainXPos 95
+		# sleep 0.1
+		# Tap 730 448
+		# sleep 0.1
 	else
 		Tap 768 92
 		echo "not ready"		

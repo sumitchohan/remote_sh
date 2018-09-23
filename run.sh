@@ -9,7 +9,11 @@
 Exec()
 {
 	adb push do.sh /sdcard/coc/
+	source avdmanager.sh Nexus5XCOC1
+	sleep 10
 	adb shell "cd sdcard/coc && source do.sh && Run 1"
+	source avdmanager.sh Nexus5XCOC
+	sleep 10
 	adb shell "cd sdcard/coc && source do.sh && Run 2"
 }
  
