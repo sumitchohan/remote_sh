@@ -1318,10 +1318,10 @@ Run()
 		# Tap 730 448
 		# sleep 0.1
 	else
-		Tap 768 92
 		echo "not ready"	
 		Log1 "Not Ready $1 .. taking snapshot"	
 		SendMessage "snapshot.sh"
+		Tap 768 92
 	fi
 	LogRemote "$1_Done"
 }
