@@ -38,6 +38,13 @@ Log()
 	 echo "$(date) $1" >>/sdcard/coc/logs_$(date +%Y%m%d).txt
 	 #echo "$(date) $1"
 }
+
+Log1()
+{
+	 echo "$(date) $1" >>/sdcard/coc/logs1_$(date +%Y%m%d).txt
+	 #echo "$(date) $1"
+}
+
 Tap()
 {
 	input tap $1 $2
@@ -824,6 +831,7 @@ ShouldAttack()
 }
 Attack()
 {
+	Log1 "Attack Start $1"
 	Act "Home" "Attack"
 	sleep .5
 	#WaitFor "FindAMatch" "" 20
@@ -833,36 +841,39 @@ Attack()
 	battleFound=$(WaitFor "Battle" "" 20)
 	if [ "$battleFound" = "y" ]
 	then
-		#Zoom
- 
+		#Zoom		
+		Log1 "Battle Found $1"
 		if [ "$1" = "1" ]
 		then
-			SendMessage "read Battle"
-			
-		de=$(cat ocred_DE.txt)
-		elixir=$(cat ocred_Elixir.txt)
-		gold=$(cat ocred_Gold.txt) 
-		win=$(cat ocred_Win.txt)
-		loose=$(cat ocred_Loose.txt) 
-		th10=$(cat ocred_Th10.txt) 
-		isth10=$(echo $th10| cut -d'_' -f 1)
-
+			Log1 "Reading Battle $1"
+			SendMessage "read Battle"			
+			de=$(cat ocred_DE.txt)
+			elixir=$(cat ocred_Elixir.txt)
+			gold=$(cat ocred_Gold.txt) 
+			win=$(cat ocred_Win.txt)
+			loose=$(cat ocred_Loose.txt) 
+			th10=$(cat ocred_Th10.txt) 
+			isth10=$(echo $th10| cut -d'_' -f 1)
+			Log1 "elixir - $elixir , gold - $gold , de - $de , th10 - $th10"
 		else
+			Log1 "Reading Battle $1"
 			if [ $(MatchPixel 22 25 93 95 96 100) = "y" ] && [ $(MatchPixel 32 25 93 95 96 100) = "y" ] 
 			then
 				echo "player not in league"
+				Log1 "Player not in league"
 				playernotinleague="y"
-				SendMessage "read Battle1"
-				
-		de=$(cat ocred_DE.txt)
-		elixir=$(cat ocred_Elixir.txt)
-		gold=$(cat ocred_Gold.txt) 
-		win=$(cat ocred_Win.txt)
-		loose=$(cat ocred_Loose.txt) 
-		th10=$(cat ocred_Th10.txt) 
-		isth10=$(echo $th10| cut -d'_' -f 1)
+				SendMessage "read Battle1"				
+				de=$(cat ocred_DE.txt)
+				elixir=$(cat ocred_Elixir.txt)
+				gold=$(cat ocred_Gold.txt) 
+				win=$(cat ocred_Win.txt)
+				loose=$(cat ocred_Loose.txt) 
+				th10=$(cat ocred_Th10.txt) 
+				isth10=$(echo $th10| cut -d'_' -f 1)
+				Log1 "elixir - $elixir , gold - $gold , de - $de , th10 - $th10"
 			else				
 				echo "player in league, skipping"
+				Log1 "Player in league, skipping"
 				de=0
 				elixir=0
 				gold=0
@@ -870,6 +881,7 @@ Attack()
 				loose=0
 				th10="n"
 				isth10="n"
+				Log1 "elixir - $elixir , gold - $gold , de - $de , th10 - $th10"
 			fi
 		fi 
 		#th9=$(cat ocred_Th9.txt) 
@@ -886,18 +898,19 @@ Attack()
 			#SendMessage "snapshot.sh"
 			shouldAttack=$(ShouldAttack $1)
 			echo "ShouldAttack $shouldAttack $1 $th10 $elixir $gold"
+			Log1 "ShouldAttack $shouldAttack $1 $th10 $elixir $gold"
 			if [ "$shouldAttack" = "y" ] 
 			then
 				Log "attacking on th10"
 				echo "ready to attack"
-				
-		if [ "$1" = "1" ]
-		then
-			QuickAttack
-		else
-			QuickAttack
-			#LoonMinionAttack
-		fi 
+				Log1 "Attacking"
+				if [ "$1" = "1" ]
+				then
+					QuickAttack
+				else
+					QuickAttack
+					#LoonMinionAttack
+				fi 
 		
 
 				break
@@ -913,32 +926,34 @@ Attack()
 			#Zoom
 			if [ "$1" = "1" ]
 		then
-			SendMessage "read Battle"
-			
-		de=$(cat ocred_DE.txt)
-		elixir=$(cat ocred_Elixir.txt)
-		gold=$(cat ocred_Gold.txt) 
-		win=$(cat ocred_Win.txt)
-		loose=$(cat ocred_Loose.txt) 
-		th10=$(cat ocred_Th10.txt) 
-		isth10=$(echo $th10| cut -d'_' -f 1)
+			SendMessage "read Battle"			
+			de=$(cat ocred_DE.txt)
+			elixir=$(cat ocred_Elixir.txt)
+			gold=$(cat ocred_Gold.txt) 
+			win=$(cat ocred_Win.txt)
+			loose=$(cat ocred_Loose.txt) 
+			th10=$(cat ocred_Th10.txt) 
+			isth10=$(echo $th10| cut -d'_' -f 1)
+			Log1 "elixir - $elixir , gold - $gold , de - $de , th10 - $th10"
 
 		else
 			if [ $(MatchPixel 22 25 93 95 96 100) = "y" ] && [ $(MatchPixel 32 25 93 95 96 100) = "y" ] 
 			then
 				echo "player not in league"
+				Log1 "Player not in league"
 				playernotinleague="y"
-				SendMessage "read Battle1"
-				
-		de=$(cat ocred_DE.txt)
-		elixir=$(cat ocred_Elixir.txt)
-		gold=$(cat ocred_Gold.txt) 
-		win=$(cat ocred_Win.txt)
-		loose=$(cat ocred_Loose.txt) 
-		th10=$(cat ocred_Th10.txt) 
-		isth10=$(echo $th10| cut -d'_' -f 1)
+				SendMessage "read Battle1"				
+				de=$(cat ocred_DE.txt)
+				elixir=$(cat ocred_Elixir.txt)
+				gold=$(cat ocred_Gold.txt) 
+				win=$(cat ocred_Win.txt)
+				loose=$(cat ocred_Loose.txt) 
+				th10=$(cat ocred_Th10.txt) 
+				isth10=$(echo $th10| cut -d'_' -f 1)
+				Log1 "elixir - $elixir , gold - $gold , de - $de , th10 - $th10"
 			else				
 				echo "player in league, skipping"
+				Log1 "Player in league, skipping"
 				de=0
 				elixir=0
 				gold=0
@@ -946,17 +961,20 @@ Attack()
 				loose=0
 				th10="n"
 				isth10="n"
+				Log1 "elixir - $elixir , gold - $gold , de - $de , th10 - $th10"
 			fi
-		fi 
-		
+		fi 		
 			#th9=$(cat ocred_Th9.txt) 
 			#isth9=$(echo $th9| cut -d'_' -f 1)
 			Log "loot - de $de elixir $elixir gold $gold eg $eg"
 			echo "loot - de $de elixir $elixir gold $gold eg $eg win $win loose $loose th10 - $th10"			
 		done
 	else
-	Home
-	Attack $1
+		
+		Log1 "Battle Not Found $1 .. taking snapshot"
+		SendMessage "snapshot.sh"
+		Home
+		Attack $1
 	fi
 }
 
@@ -1258,12 +1276,15 @@ SwitchID()
 }
 Run()
 {
+	Log1 "Starting Run.. $1"
 	SendMessage "abcd"
 	SendMessage "abcd"
 	SendMessage "abcd"
 	LogRemote "$1_Starting"
+	Log1 "Trying Home"
 	#StopCOC
 	Home
+	Log1 "Reached Home"
 	#SwitchID $1 
 	#Loose $1
 	quickTrainXPos=520
@@ -1280,7 +1301,6 @@ Run()
 	Tap 85 95
 	sleep 0.1
 	ready=$(IsReadyForAttack)
-	screencap -p "notReady.png"
 	if [ "$ready" = "y" ]
 	then
 		Tap 768 92
@@ -1297,7 +1317,9 @@ Run()
 		# sleep 0.1
 	else
 		Tap 768 92
-		echo "not ready"		
+		echo "not ready"	
+		Log1 "Not Ready $1 .. taking snapshot"	
+		SendMessage "snapshot.sh"
 	fi
 	LogRemote "$1_Done"
 }
