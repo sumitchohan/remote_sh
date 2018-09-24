@@ -41,7 +41,7 @@ Log()
 
 Log1()
 {
-	 echo "$(date) $1" >>/sdcard/coc/logs1_$(date +%Y%m%d).txt
+	 echo "$(date) $1" >>/sdcard/coc/logs_local.log
 	 #echo "$(date) $1"
 }
 
@@ -679,7 +679,16 @@ LooseTrophies()
 Home()
 {
 	StartCOC
-	WaitFor "Home" "BuilderHome,ConnectionLost" 60
+	WaitFor "Home" "BuilderHome,ConnectionLost" 30
+	matched=$(MatchState $1)
+	if [ "$matched" = "n" ]
+	then
+		Log1 "Home not found. Taking snapshot and Stoping COC"
+		SendMessage "snapshot.sh"
+		StopCOC
+		Log1 "Trying Home"
+		Home
+	fi	
 }
 Versus()
 {
@@ -1281,12 +1290,9 @@ Run()
 	SendMessage "abcd"
 	SendMessage "abcd"
 	LogRemote "$1_Starting"
-	StopCOC	
 	Log1 "Trying Home"
 	Home
 	Log1 "Reached Home"
-	Log1 "Taking snapshot"	
-	SendMessage "snapshot.sh"
 	#SwitchID $1 
 	#Loose $1
 	quickTrainXPos=520

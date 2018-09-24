@@ -15,6 +15,8 @@ Exec()
 	adb push do.sh /sdcard/coc/
 	adb push scr.conf /sdcard/coc/
 	adb shell "cd /sdcard/coc && source do.sh && Run 1"
+	adb pull sdcard/coc/logs_local.log .
+	cat logs_local.log >>logs_$(date +%Y%m%d).txt
 	source avdmanager.sh Nexus5XCOC
 	sleep 20
 	adb shell "echo 'hi'"
