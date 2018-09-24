@@ -679,7 +679,7 @@ LooseTrophies()
 Home()
 {
 	StartCOC
-	WaitFor "Home" "BuilderHome" 60
+	WaitFor "Home" "BuilderHome,ConnectionLost" 60
 }
 Versus()
 {
@@ -1281,10 +1281,8 @@ Run()
 	SendMessage "abcd"
 	SendMessage "abcd"
 	LogRemote "$1_Starting"
+	StopCOC	
 	Log1 "Trying Home"
-	#StopCOC
-	Home
-	sleep 10
 	Home
 	Log1 "Reached Home"
 	#SwitchID $1 
