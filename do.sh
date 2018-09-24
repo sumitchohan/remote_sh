@@ -1280,6 +1280,7 @@ Run()
 	Tap 85 95
 	sleep 0.1
 	ready=$(IsReadyForAttack)
+	screencap -p "notReady.png"
 	if [ "$ready" = "y" ]
 	then
 		Tap 768 92
