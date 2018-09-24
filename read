@@ -1,7 +1,7 @@
 echo "time - $(date +%S_%N)"
 adb shell screencap /sdcard/scr.raw
 echo "time - $(date +%S_%N)"
-adb pull /sdcard/scr.raw
+adb pull /sdcard/scr.raw > /tmp/temp.logs
 echo "time - $(date +%S_%N)"
 tail -c +13 scr.raw > scr.rgba
 hexdump -e '/4 "%d"' -s 0 -n 4 scr.raw
