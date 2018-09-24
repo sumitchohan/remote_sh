@@ -1284,6 +1284,8 @@ Run()
 	Log1 "Trying Home"
 	#StopCOC
 	Home
+	sleep 10
+	Home
 	Log1 "Reached Home"
 	#SwitchID $1 
 	#Loose $1
