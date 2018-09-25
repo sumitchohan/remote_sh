@@ -6,4 +6,4 @@ while read line; do
 	sleep 10
 	echo "Closed - $line"
 done < <(echo $threads)
-~/Android/Sdk/emulator/emulator -avd $1 -no-snapshot-save &
+~/Android/Sdk/emulator/emulator -avd $1 &

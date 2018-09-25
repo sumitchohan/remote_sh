@@ -24,6 +24,8 @@ Exec()
 	adb push scr.conf /sdcard/coc/
 	adb push do.sh /sdcard/coc/
 	adb shell "cd /sdcard/coc && source do.sh && Run 2"
+	adb pull sdcard/coc/logs_local.log .
+	cat logs_local.log >>logs_$(date +%Y%m%d).txt
 }
  
 error="y"
