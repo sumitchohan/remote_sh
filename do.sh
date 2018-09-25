@@ -1297,7 +1297,7 @@ Run()
 	Log1 "Trying Home"
 	Home
 	Log1 "Reached Home"	
-	SwitchID $1 
+	#SwitchID $1 
 	#Loose $1
 	quickTrainXPos=520
 	if [ "$1" = "2" ]

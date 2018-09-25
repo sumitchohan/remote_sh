@@ -1,0 +1,1 @@
+xmacroplay "$DISPLAY" < zoom_frep_rec_pre.txt && sleep .3 && xmacroplay "$DISPLAY" < zoom_frep_rec.txt

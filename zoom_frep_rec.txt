@@ -1,6 +1,3 @@
-MotionNotify 112 153
-ButtonPress 1
-ButtonRelease 1
 MotionNotify 455 355
 KeyStrPress Control_L
 MotionNotify 792 593
@@ -88,6 +85,6 @@ MotionNotify 520 414
 MotionNotify 517 413
 KeyStrRelease Control_L
 ButtonRelease 1
-MotionNotify 925 104
+MotionNotify 903 102
 ButtonPress 1
 ButtonRelease 1
