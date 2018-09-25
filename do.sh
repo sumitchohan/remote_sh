@@ -41,7 +41,7 @@ Log()
 
 Log1()
 {
-	 echo "$(date) $1" >>/sdcard/coc/logs_local.log
+	 echo "$(date) $1" >>/sdcard/coc/logs1_$(date +%Y%m%d).txt
 	 #echo "$(date) $1"
 }
 
@@ -1297,7 +1297,6 @@ Run()
 	Log1 "Trying Home"
 	Home
 	Log1 "Reached Home"	
-	SendMessage "snapshot.sh"
 	SwitchID $1 
 	#Loose $1
 	quickTrainXPos=520
