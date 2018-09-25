@@ -1264,6 +1264,8 @@ LoonMinionAttack()
 }
 SwitchID()
 {
+	
+	Log1 "ID switching to $1"
 	Tap 760 520
 	WaitFor "Settings" "" 10
 	Act Settings Connected
@@ -1280,6 +1282,8 @@ SwitchID()
 	else
 		Tap 300 295 #ID2
 	fi
+	Log1 "ID Switched to $1"
+	SendMessage "snapshot.sh"
 	WaitFor "Home" "" 10
 	Zoom
 }
@@ -1294,7 +1298,7 @@ Run()
 	Home
 	Log1 "Reached Home"	
 	SendMessage "snapshot.sh"
-	#SwitchID $1 
+	SwitchID $1 
 	#Loose $1
 	quickTrainXPos=520
 	if [ "$1" = "2" ]
@@ -1314,16 +1318,16 @@ Run()
 	then
 		Tap 768 92
 		Attack $1
-		#sleep 60
-		# StopCOC
-		# Home
-		# Zoom
-		# Tap 40 520
-		# sleep 0.1
-		# Tap $quickTrainXPos 95
-		# sleep 0.1
-		# Tap 730 448
-		# sleep 0.1
+		sleep 60
+		StopCOC
+		Home
+		Zoom
+		Tap 40 520
+		sleep 0.1
+		Tap $quickTrainXPos 95
+		sleep 0.1
+		Tap 730 448
+		sleep 1
 	else
 		echo "not ready"	
 		Log1 "Not Ready $1 .. taking snapshot"	
