@@ -1293,6 +1293,8 @@ Run()
 	LogRemote "$1_Starting"
 	Log1 "Trying Home"
 	Home
+	Log1 "Taking snapshot"
+	SendMessage "snapshot.sh"
 	Home
 	Log1 "Reached Home"	
 	Log1 "Taking snapshot"
