@@ -1305,14 +1305,11 @@ Run()
 		quickTrainXPos=730
 	fi
 	Tap 40 520
-	sleep 0.1
-	Tap $quickTrainXPos 95
-	sleep 0.1
-	Tap 730 448
-	sleep 0.1
-	Tap 85 95
-	sleep 0.1
+	sleep 0.5
 	ready=$(IsReadyForAttack)
+	Tap $quickTrainXPos 95
+	sleep 0.5
+	Tap 730 448
 	if [ "$ready" = "y" ]
 	then
 		Tap 768 92
@@ -1322,9 +1319,9 @@ Run()
 		Home
 		Zoom
 		Tap 40 520
-		sleep 0.1
+		sleep 0.5
 		Tap $quickTrainXPos 95
-		sleep 0.1
+		sleep 0.5
 		Tap 730 448
 		sleep 1
 	else
