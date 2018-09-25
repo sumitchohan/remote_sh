@@ -1294,6 +1294,8 @@ Run()
 	Log1 "Trying Home"
 	Home
 	Log1 "Reached Home"	
+	Log1 "Taking snapshot"
+	SendMessage "snapshot.sh"
 	#SwitchID $1 
 	#Loose $1
 	quickTrainXPos=520
@@ -1303,7 +1305,7 @@ Run()
 	fi
 	Tap 40 520
 	sleep 0.5
-	ready=$(IsReadyForAttack)
+	ready=$(IsReadyForAtta9ck)
 	Tap $quickTrainXPos 95
 	sleep 0.5
 	Tap 730 448
