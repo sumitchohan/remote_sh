@@ -658,7 +658,7 @@ StopCOC()
 {
 	am force-stop com.supercell.clashofclans
 	sleep 3
-}
+} 
 
 LooseTrophies()
 {
@@ -1291,6 +1291,9 @@ Run()
 	SendMessage "abcd"
 	SendMessage "abcd"
 	SendMessage "abcd"
+	StopCOC
+	am start -n com.x0.strai.frep/.FingerActivity
+	StartCOC	
 	Log1 "Trying Home"
 	Home
 	Log1 "Taking snapshot"
