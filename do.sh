@@ -1308,7 +1308,7 @@ Run()
 	fi
 	Tap 40 520
 	sleep 0.5
-	ready=$(IsReadyForAtta9ck)
+	ready=$(IsReadyForAttack)
 	if [ "$ready" = "y" ]
 	then
 		Tap $quickTrainXPos 95
@@ -1329,8 +1329,7 @@ Run()
 	else
 		echo "not ready"	
 		Log1 "Not Ready $1 .. taking snapshot"	
-		SendMessage "snapshot.sh"
-		
+		SendMessage "snapshot.sh"		
 		Tap $quickTrainXPos 95
 		sleep 0.5
 		Tap 730 448
