@@ -6,16 +6,33 @@
 #curl https://api.keyvalue.xyz/172e1f84/myKey
 #awk '{ sub("\r$", ""); print }' run.sh > run1.sh
 
+export DISPLAY=:0
 Exec()
 {
+	Avd_Close
+	Avd_Start "AVD$1"
+	sleep 20
 	adb shell "echo 'hi'"
 	adb shell "echo 'hi'"
+	source start.sh
 	adb push do.sh /sdcard/coc/
 	adb push scr.conf /sdcard/coc/
-	adb shell "cd /sdcard/coc && source do.sh && Run 1"
-	#adb shell "cd /sdcard/coc && source do.sh && Run 2"
+	adb shell "cd /sdcard/coc && source do.sh && Run $1" 
 }
- 
+Avd_Start()
+{
+	~/Android/Sdk/emulator/emulator -avd $1 &
+}
+Avd_Close()
+{
+	threads=$(wmctrl -lx | grep AVD | tr ' ' '\n' | grep 0x)
+	while read line; do
+		echo "closing - $line"
+		wmctrl -ic $line
+		sleep 10
+		echo "Closed - $line"
+	done < <(echo $threads)
+}
 error="y"
 waitCount=40
 waitCounter=$waitCount
@@ -33,7 +50,8 @@ do
 			waitCounter=$((waitCounter-1))
 			sleep $heartBeatDelay
 		else 
-			Exec
+			Exec "1"
+			Exec "2"
 			waitCounter=$waitCount
 		fi
 	elif [ "$switch" = "STOPPED" ]

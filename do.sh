@@ -1286,11 +1286,11 @@ SwitchID()
 }
 Run()
 {
+	LogRemote "$1_Starting"
 	Log1 "Starting Run.. $1"
 	SendMessage "abcd"
 	SendMessage "abcd"
 	SendMessage "abcd"
-	LogRemote "$1_Starting"
 	Log1 "Trying Home"
 	Home
 	Log1 "Taking snapshot"
@@ -1309,9 +1309,10 @@ Run()
 	Tap 40 520
 	sleep 0.5
 	
-		Log1 "IsReadyForAttack $1 .. taking snapshot"	
-		SendMessage "snapshot.sh"
-	ready=$(IsReadyForAttack)
+	Log1 "IsReadyForAttack $1 .. taking snapshot"	
+	SendMessage "snapshot.sh"
+	ready=$(IsReadyForAttack)	
+	LogRemote "$1_Ready - $ready"
 	if [ "$ready" = "y" ]
 	then
 		Tap $quickTrainXPos 95
