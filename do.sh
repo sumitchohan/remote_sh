@@ -1308,6 +1308,9 @@ Run()
 	fi
 	Tap 40 520
 	sleep 0.5
+	
+		Log1 "IsReadyForAttack $1 .. taking snapshot"	
+		SendMessage "snapshot.sh"
 	ready=$(IsReadyForAttack)
 	if [ "$ready" = "y" ]
 	then
