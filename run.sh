@@ -9,12 +9,34 @@
 export DISPLAY=:0
 Exec()
 {
+	
+	
+			Avd_Close
+			sleep 5
+			Avd_Start AVD1
+			sleep 20
+			
 	adb shell "echo 'hi'"
 	adb shell "echo 'hi'"
 	adb push do.sh /sdcard/coc/
 	adb push scr.conf /sdcard/coc/
 	source start.sh
-	adb shell "cd /sdcard/coc && source do.sh && Run $1" 
+	adb shell "cd /sdcard/coc && source do.sh && Run 1" 
+			Avd_Close
+			sleep 5
+			Avd_Start AVD2
+			sleep 20
+			
+	adb shell "echo 'hi'"
+	adb shell "echo 'hi'"
+	adb push do.sh /sdcard/coc/
+	adb push scr.conf /sdcard/coc/
+	source start.sh
+	adb shell "cd /sdcard/coc && source do.sh && Run 2" 
+			
+			
+			
+			
 }
 Avd_Start()
 {
@@ -46,17 +68,8 @@ do
 			echo "waitCounter - $waitCounter"
 			waitCounter=$((waitCounter-1))
 			sleep $heartBeatDelay
-		else 			
-			Avd_Close
-			sleep 5
-			Avd_Start AVD1
-			sleep 20
-			Exec "1"	
-			Avd_Close
-			sleep 5
-			Avd_Start AVD2
-			sleep 20
-			Exec "2"
+		else 	
+			Exec
 			waitCounter=$waitCount
 		fi
 	elif [ "$switch" = "STOPPED" ]
