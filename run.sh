@@ -8,10 +8,9 @@
 
 export DISPLAY=:0
 Exec()
-{ 
+{
 	adb shell "echo 'hi'"
 	adb shell "echo 'hi'"
-	source start.sh
 	adb push do.sh /sdcard/coc/
 	adb push scr.conf /sdcard/coc/
 	adb shell "cd /sdcard/coc && source do.sh && Run $1" 
@@ -46,13 +45,15 @@ do
 			echo "waitCounter - $waitCounter"
 			waitCounter=$((waitCounter-1))
 			sleep $heartBeatDelay
-		else 
+		else 			
 			Avd_Close
-			~/Android/Sdk/emulator/emulator -avd "AVD1" &
+			sleep 5
+			Avd_Start "AVD1"
 			sleep 20
-			Exec "1"
+			Exec "1"	
 			Avd_Close
-			~/Android/Sdk/emulator/emulator -avd "AVD2" &
+			sleep 5
+			Avd_Start "AVD2"
 			sleep 20
 			Exec "2"
 			waitCounter=$waitCount
