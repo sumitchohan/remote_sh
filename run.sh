@@ -8,10 +8,7 @@
 
 export DISPLAY=:0
 Exec()
-{
-	Avd_Close
-	Avd_Start "AVD$1"
-	sleep 20
+{ 
 	adb shell "echo 'hi'"
 	adb shell "echo 'hi'"
 	source start.sh
@@ -50,7 +47,13 @@ do
 			waitCounter=$((waitCounter-1))
 			sleep $heartBeatDelay
 		else 
+			Avd_Close
+			~/Android/Sdk/emulator/emulator -avd "AVD1" &
+			sleep 20
 			Exec "1"
+			Avd_Close
+			~/Android/Sdk/emulator/emulator -avd "AVD2" &
+			sleep 20
 			Exec "2"
 			waitCounter=$waitCount
 		fi
