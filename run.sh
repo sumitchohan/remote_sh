@@ -48,12 +48,12 @@ do
 		else 			
 			Avd_Close
 			sleep 5
-			Avd_Start "AVD1"
+			Avd_Start AVD1
 			sleep 20
 			Exec "1"	
 			Avd_Close
 			sleep 5
-			Avd_Start "AVD2"
+			Avd_Start AVD2
 			sleep 20
 			Exec "2"
 			waitCounter=$waitCount
