@@ -13,6 +13,7 @@ Exec()
 	adb shell "echo 'hi'"
 	adb push do.sh /sdcard/coc/
 	adb push scr.conf /sdcard/coc/
+	source start.sh
 	adb shell "cd /sdcard/coc && source do.sh && Run $1" 
 }
 Avd_Start()
