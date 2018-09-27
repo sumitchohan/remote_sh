@@ -41,9 +41,11 @@ Exec()
 Avd_Start()
 {
 	~/Android/Sdk/emulator/emulator -avd $1 -no-snapshot-load &
-	sleep 60
+	sleep 20	
+	adb shell "echo 'hi'"	
+	adb shell "am start -n com.x0.strai.frep/.FingerActivity"
+	sleep 10
 	./linux.sh &
-	sleep 30
 }
 Avd_Close()
 {
