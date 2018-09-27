@@ -588,7 +588,7 @@ Zoom()
 {
 	
 	FRep
-	sleep 3
+	sleep 5
 	# X:16;Y:95 ;R:14 ;G:194;B:129;A:255
 # X:10;Y:95 ;R:14 ;G:194;B:129;A:255
 # X:10;Y:95 ;R:252 ;G:0;B:11;A:255
@@ -907,6 +907,7 @@ Attack()
 			Log1 "ShouldAttack $shouldAttack $1 $th10 $elixir $gold"
 			if [ "$shouldAttack" = "y" ] 
 			then
+				Zoom
 				Log "attacking on th10"
 				echo "ready to attack"
 				Log1 "Attacking"
