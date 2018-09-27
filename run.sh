@@ -40,7 +40,10 @@ Exec()
 }
 Avd_Start()
 {
-	~/Android/Sdk/emulator/emulator -avd $1 &
+	~/Android/Sdk/emulator/emulator -avd $1 -no-snapshot-load &
+	sleep 60
+	./linux.sh &
+	sleep 30
 }
 Avd_Close()
 {
