@@ -915,7 +915,7 @@ Attack()
 				then
 					QuickAttack
 				else
-					QuickAttack
+					GiantArchAttack
 					#LoonMinionAttack
 				fi 
 		
@@ -1254,6 +1254,11 @@ GetDonationWindowBorderPoints()
 QuickAttack()
 {
 	SendMessage 'quick_attack'
+}
+
+GiantArchAttack()
+{
+	SendMessage 'giantarch_attack'
 }
 
 LoonMinionAttack()
