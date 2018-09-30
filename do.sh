@@ -915,7 +915,8 @@ Attack()
 				then
 					QuickAttack
 				else
-					GiantArchAttack
+					QuickAttack
+					#GiantArchAttack
 					#LoonMinionAttack
 				fi 
 		
