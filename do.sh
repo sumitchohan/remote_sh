@@ -915,9 +915,12 @@ Attack()
 				then
 					QuickAttack
 				else
-					QuickAttack
+					#QuickAttack
 					#GiantArchAttack
 					#LoonMinionAttack
+					LoonArchAttack
+
+
 				fi 
 		
 
@@ -1262,6 +1265,10 @@ GiantArchAttack()
 	SendMessage 'giantarch_attack'
 }
 
+LoonArchAttack()
+{
+	SendMessage 'loonarch_attack'
+}
 LoonMinionAttack()
 {
 	SendMessage 'loonminion'
