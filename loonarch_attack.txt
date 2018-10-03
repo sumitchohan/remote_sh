@@ -4,6 +4,8 @@ tapIfSelected,89,249
 tapIfSelected,126,223
 tapIfSelected,163,196
 tapIfSelected,199,170
+tapIfSelected,89,249
+tapIfSelected,126,223
 tapIfSelected,236,143
 tapIfSelected,273,117
 tapIfSelected,309,90
@@ -12,6 +14,8 @@ tapIfSelected,511,110
 tapIfSelected,549,139
 tapIfSelected,588,168
 tapIfSelected,626,196
+tapIfSelected,511,110
+tapIfSelected,549,139
 tapIfSelected,665,225
 tapIfSelected,703,254
 tapIfSelected,742,283
@@ -21,9 +25,13 @@ tapIfSelected,669,415
 tapIfSelected,639,438
 tapIfSelected,609,462
 tapIfSelected,579,485
+tapIfSelected,669,415
+tapIfSelected,639,438
 tapIfSelected,548,508
 tapIfSelected,518,531
 tapIfSelected,211,484
+tapIfSelected,187,466
+tapIfSelected,162,449
 tapIfSelected,187,466
 tapIfSelected,162,449
 tapIfSelected,137,431
