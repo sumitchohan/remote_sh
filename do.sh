@@ -1310,12 +1310,8 @@ Run()
 	StartCOC	
 	Log1 "Trying Home"
 	Home
-	Log1 "Taking snapshot"
-	SendMessage "snapshot.sh"
 	Home
 	Log1 "Reached Home"	
-	Log1 "Taking snapshot"
-	SendMessage "snapshot.sh"
 	#SwitchID $1 
 	#Loose $1
 	quickTrainXPos=520
@@ -1327,7 +1323,7 @@ Run()
 	sleep 0.5
 	
 	Log1 "IsReadyForAttack $1 .. taking snapshot"	
-	SendMessage "snapshot.sh"
+	#SendMessage "snapshot.sh"
 	ready=$(IsReadyForAttack)	
 	LogRemote "$1_Ready - $ready"
 	if [ "$ready" = "y" ]
@@ -1350,7 +1346,7 @@ Run()
 	else
 		echo "not ready"	
 		Log1 "Not Ready $1 .. taking snapshot"	
-		SendMessage "snapshot.sh"		
+		#SendMessage "snapshot.sh"		
 		Tap $quickTrainXPos 95
 		sleep 0.5
 		Tap 730 448

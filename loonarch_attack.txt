@@ -1,4 +1,8 @@
 selectTroop,loon
+tapIfSelected,330,555
+tapIfSelected,298,533
+tapIfSelected,245,483
+tapIfSelected,211,455
 tapIfSelected,53,276
 tapIfSelected,89,249
 tapIfSelected,126,223
