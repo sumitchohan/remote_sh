@@ -1310,7 +1310,7 @@ Run()
 	StartCOC	
 	Log1 "Trying Home"
 	Home
-	Home
+	Zoom	
 	Log1 "Reached Home"	
 	#SwitchID $1 
 	#Loose $1
