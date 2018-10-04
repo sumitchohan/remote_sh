@@ -915,10 +915,10 @@ Attack()
 				then
 					QuickAttack
 				else
-					#QuickAttack
+					QuickAttack
 					#GiantArchAttack
 					#LoonMinionAttack
-					LoonArchAttack
+					#LoonArchAttack
 
 
 				fi 
