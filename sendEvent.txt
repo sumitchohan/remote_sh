@@ -1,0 +1,18 @@
+dd if=/dev/input/event3 of=/sdcard/record1 # to record
+
+dd if=/sdcard/record1 of=/dev/input/event3 #to play 
+
+
+sendevent /dev/input/event3 3 57 0
+sendevent /dev/input/event3 3 53 274
+sendevent /dev/input/event3 3 54 724
+sendevent /dev/input/event3 3 48 77
+sendevent /dev/input/event3 3 50 77
+sendevent /dev/input/event3 0 0 0
+sendevent /dev/input/event3 3 48 61
+sendevent /dev/input/event3 3 50 61
+sendevent /dev/input/event3 0 0 0
+sendevent /dev/input/event3 3 57 4294967295
+sendevent /dev/input/event3 0 0 0
+
+ 
