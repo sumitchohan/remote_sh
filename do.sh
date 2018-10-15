@@ -915,12 +915,12 @@ Attack()
 				then
 					#QuickAttack
 					
-					LoonMinionAttack
+					LoonArchAttack
 				else
 					#QuickAttack
 					#GiantArchAttack
-					LoonMinionAttack
-					#LoonArchAttack
+					#LoonMinionAttack
+					LoonArchAttack
 
 
 				fi 

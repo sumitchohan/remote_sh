@@ -39,6 +39,7 @@ tapIfSelected,199,170
 tapIfSelected,236,143
 tapIfSelected,273,117
 tapIfSelected,309,90 
+wait 30
 selectTroop,archer
 tapIfSelected,53,276
 tapIfSelected,89,249
