@@ -913,11 +913,13 @@ Attack()
 				Log1 "Attacking"
 				if [ "$1" = "1" ]
 				then
-					QuickAttack
+					#QuickAttack
+					
+					LoonMinionAttack
 				else
-					QuickAttack
+					#QuickAttack
 					#GiantArchAttack
-					#LoonMinionAttack
+					LoonMinionAttack
 					#LoonArchAttack
 
 

@@ -1,7 +1,22 @@
-dd if=/dev/input/event3 of=/sdcard/record1 # to record
+adb shell "dd if=/dev/input/event3 of=/sdcard/record1 # to record"
 
-dd if=/sdcard/record1 of=/dev/input/event3 #to play 
+adb shell "dd if=/dev/input/event3 of=/sdcard/record1 # to record"
 
+adb shell "dd if=/dev/input/event3 of=/sdcard/record1 bs=32 count=11111 # to record"
+
+adb shell "head -c 288 /sdcard/record1 > click2"
+adb shell "dd if=/sdcard/record1 of=/dev/input/event3 #to play"
+adb shell "dd if=/sdcard/record1 of=/dev/input/event3 #to play"
+adb shell "dd if=/sdcard/record_events.rec of=/dev/input/event3 #to play"
+
+adb shell "dd if=/sdcard/record1 of=/sdcard/click300200 bs=288 count=1"
+
+
+adb shell "dd if=/sdcard/click34 of=/dev/input/event3 #to play"
+adb shell "dd if=/sdcard/click300200 of=/dev/input/event3 #to play"
+adb pull /sdcard/record1 
+
+adb shell "input tap 300 200"
 
 sendevent /dev/input/event3 3 57 0
 sendevent /dev/input/event3 3 53 274
